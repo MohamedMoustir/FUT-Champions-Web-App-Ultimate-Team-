@@ -1,13 +1,16 @@
+*{
+    box-sizing: border-box;
+}
 
 body {
 margin: 0;
 padding: 0;
+background: rgb(43, 41, 41);
 }
 
 #continer {
     background-image: url(/assets/img/Body\ \(3\).png);
     /* background-position: center; */
-    
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
