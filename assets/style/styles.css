@@ -20,8 +20,8 @@ background: rgb(43, 41, 41);
     background-image: url(../img/Container.png);
     background-repeat: no-repeat;
     height: 150vh;
-    width: 100% ;
-    background-position: center;
+    width: 102% ;
+    background-position: right;
     
 }
 
@@ -33,3 +33,22 @@ background: rgb(43, 41, 41);
 /* 
 
 */
+.btnCM::before,
+.btnST::before{
+  content :"CM";
+  position:absolute;
+  width: 60px;
+  height: 30px;
+  bottom: -20px;
+  background: rgb(30, 29, 29);
+  left: 50%;
+  transform: translate(-50%);
+  text-align: center;
+  color: white;
+  border-radius: 90%;
+}
+.btnST::before{
+    content :"ST";
+    
+  }
+  
