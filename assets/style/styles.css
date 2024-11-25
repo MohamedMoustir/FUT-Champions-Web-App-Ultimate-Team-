@@ -33,8 +33,16 @@ background: rgb(43, 41, 41);
 /* 
 
 */
+/* 
 .btnCM::before,
-.btnST::before{
+.btnST::before,
+.btnRM::before,
+.btnRL::before,
+.btnCDM::before,
+.btnRB::before,
+.btnLB::before,
+.btnCB::before,
+.btnGK::before{
   content :"CM";
   position:absolute;
   width: 60px;
@@ -51,4 +59,28 @@ background: rgb(43, 41, 41);
     content :"ST";
     
   }
+  .btnRL::before{
+    content :"RL";
+    
+  }
+  .btnRM::before{
+    content :"RM";
+    
+  }
   
+  .btnCDM::before{
+    content :"CDM";
+  }
+  
+  .btnRB::before{
+    content :"RB";
+  }
+  .btnLB::before{
+    content :"LB";
+  }
+  .btnCB::before{
+    content :"CB";
+  }
+  .btnGK::before{
+    content :"GK";
+  } */
