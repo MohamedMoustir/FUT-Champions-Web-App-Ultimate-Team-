@@ -4,16 +4,10 @@ let positionsArray = ["ST", "CM", "CM", "RM", "RL", "CDM", "RB", "LB", "CB", "CB
 
 let id = 1;
 
-
-
-
-
-
-
-// document.getElementById("CM").classList.add("-top-[80px]")
-// document.getElementById("CM").classList.add("gap-[100px]")
-// document.getElementById("GK").classList.add("-top-[800px]")
-// document.getElementById("CDM").classList.add("-top-[400px]")
+document.getElementById("CM").classList.add("-top-[80px]")
+document.getElementById("CM").classList.add("gap-[100px]")
+document.getElementById("GK").classList.add("-top-[800px]")
+document.getElementById("CDM").classList.add("-top-[400px]")
 
 
 
@@ -36,6 +30,8 @@ function Attaquant_centra() {
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
+let Position = document.getElementById("Position");
+
 let nationality = document.getElementById("nationality");
 // let clup =document.getElementById("clup")
 let pace = document.getElementById("pace")
@@ -47,7 +43,7 @@ let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
 
 
-
+console.log(position.value)
 // let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 // function ajoute_player() {
 //   let players = {
@@ -64,6 +60,7 @@ let clup = document.getElementById("clup")
 
 
 function ajoutePlayers(playerId) {
+  Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
   const playerCard = document.getElementById(`player-${playerId}`);
@@ -75,7 +72,7 @@ function ajoutePlayers(playerId) {
     <div class="relative flex px-3 text-[#e9cc74] " >
    <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
      <div class="text-base player-rating"><span></span></div>
-     <div class="text-xs player-position"><span>${position.value}</span></div>
+     <div class="text-xs player-position"><span>${position.value || Position.textContent}</span></div>
      <div class="block w-[1.2rem] h-[12px] my-1 player-nation">
        <img src="${nationality.value}" alt="Argentina" class="w-full h-full object-contain" draggable="false"/>
      </div>
@@ -130,7 +127,7 @@ function ajoutePlayers(playerId) {
        </div>
      </div>
    </div>
-   <h1 class="absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${position.value}</h1>
+   <h1 class=" absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${position.value || Position.textContent}</h1>
    </div>
    
    `
@@ -149,17 +146,46 @@ Photo_du_Joueur.addEventListener("wheel", (evnt) => {
   Photo_du_Joueur.scrollLeft += evnt.deltaX;
 
 })
-photosrc.onclick = function () {
-  Photo_du_Joueur.classList.toggle("hidden")
-}
-function getSrc(src) {
-  console.log(src);
+// photosrc.onclick = function () {
+//   
+// }
+function getSrc(src, alt, position, flag, logo) {
+  photosrc.value = src;
+  playerName.value = alt;
+  Position.textContent = position;
+  console.log(flag);
+  nationality.value = flag;
+  clup.value = logo
 
-  photosrc.value = src
+
 }
 
-function pop_up_img() {
-  fetch("")
-    .then(reponse => reponse.json())
-    .then(data => console.log(data))
-}
+
+// console.log(ALphoto);
+
+// function  value_positi(position){
+
+//   return position
+// }
+
+fetch("https://mohamedmoustir.github.io/api.p/")
+  .then(result => result.json())
+
+  .then(function (data) {
+    let ALphoto = data.players;
+    console.log(ALphoto);
+
+    ALphoto.forEach(src => {
+
+      console.log(src.flag);
+      document.getElementById("Photo_du_Joueur").innerHTML += `
+      <img onclick="getSrc(this.src,this.alt,this.name,this.sizes,this.srcset)" src="${src.photo}" alt=" ${src.name}" class=" w-[50px] h-[50px] rounded-b-full" name="${src.
+          position
+        }" sizes ="${src.flag}"  srcset="${src.logo}">
+`
+    })
+
+
+  })
+  .catch(console.log("dd"))
+
