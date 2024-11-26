@@ -2,70 +2,97 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Concevoir une application web de gestion d'équipe Ultimate Team pour EA FC 25, permettant aux utilisateurs de créer, personnaliser et gérer leurs formations">
-    <link rel="stylesheet" href="./assets/style/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:300,400,700" />
-    <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Concevoir une application web de gestion d'équipe Ultimate Team pour EA FC 25, permettant aux utilisateurs de créer, personnaliser et gérer leurs formations">
+  <link rel="stylesheet" href="./assets/style/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Saira+Semi+Condensed:300,400,700" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>FUT Champions Web App Ultimate Team</title>
+  <title>FUT Champions Web App Ultimate Team</title>
 </head>
 
 <body>
-    <section id="continer" >
-        <div id="studiom">
+  <section id="continer">
+    <div id="studiom">
 
 
-            <div id="ST" class="flex justify-evenly  relative -top-[80px]"></div>
-            <div id="CM" class="flex justify-center  relative -top-[260px] gap-[180px]"></div>
+      <div id="ST" class="flex justify-evenly  relative -top-[80px]"></div>
+      <div id="CM" class="flex justify-center  relative -top-[260px] gap-[180px]"></div>
 
-            <div id="RM_RL" class="flex justify-evenly  relative -top-[280px] ">
-                <div id="RM" class=""></div>
-                <div id="RL" class=""></div>
+      <div id="RM_RL" class="flex justify-evenly  relative -top-[280px] ">
+        <div id="RM" class=""></div>
+        <div id="RL" class=""></div>
 
-            </div>
-            <div id="CDM" class="flex justify-center  relative -top-[450px]"></div>
+      </div>
+      <div id="CDM" class="flex justify-center  relative -top-[450px]"></div>
 
-            <div id="LB_RB" class="flex justify-around  relative -top-[500px] gap-[60px]">
+      <div id="LB_RB" class="flex justify-around  relative -top-[500px] gap-[60px]">
 
-                <div id="RB" class=""></div>
-                <div id="LB" class=""></div>
+        <div id="RB" class=""></div>
+        <div id="LB" class=""></div>
 
-            </div>
-            <div id="CB" class="flex justify-center  relative -top-[740px] gap-[250px]"></div>
-            <div id="GK" class="flex justify-center  relative -top-[900px] gap-[280px]"></div>
+      </div>
+      <div id="CB" class="flex justify-center  relative -top-[740px] gap-[250px]"></div>
+      <div id="GK" class="flex justify-center  relative -top-[900px] gap-[280px]"></div>
+    </div>
+
+
+
+    <div class="max-w-lg mx-auto mt-8 bg-white p-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-bold text-center mb-4">Gestion des cartes de joueurs</h2>
+      <form id="playerCardForm">
+        <!-- Player Name -->
+        <div class="mb-4">
+          <label for="playerName" class="block text-gray-700 font-medium">Nom du joueur:</label>
+          <input type="text" id="playerName" name="playerName"
+            class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            placeholder="Ex: Lionel Messi" required />
         </div>
 
+        <!-- Player Position -->
+        <div class="mb-4">
+          <label for="playerPosition" class="block text-gray-700 font-medium">Position:</label>
+          <select id="playerPosition" name="playerPosition"
+            class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" required>
+            <option value="">Choisir une position</option>
+            <option value="ST">ST</option>
+            <option value="CM">CM</option>
+            <option value="RM">RM</option>
+            <option value="RW">RW</option>
+            <option value="GK">GK</option>
+            <!-- Add more positions as needed -->
+          </select>
+        </div>
+
+        <!-- Player Rating -->
+        <div class="mb-4">
+          <label for="nationality" class="block text-gray-700 font-medium">Note:</label>
+          <input type="text" id="nationality" name="nationality"
+            class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500" min="1"
+            max="99" placeholder="Ex: 97" required />
+        </div>
+
+        <!-- Upload Player Image -->
+        <div class="mb-4">
+          <label for="playerImage" class="block text-gray-700 font-medium">Image du joueur:</label>
+          <input type="text" id="playerImage" name="playerImage"
+            class="w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500"
+            accept="image/*" required />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="flex justify-center">
+          <button type="button" id="btnajout" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
+            Ajouter la carte
+          </button>
+        </div>
+      </form>
+    </div>
 
 
-
-        <!-- <div id="studiom" class="hidden">
-
-
-            <div id="ST" class="flex justify-evenly  relative -top-[80px]"></div>
-            <div id="CM" class="flex justify-center  relative -top-[80px] gap-[200px]"></div>
-
-            <div id="RM_RL" class="flex justify-evenly  relative -top-[280px] gap-[250px]">
-                <div id="RM" class=""></div>
-                <div id="RL" class=""></div>
-
-            </div>
-            <div id="CDM" class="flex justify-center  relative -top-[420px]"></div>
-
-            <div id="LB_RB" class="flex justify-around  relative -top-[500px] gap-[60px]">
-
-                <div id="RB" class=""></div>
-                <div id="LB" class=""></div>
-
-            </div>
-            <div id="CB" class="flex justify-center  relative -top-[740px] gap-[250px]"></div>
-            <div id="GK" class="flex justify-center  relative -top-[800px] gap-[280px]"></div>
-        </div> -->
-
-
-    </section>
+  </section>
 </body>
 <script src="./assets/js/script.js"></script>
 
