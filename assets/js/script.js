@@ -38,13 +38,13 @@ let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
 let nationality = document.getElementById("nationality");
 // let clup =document.getElementById("clup")
-let pace =document.getElementById("pace")
-let shooting =document.getElementById("shooting")
-let passing =document.getElementById("passing")
-let dribbling =document.getElementById("dribbling")
-let defending =document.getElementById("defending")
-let physical =document.getElementById("physical")
-let clup =document.getElementById("clup")
+let pace = document.getElementById("pace")
+let shooting = document.getElementById("shooting")
+let passing = document.getElementById("passing")
+let dribbling = document.getElementById("dribbling")
+let defending = document.getElementById("defending")
+let physical = document.getElementById("physical")
+let clup = document.getElementById("clup")
 
 
 
@@ -61,15 +61,17 @@ let clup =document.getElementById("clup")
 //   localStorage.setItem("players", JSON.stringify(tablue_players))
 
 // }
-       
+
 
 function ajoutePlayers(playerId) {
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+
   const playerCard = document.getElementById(`player-${playerId}`);
-  document.getElementById("btnajout").onclick =function(){
+  document.getElementById("btnajout").onclick = function () {
     document.getElementById("pop_up_ajoute").classList.toggle("hidden")
- 
-  playerCard.innerHTML = `
+    Photo_du_Joueur.classList.toggle("hidden")
+
+    playerCard.innerHTML = `
   
     <div class="relative flex px-3 text-[#e9cc74] " >
    <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
@@ -134,9 +136,31 @@ function ajoutePlayers(playerId) {
    
    `
   }
-  
-  
+
+
 }
 
 
 Attaquant_centra();
+
+
+let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
+
+Photo_du_Joueur.addEventListener("wheel", (evnt) => {
+  Photo_du_Joueur.scrollLeft += evnt.deltaX;
+
+})
+photosrc.onclick = function () {
+  Photo_du_Joueur.classList.toggle("hidden")
+}
+function getSrc(src) {
+  console.log(src);
+
+  photosrc.value = src
+}
+
+function pop_up_img() {
+  fetch("")
+    .then(reponse => reponse.json())
+    .then(data => console.log(data))
+}
