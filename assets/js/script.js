@@ -70,7 +70,6 @@ function ajoutePlayers(playerId) {
   document.getElementById("btnajout").onclick = function () {
     document.getElementById("pop_up_ajoute").classList.toggle("hidden")
     Photo_du_Joueur.classList.toggle("hidden")
-
     playerCard.innerHTML = `
   
     <div class="relative flex px-3 text-[#e9cc74] " >
