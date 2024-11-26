@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bungee+Spice&family=Geist+Mono:wght@100..900&family=Itim&family=Lilita+One&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Rubik+Wet+Paint&family=Unlock&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     box-sizing: border-box;
 }
@@ -24,7 +26,21 @@ background: rgb(43, 41, 41);
     background-position: right;
     
 }
-
+.soccer,
+.socce2{
+  font-family: "Bungee Spice", sans-serif;
+ position: fixed;
+ right: 30px;
+ bottom: 0;
+ font-size: 50px;
+}
+.socce2{
+  font-family: "Bungee Spice", sans-serif;
+ 
+ left: 30px;
+ bottom: 0;
+ 
+}
 /* .contine-cards{
     width: 50%;
     height: 100%;
@@ -84,3 +100,20 @@ background: rgb(43, 41, 41);
   .btnGK::before{
     content :"GK";
   } */
+/* 
+  .div{
+    background: rgba(69, 169, 221, 0.7);
+    border-radius: 50%;
+    height: 55px;
+    width: 60px;
+    box-shadow: 0 0 0 0 rgb(69, 169, 221);
+    transform: scale(1) translate(-50%, -50%);
+    rotate: x 45deg;
+    position: absolute;
+    left: 50%;
+    top: calc(50% - 9px);
+    opacity: 0;    
+  } */*
+  #ff{
+    background: red;
+  }
