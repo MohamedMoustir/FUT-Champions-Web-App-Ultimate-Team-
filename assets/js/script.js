@@ -1,6 +1,4 @@
 
-let arry = ["btnCM", "btnST", "btnRM", "btnRL", "btnCDM", "btnRB", "btnLB", "btnCB", "btnGK"];
-let positionsArray = ["ST", "CM", "CM", "RM", "RL", "CDM", "RB", "LB", "CB", "CB", "GK"];
 
 let id = 1;
 
