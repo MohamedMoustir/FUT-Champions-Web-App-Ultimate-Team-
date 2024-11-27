@@ -60,11 +60,16 @@ function ajoutePlayers(positio) {
       defending: defending.value,
       physical: physical.value
     }
-    if (players.name && players.photo && players.position) {
+    const found = tablue_players.some(element => element.position === position.value);
+
+    if (found) {
+      alert(`Position ${position.value} is already occupied.`);
+      
+    }else if (players.name && players.photo && players.position) {
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));     
       // afficheJoueurs(playerCard.id);
-      // afficheJoueurs();
+      afficheJoueurs();
       check(position.value)
       clearFields()
       
@@ -81,7 +86,7 @@ function clearFields() {
   playerName.value = "";
   photosrc.value = "";
   position.value = "";
-  Position.value = "";
+  // Position.value = "";
   nationality.value = "";
   pace.value = "";
   shooting.value = "";
@@ -236,21 +241,15 @@ fetch("https://mohamedmoustir.github.io/api.p/")
   })
 
 
-  // function afficheJoueurs(positio) {
+  function afficheJoueurs(positio) {
    
-  //  if (positio == position.value) {
-  //   console.log("eeeeeeee");
-    
-  //  }else{
-  //   console.log("vvvvvv");
-    
-  //  }
+  
     
    
     tablue_players.forEach(player => {
        const container = document.getElementById(player.position);
       if (container ) {
-
+container.innerHTML =""
         container.innerHTML = `
          
             <div class="relative flex px-3 text-[#e9cc74]">
@@ -304,6 +303,9 @@ fetch("https://mohamedmoustir.github.io/api.p/")
                 </div>
               </div>
               <h1 class="absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
+              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+    <path onclick = "btnEdite()" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+</svg>
             </div>
          `;
       }
@@ -311,38 +313,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
      
     });
   
-    
+  } 
   
   
   afficheJoueurs();
-  function check(positio) {
-    let found = false; 
-  
-    tablue_players.forEach(element => {
-      if (element.position === positio) {
-        console.log("Position found!");
-        found = true; }
-    });
-  
-    if (!found) {
-      console.log("Position not found.");
-    }
-  }
-  // function nam() {
-  //   let find =0
-  //  console.log( tablue_players.find(find => {find.name === find.name})+
-  //  );
-   
-  //    if(find.name){
-  // find++
-  //    }
-  //    if (find=2) {
-  //    console.log("plize this player is find")
-       
-  //    }else{
-  //      console.log("rr");
-       
-  //    }
-   
-  // }
- 
