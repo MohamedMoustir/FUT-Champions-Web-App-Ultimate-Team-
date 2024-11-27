@@ -42,7 +42,6 @@ function ajoutePlayers(positio) {
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
-
   let playerCard = document.getElementById(`${positio}`);
 
   document.getElementById("btnajout").onclick = function () {
@@ -65,7 +64,8 @@ function ajoutePlayers(positio) {
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));     
       // afficheJoueurs(playerCard.id);
-      afficheJoueurs();
+      // afficheJoueurs();
+      check(position.value)
       clearFields()
       
     } else {
@@ -103,13 +103,15 @@ Photo_du_Joueur.addEventListener("wheel", (evnt) => {
 
 })
 
-function getSrc(src, alt, flag, logo) {
+function getSrc(src, alt, flag, positio) {
   photosrc.value = src;
   playerName.value = alt;
   nationality.value = flag;
-  clup.value = logo
+  position.value = positio
 
-
+// if (positio==position.value) {
+//   alert("ee")
+// }
 }
 
 fetch("https://mohamedmoustir.github.io/api.p/")
@@ -124,8 +126,9 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
       document.getElementById("Photo_du_Joueur").innerHTML += `
       <img onclick="getSrc(this.src,this.alt,this.name,this.sizes)" src="${src.photo}" alt=" ${src.name}" class=" w-[50px] h-[50px] rounded-b-full" name="${src.flag
-        }" sizes="${src.logo}"  >
+        }" sizes="${src.position}"  >
 `
+afficheJoueurs(src.position)
     })
 
 
@@ -225,20 +228,29 @@ fetch("https://mohamedmoustir.github.io/api.p/")
    </div>
     </div>
 `
+
     })
 
-
+    
 
   })
 
 
-  function afficheJoueurs() {
+  // function afficheJoueurs(positio) {
    
+  //  if (positio == position.value) {
+  //   console.log("eeeeeeee");
+    
+  //  }else{
+  //   console.log("vvvvvv");
+    
+  //  }
     
    
     tablue_players.forEach(player => {
        const container = document.getElementById(player.position);
       if (container ) {
+
         container.innerHTML = `
          
             <div class="relative flex px-3 text-[#e9cc74]">
@@ -293,31 +305,44 @@ fetch("https://mohamedmoustir.github.io/api.p/")
               </div>
               <h1 class="absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
             </div>
-      
-        `;
+         `;
       }
       
-      
+     
     });
   
     
-  }
+  
   
   afficheJoueurs();
-  function nam() {
-    let find =0
-   console.log( tablue_players.find(find => {find.name === find.name}));
-   
-     if(find.name){
-  find++
-     }
-     if (find=2) {
-     console.log("plize this player is find")
-       
-     }else{
-       console.log("rr");
-       
-     }
-   
+  function check(positio) {
+    let found = false; 
+  
+    tablue_players.forEach(element => {
+      if (element.position === positio) {
+        console.log("Position found!");
+        found = true; }
+    });
+  
+    if (!found) {
+      console.log("Position not found.");
+    }
   }
+  // function nam() {
+  //   let find =0
+  //  console.log( tablue_players.find(find => {find.name === find.name})+
+  //  );
+   
+  //    if(find.name){
+  // find++
+  //    }
+  //    if (find=2) {
+  //    console.log("plize this player is find")
+       
+  //    }else{
+  //      console.log("rr");
+       
+  //    }
+   
+  // }
  
