@@ -1,6 +1,8 @@
 
 
 let id = 1;
+let temp = null;
+
 
 function chenge_formation(soccer) {
   console.log(soccer);
@@ -20,7 +22,6 @@ function chenge_formation(soccer) {
 }
 
 
-
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
@@ -33,7 +34,7 @@ let dribbling = document.getElementById("dribbling")
 let defending = document.getElementById("defending")
 let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
-
+let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
 
@@ -46,9 +47,10 @@ function ajoutePlayers(positio) {
 
   document.getElementById("btnajout").onclick = function () {
     document.getElementById("pop_up_ajoute").classList.toggle("hidden")
-  Photo_du_Joueur.classList.toggle("hidden")
-
+    Photo_du_Joueur.classList.toggle("hidden")
+    let id = 1
     let players = {
+      id: Math.random() * 100,
       name: playerName.value,
       photo: photosrc.value,
       position: position.value,
@@ -64,21 +66,20 @@ function ajoutePlayers(positio) {
 
     if (found) {
       alert(`Position ${position.value} is already occupied.`);
-      
-    }else if (players.name && players.photo && players.position) {
+
+    }
+     else if (players.name && players.photo && players.position) {
       tablue_players.push(players)
-      localStorage.setItem("players", JSON.stringify(tablue_players));     
-      // afficheJoueurs(playerCard.id);
+      localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
-      check(position.value)
       clearFields()
-      
+
     } else {
-      
+
     }
   }
- 
-  
+
+
 
 }
 
@@ -114,9 +115,7 @@ function getSrc(src, alt, flag, positio) {
   nationality.value = flag;
   position.value = positio
 
-// if (positio==position.value) {
-//   alert("ee")
-// }
+  
 }
 
 fetch("https://mohamedmoustir.github.io/api.p/")
@@ -133,7 +132,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
       <img onclick="getSrc(this.src,this.alt,this.name,this.sizes)" src="${src.photo}" alt=" ${src.name}" class=" w-[50px] h-[50px] rounded-b-full" name="${src.flag
         }" sizes="${src.position}"  >
 `
-afficheJoueurs(src.position)
+      afficheJoueurs(src.position)
     })
 
 
@@ -236,21 +235,21 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
     })
 
-    
+
 
   })
 
 
-  function afficheJoueurs(positio) {
-   
-  
-    
-   
-    tablue_players.forEach(player => {
-       const container = document.getElementById(player.position);
-      if (container ) {
-container.innerHTML =""
-        container.innerHTML = `
+function afficheJoueurs(positio) {
+
+
+
+
+  tablue_players.forEach(player => {
+    const container = document.getElementById(player.position);
+    if (container) {
+      container.innerHTML = ""
+      container.innerHTML = `
          
             <div class="relative flex px-3 text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
@@ -278,7 +277,7 @@ container.innerHTML =""
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling
-                        }</div>
+        }</div>
                       <div class="font-light">SHO</div>
                     </span>
                     <span class="flex text-xs uppercase">
@@ -304,16 +303,45 @@ container.innerHTML =""
               </div>
               <h1 class="absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-    <path onclick = "btnEdite()" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+    <path onclick = "update(${player.id})" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
 </svg>
             </div>
          `;
-      }
-      
-     
-    });
+
+
+    }
+
+
+  });
+
+}
+
+
+afficheJoueurs();
+
+function update(i) {
+ 
+  document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+  Photo_du_Joueur.classList.toggle("hidden")
+   
+  const player = tablue_players.find(player => player.id === i);
+  if (player) {
+
+    playerName.value = player.name;
+    photosrc.value = player.photo;
+    position.value = player.position
+    nationality.value = player.nationality
+    shooting.value = player.flag
+    clup.value = player.club
+    passing.value = player.passing
+    dribbling.value = player.dribbling
+    defending.value = player.defending
+    physical.value = player.physical
   
-  } 
-  
-  
-  afficheJoueurs();
+ }
+// temp = i
+
+}
+
+// btnEdite()
+
