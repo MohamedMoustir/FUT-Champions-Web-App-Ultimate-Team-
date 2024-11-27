@@ -4,25 +4,36 @@ let id = 1;
 var tmp = null;
 console.log(tmp);
 
+// function chenge_formation(formationId) {
+//   alert("e")
+  
+//   if (formationId === "4141") {
+//     updateFormation("4141");
+//   } else if (formationId === "433") {
+//     updateFormation("433");
+//   }
+// }
 
-
-function chenge_formation(soccer) {
+function updateFormation(soccer) {
   console.log(soccer);
-
-  if (soccer == "4141") {
-    document.getElementById("CM").classList.remove("-top-[80px]")
-    document.getElementById("CM").classList.remove("gap-[100px]")
-    document.getElementById("GK").classList.remove("-top-[800px]")
-    document.getElementById("CDM").classList.remove("-top-[400px]")
-
-  } else {
-    document.getElementById("CM").classList.add("-top-[260px] gap-[180px]")
-    // document.getElementById("CM").classList.add("gap-[100px]")
-    document.getElementById("GK").classList.add("-top-[900px]")
-    document.getElementById("CDM").classList.add("-top-[450px]")
+  
+    const elements = {
+      CM: document.getElementById("CM"),
+      GK: document.getElementById("GK"),
+      CDM: document.getElementById("CDM"),
+    };
+  
+    if (soccer === "4141") {
+      elements.CM.classList.remove("-top-[80px]", "gap-[100px]");
+      elements.GK.classList.remove("-top-[800px]");
+      elements.CDM.classList.remove("-top-[400px]");
+    } else {
+      elements.CM.classList.add("-top-[80px]", "gap-[100px]");
+      elements.GK.classList.add("-top-[800px]");
+      elements.CDM.classList.add("-top-[400px]");
+    }
   }
-}
-
+  
 
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
@@ -109,13 +120,13 @@ Photo_du_Joueur.addEventListener("wheel", (evnt) => {
 
 })
 
-function getSrc(src, alt, flag, positio) {
+function getSrc(src, alt, flag, positio,logo) {
   photosrc.value = src;
   playerName.value = alt;
   nationality.value = flag;
-  position.value = positio
+  position.value = positio;
+  logo.value = logo
 
-  
 }
 
 fetch("https://mohamedmoustir.github.io/api.p/")
@@ -129,7 +140,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
 
       document.getElementById("Photo_du_Joueur").innerHTML += `
-      <img onclick="getSrc(this.src,this.alt,this.name,this.sizes)" src="${src.photo}" alt=" ${src.name}" class=" w-[50px] h-[50px] rounded-b-full" name="${src.flag
+      <img onclick="getSrc(this.src,this.alt,this.name,this.sizes,this.id)" src="${src.photo}" alt=" ${src.name}" class=" id="${src.logo}" w-[40px] h-[40px] my-[50px] rounded-b-full" name="${src.flag
         }" sizes="${src.position}"  >
 `
       afficheJoueurs(src.position)
@@ -379,3 +390,6 @@ function removePlayer(i) {
 }
 
 afficheJoueurs();
+
+
+// rejex
