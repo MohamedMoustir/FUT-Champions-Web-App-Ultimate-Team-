@@ -25,9 +25,7 @@ let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
 let Position = document.getElementById("Position");
-
 let nationality = document.getElementById("nationality");
-// let clup =document.getElementById("clup")
 let pace = document.getElementById("pace")
 let shooting = document.getElementById("shooting")
 let passing = document.getElementById("passing")
@@ -35,15 +33,10 @@ let dribbling = document.getElementById("dribbling")
 let defending = document.getElementById("defending")
 let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
+
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
-localStorage.setItem('playersData', JSON.stringify(tablue_players));
 
-const savedPlayers = JSON.parse(localStorage.getItem('playersData'));
-if (savedPlayers) {
-    tablue_players = savedPlayers;
-    
-}
 
 function ajoutePlayers(positio) {
   Photo_du_Joueur.classList.toggle("hidden")
@@ -73,8 +66,8 @@ function ajoutePlayers(positio) {
       localStorage.setItem("players", JSON.stringify(tablue_players));     
       // afficheJoueurs(playerCard.id);
       afficheJoueurs();
-
-     
+      clearFields()
+      
     } else {
       
     }
@@ -82,6 +75,21 @@ function ajoutePlayers(positio) {
  
   
 
+}
+
+function clearFields() {
+  playerName.value = "";
+  photosrc.value = "";
+  position.value = "";
+  Position.value = "";
+  nationality.value = "";
+  pace.value = "";
+  shooting.value = "";
+  passing.value = "";
+  dribbling.value = "";
+  defending.value = "";
+  physical.value = "";
+  clup.value = "";
 }
 
 
@@ -225,9 +233,8 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
 
   function afficheJoueurs() {
-    
    
-    console.log(tablue_players);
+    
    
     tablue_players.forEach(player => {
        const container = document.getElementById(player.position);
@@ -289,7 +296,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
       
         `;
       }
-      console.log(player.pace);
+      
       
     });
   
@@ -297,3 +304,20 @@ fetch("https://mohamedmoustir.github.io/api.p/")
   }
   
   afficheJoueurs();
+  function nam() {
+    let find =0
+   console.log( tablue_players.find(find => {find.name === find.name}));
+   
+     if(find.name){
+  find++
+     }
+     if (find=2) {
+     console.log("plize this player is find")
+       
+     }else{
+       console.log("rr");
+       
+     }
+   
+  }
+ 
