@@ -1,7 +1,9 @@
 
 
 let id = 1;
-let temp = null;
+var tmp = null;
+console.log(tmp);
+
 
 
 function chenge_formation(soccer) {
@@ -14,10 +16,10 @@ function chenge_formation(soccer) {
     document.getElementById("CDM").classList.remove("-top-[400px]")
 
   } else {
-    document.getElementById("CM").classList.add("-top-[80px]")
-    document.getElementById("CM").classList.add("gap-[100px]")
-    document.getElementById("GK").classList.add("-top-[800px]")
-    document.getElementById("CDM").classList.add("-top-[400px]")
+    document.getElementById("CM").classList.add("-top-[260px] gap-[180px]")
+    // document.getElementById("CM").classList.add("gap-[100px]")
+    document.getElementById("GK").classList.add("-top-[900px]")
+    document.getElementById("CDM").classList.add("-top-[450px]")
   }
 }
 
@@ -68,23 +70,17 @@ function ajoutePlayers(positio) {
       alert(`Position ${position.value} is already occupied.`);
 
     }
-     else if (players.name && players.photo && players.position) {
-      // let index = tablue_players.findIndex(play =>play.id === temp)
-      // console.log(temp);
-      
+     else{
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
-      clearFields()
-      
+      clearFields();
+      removePlayer(i)
+      }
 
-    } else {
-
-    }
+    
   }
-
-
-
+ 
 }
 
 function clearFields() {
@@ -309,13 +305,15 @@ function afficheJoueurs(positio) {
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
     <path onclick = "update(${player.id})" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
 </svg>
+ <svg onclick = "removePlayer(${player.id})" class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            
             </div>
          `;
 
 
     }
 
-
+    
   });
 
 }
@@ -323,14 +321,16 @@ function afficheJoueurs(positio) {
 
 afficheJoueurs();
 
-function update(id) {
+function update(i) {
  
   
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   Photo_du_Joueur.classList.toggle("hidden")
    
   const player = tablue_players.find(player => player.id === i);
-  if (player) {
+  const container = document.getElementById(player.position);
+  
+  if (player.id) {
 
     playerName.value = player.name;
     photosrc.value = player.photo;
@@ -342,16 +342,40 @@ function update(id) {
     dribbling.value = player.dribbling
     defending.value = player.defending
     physical.value = player.physical
-  
+    document.getElementById("btnajout") .innerText ="update"
  }
- tablue_players[].push(players)
 
-}
-function removeplayers() {
-  
-  tablue_players = tablue_players.filter(filter => filter.id !== id);
-  localStorage.setItem("players", JSON.stringify(tablue_players));
+ document.getElementById("btnajout"). onclick = function () {
+  player.name = playerName.value;
+  player.photo = photosrc.value;
+  player.position = position.value;
+  player.nationality = nationality.value;
+  player.flag = shooting.value;
+  player.club = clup.value;
+  player.passing = passing.value;
+  player.dribbling = dribbling.value;
+  player.defending = defending.value;
+  player.physical = physical.value;
+  container.innerHTML =""
   afficheJoueurs();
+  localStorage.setItem("players", JSON.stringify(tablue_players));
+    clearFields();
+  document.getElementById("pop_up_ajoute").classList.toggle("hidden");
+  Photo_du_Joueur.classList.toggle("hidden");
 }
-// btnEdite()
+}
 
+
+function removePlayer(i) {
+ 
+  console.log(i);
+  
+  tablue_players = tablue_players.filter(filter => filter.id !== i)
+  
+  localStorage.setItem("players", JSON.stringify(tablue_players));
+ 
+  afficheJoueurs();
+
+}
+
+afficheJoueurs();
