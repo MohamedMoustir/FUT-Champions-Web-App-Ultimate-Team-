@@ -69,10 +69,14 @@ function ajoutePlayers(positio) {
 
     }
      else if (players.name && players.photo && players.position) {
+      // let index = tablue_players.findIndex(play =>play.id === temp)
+      // console.log(temp);
+      
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
       clearFields()
+      
 
     } else {
 
@@ -319,8 +323,9 @@ function afficheJoueurs(positio) {
 
 afficheJoueurs();
 
-function update(i) {
+function update(id) {
  
+  
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   Photo_du_Joueur.classList.toggle("hidden")
    
@@ -339,9 +344,14 @@ function update(i) {
     physical.value = player.physical
   
  }
-// temp = i
+ tablue_players[].push(players)
 
 }
-
+function removeplayers() {
+  
+  tablue_players = tablue_players.filter(filter => filter.id !== id);
+  localStorage.setItem("players", JSON.stringify(tablue_players));
+  afficheJoueurs();
+}
 // btnEdite()
 
