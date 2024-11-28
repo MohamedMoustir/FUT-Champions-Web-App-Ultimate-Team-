@@ -13,6 +13,17 @@ let clup = document.getElementById("clup")
 let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
+
+const validateInput = (input, regex) => regex.test(input);
+const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,15}/);
+const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
+const isPaceValid = validateInput(pace, /^\d{1,2}$/);
+
+
+
+
+
+
 function updateFormation(soccer) {
   console.log(soccer);
 
@@ -79,7 +90,7 @@ function ajoutePlayers(positio) {
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
       clearFields();
-      Calcul_de_la_Chimie()
+      // Calcul_de_la_Chimie()
 
       document.getElementById("Success_alert").classList.toggle("hidden")
       setTimeout(() => {
@@ -253,8 +264,7 @@ function afficheJoueurs() {
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
-
-
+  
     if (container) {
       container.innerHTML = `
             <div class="relative flex px-3 text-[#e9cc74]">
@@ -321,7 +331,11 @@ function afficheJoueurs() {
 
             </div>
          `;
+    }else{
+        
+ 
     }
+
   });
 }
 
@@ -375,8 +389,6 @@ function removePlayer(i) {
   tablue_players = tablue_players.filter(filter => filter.position !== i)
 
   localStorage.setItem("players", JSON.stringify(tablue_players));
-
-
   const container = document.getElementById(i);
 
   if (container) {
@@ -391,8 +403,22 @@ function removePlayer(i) {
 afficheJoueurs();
 
 
+function Calcul_de_la_Chimie() {
+  let a=0 ;
+  tablue_players.forEach(player => {
+    if (player.nationality === nationality.value) {
+      console.log(++a);
+      
+    }
+  });
+}
+
+
+  
+Calcul_de_la_Chimie()
+
 // rejex
-let validation_playerName
+let validation_playerName = "/^\w+\s?\w+/"
 let validation_photosrc
 let validation_position
 let validation_nationality
@@ -404,20 +430,4 @@ let validation_defending
 let validation_physical
 let validation_clup
 
-
-function Calcul_de_la_Chimie() {
-  let a = 0
-  const namePlaye = tablue_players.filter(player => player.nationality !== nationality.value);
-  console.log(namePlaye);
-
-  if (namePlaye) {
-    ++a;
-    console.log(a);
-
-    console.log(namePlaye);
-
-  }
-  console.log(a);
-
-}
 

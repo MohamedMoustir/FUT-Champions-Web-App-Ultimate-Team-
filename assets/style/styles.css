@@ -41,85 +41,13 @@ background: rgb(43, 41, 41);
  bottom: 0;
  
 }
-/* .contine-cards{
-    width: 50%;
-    height: 100%;
-} */
 
-/* 
-
-*/
-/* 
-.btnCM::before,
-.btnST::before,
-.btnRM::before,
-.btnRL::before,
-.btnCDM::before,
-.btnRB::before,
-.btnLB::before,
-.btnCB::before,
-.btnGK::before{
-  content :"CM";
-  position:absolute;
-  width: 60px;
-  height: 30px;
-  bottom: -20px;
-  background: rgb(30, 29, 29);
-  left: 50%;
-  transform: translate(-50%);
-  text-align: center;
-  color: white;
-  border-radius: 90%;
-}
-.btnST::before{
-    content :"ST";
-    
-  }
-  .btnRL::before{
-    content :"RL";
-    
-  }
-  .btnRM::before{
-    content :"RM";
-    
-  }
-  
-  .btnCDM::before{
-    content :"CDM";
-  }
-  
-  .btnRB::before{
-    content :"RB";
-  }
-  .btnLB::before{
-    content :"LB";
-  }
-  .btnCB::before{
-    content :"CB";
-  }
-  .btnGK::before{
-    content :"GK";
-  } */
-/* 
-  .div{
-    background: rgba(69, 169, 221, 0.7);
-    border-radius: 50%;
-    height: 55px;
-    width: 60px;
-    box-shadow: 0 0 0 0 rgb(69, 169, 221);
-    transform: scale(1) translate(-50%, -50%);
-    rotate: x 45deg;
-    position: absolute;
-    left: 50%;
-    top: calc(50% - 9px);
-    opacity: 0;    
-  } */
 
   #ff{
     background: red;
   }
 
-  .btnCB {
+  .btnCB{
     width: 130px;  
     max-width: 130px ;
     max-height: 230px;
@@ -134,14 +62,25 @@ background: rgb(43, 41, 41);
   
   @media screen and (max-width: 468px) {
     .btnCB {
-      max-width: 120px; 
+      max-width: 110px; 
       margin: 20px;
     }
+    #studiom {
+      background-image: url(../img/Container.png);
+      background-repeat: no-repeat;
+      height: 190vh;
+      width: 92% ;
+      background-position: right;
+      
+  }
   }
   
   @media screen and (min-width: 1024px) {
     .btnCB {
       max-width: 150px; 
+
+    }
+   #LB_RB{
 
     }
   }
