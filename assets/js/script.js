@@ -19,33 +19,42 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
-    
-   
     let ALphoto = data.players;
 
     ALphoto.forEach(src => {
       const photoContainer = document.getElementById("Photo_du_Joueur");
       if (!photoContainer) {
-        console.error(" Photo_du_Joueur  ")
-        return
+        console.error(" Photo_du_Joueur not found ");
+        return;
       }
 
-      photoContainer.innerHTML += `
-        <img 
-          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes)" 
-          src="${src.photo}" 
-          alt="${src.name}" 
-          id="${src.logo}" 
-          name="${src.flag}" 
-          sizes="${src.position}"
-         >
-      `;
+      const imgElement = document.createElement('img');
+      imgElement.src = src.photo;
+      imgElement.alt = src.name;
+      imgElement.id = src.logo;
+      imgElement.name = src.flag;
+      imgElement.sizes = src.position;
+// click imge one
+      imgElement.addEventListener('click', function() {
+        getSrc(this.src, this.alt, this.id, this.name, this.sizes);
+      }, { once: true });
 
-
-      
+      photoContainer.appendChild(imgElement);
     });
   })
-  .catch(error => console.error( error));
+  .catch(error => console.error(error));
+
+
+  
+function getSrc(src, alt, id, name, sizes) {
+  console.log("Image clicked!");
+  console.log("Source: ", src);
+  console.log("Alt Text: ", alt);
+  console.log("ID: ", id);
+  console.log("Name: ", name);
+  console.log("Sizes: ", sizes);
+}
+
 
   function getSrc(src, alt,id,name,sizes) {
     photosrc.value = src;
@@ -107,7 +116,7 @@ function ajoutePlayers(positio) {
     if (!isPlayerNameValid || !isNationalityValid || !isPaceValid ) {
       Photo_du_Joueur.classList.remove("hidden")
       document.getElementById("pop_up_ajoute").classList.remove("hidden")
-
+      clearFields()
     } else {
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       Photo_du_Joueur.classList.toggle("hidden")
@@ -170,10 +179,10 @@ function clearFields() {
 }
 
 
-Photo_du_Joueur.addEventListener("wheel", (evnt) => {
-  Photo_du_Joueur.scrollLeft += evnt.deltaX;
+// Photo_du_Joueur.addEventListener("wheel", (evnt) => {
+//   Photo_du_Joueur.scrollLeft += evnt.deltaX;
 
-})
+// })
 
 
 
