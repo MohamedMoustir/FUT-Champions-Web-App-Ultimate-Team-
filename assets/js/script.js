@@ -13,8 +13,6 @@ let clup = document.getElementById("clup")
 let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
-
-
 function updateFormation(soccer) {
   console.log(soccer);
 
@@ -35,7 +33,12 @@ function updateFormation(soccer) {
   }
 }
 
+// close form ajoute
+document.getElementById("closeButton").onclick = function () {
+  document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+  Photo_du_Joueur.classList.toggle("hidden")
 
+}
 
 function ajoutePlayers(positio) {
   Photo_du_Joueur.classList.toggle("hidden")
@@ -64,25 +67,32 @@ function ajoutePlayers(positio) {
     const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
 
 
-
-    if ( found_position||namePlayer) {
+    if (found_position || namePlayer) {
       document.getElementById("alert_Danger").classList.toggle("hidden")
-setTimeout(()=>{
-  document.getElementById("alert_Danger").classList.toggle("hidden")
-},1500)
+      setTimeout(() => {
+        document.getElementById("alert_Danger").classList.toggle("hidden")
+      }, 1500)
     }
     else {
+    
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
       clearFields();
       Calcul_de_la_Chimie()
+
+      document.getElementById("Success_alert").classList.toggle("hidden")
+      setTimeout(() => {
+        document.getElementById("Success_alert").classList.toggle("hidden")
+      }, 1500)
+
     }
 
 
   }
 
 }
+
 
 function clearFields() {
   playerName.value = "";
@@ -238,12 +248,12 @@ function slideRighe() {
 
 
 function afficheJoueurs() {
- 
+
 
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
-   
+
 
     if (container) {
       container.innerHTML = `
@@ -264,7 +274,7 @@ function afficheJoueurs() {
             </div>
             <div class="relative">
               <div class="block px-1 text-[#e9cc74] w-[80%] mx-auto">
-                <div class="block text-center text-base uppercase pb-1">${player.name.slice(0,11)}</div>
+                <div class="block text-center text-base uppercase pb-1">${player.name.slice(0, 11)}</div>
                 <div class="flex justify-center my-1 player-features">
                   <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
@@ -311,11 +321,7 @@ function afficheJoueurs() {
 
             </div>
          `;
-
-
     }
-
-
   });
 }
 
@@ -370,15 +376,15 @@ function removePlayer(i) {
 
   localStorage.setItem("players", JSON.stringify(tablue_players));
 
-  
-    const container = document.getElementById(i);
 
-    if (container) {
-      container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+  const container = document.getElementById(i);
+
+  if (container) {
+    container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
           <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RM</h1>
           </svg> `;
-    }
+  }
 
 }
 
@@ -400,29 +406,18 @@ let validation_clup
 
 
 function Calcul_de_la_Chimie() {
-  let a =0
+  let a = 0
   const namePlaye = tablue_players.filter(player => player.nationality !== nationality.value);
-console.log(namePlaye);
+  console.log(namePlaye);
 
   if (namePlaye) {
     ++a;
     console.log(a);
-    
-console.log(namePlaye);
+
+    console.log(namePlaye);
 
   }
   console.log(a);
-  
+
 }
 
-// let array = [1, 2, 3, 1];
-// let count = array.filter(item => item === 1).length;
-
-// if (count === 2) {
- 
- 
-// } else {
-  
-// }
-
-// console.log(array);
