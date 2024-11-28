@@ -22,10 +22,20 @@
       class="btnCB relative bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
       
       id="player-S">
-      
-      <svg onclick="ajoutePlayers()" width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-      </svg>
+     
+<div class="fixed top-4 right-4 z-50">
+  <button onclick="ajoutePlayers()" class="btn-ajout text-white bg-green-700 hover:bg-green-800 font-semibold p-4 rounded-full shadow-lg transition-all duration-300">
+      Ajouter
+  </button>
+</div>
+
+
+<div id="confirmationMessage" class="hidden bg-green-500 text-white p-4 rounded-lg fixed top-16 right-4 z-50">
+  Joueur ajouté avec succès!
+</div>
+
+
+    
   
       <!-- Optionally, you can add a label showing the position -->
     </div>
@@ -35,7 +45,7 @@
 
       <div id="ST" class="flex justify-evenly relative -top-[80px]">
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB  relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-ST">
           
