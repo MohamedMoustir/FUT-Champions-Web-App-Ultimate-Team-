@@ -40,7 +40,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
           sizes="${src.position}"
          >
       `;
-console.log(ALphoto);
+
 
       
     });
@@ -276,7 +276,7 @@ function slideRighe() {
 
 function afficheJoueurs() {
 
-
+  
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);

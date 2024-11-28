@@ -19,13 +19,23 @@ background: rgb(43, 41, 41);
 
 }
 #studiom {
-    background-image: url(../img/Container.png);
-    background-repeat: no-repeat;
-    height: 150vh;
-    width: 102% ;
-    background-position: right;
+  background-image: url(../img/Container.png);
+  background-repeat: no-repeat;
+  background-size: cover; 
+  height: 150vh;
+  width: 100%;  
+  background-position: center;  }
+
+@media (max-width: 768px) {
+  #studiom {
+      background-size: contain;  
+  }
+  #studiom {
     
+    background-image: nonef;
 }
+}
+
 .soccer,
 .socce2{
   font-family: "Bungee Spice", sans-serif;
@@ -60,45 +70,34 @@ background: rgb(43, 41, 41);
     transform: scale(1.1); 
   }
   
+
+  #studiom {
+    background-image: url(../img/Container.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 150vh;
+    width: 200%;
+    position: relative;
+
+    background-position: right;
+}
+
+.relative {
+    position: relative;
+}
+
+
   @media screen and (max-width: 468px) {
     .btnCB {
       max-width: 110px; 
       margin: 20px;
     }
-    #studiom {
-      background-image: url(../img/Container.png);
-      background-repeat: no-repeat;
-      height: 190vh;
-      width: 92% ;
-      background-position: right;
-      
-  }
+    
   }
   
-  @media screen and (min-width: 1024px) {
-    .btnCB {
-      max-width: 150px; 
+  @media screen and (max-width: 768px) {
 
-    }
-   #LB_RB{
 
-    }
+    
+
   }
-  /* .player-container {
-    display: inline-block;
-    text-align: center;
-    margin: 10px;
-  }
-  
-  .club-name {
-    font-size: 14px;
-    color: #333;
-  }
-  .club-name {
-    display: none;
-  }
-  
-  .player-container:hover .club-name {
-    display: block;
-  } */
-  
