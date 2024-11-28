@@ -1,12 +1,10 @@
-
-
 let id = 1;
 var tmp = null;
 console.log(tmp);
 
 // function chenge_formation(formationId) {
 //   alert("e")
-  
+
 //   if (formationId === "4141") {
 //     updateFormation("4141");
 //   } else if (formationId === "433") {
@@ -16,24 +14,24 @@ console.log(tmp);
 
 function updateFormation(soccer) {
   console.log(soccer);
-  
-    const elements = {
-      CM: document.getElementById("CM"),
-      GK: document.getElementById("GK"),
-      CDM: document.getElementById("CDM"),
-    };
-  
-    if (soccer === "4141") {
-      elements.CM.classList.remove("-top-[80px]", "gap-[100px]");
-      elements.GK.classList.remove("-top-[800px]");
-      elements.CDM.classList.remove("-top-[400px]");
-    } else {
-      elements.CM.classList.add("-top-[80px]", "gap-[100px]");
-      elements.GK.classList.add("-top-[800px]");
-      elements.CDM.classList.add("-top-[400px]");
-    }
+
+  const elements = {
+    CM: document.getElementById("CM"),
+    GK: document.getElementById("GK"),
+    CDM: document.getElementById("CDM"),
+  };
+
+  if (soccer === "4141") {
+    elements.CM.classList.remove("-top-[80px]", "gap-[100px]");
+    elements.GK.classList.remove("-top-[800px]");
+    elements.CDM.classList.remove("-top-[400px]");
+  } else {
+    elements.CM.classList.add("-top-[80px]", "gap-[100px]");
+    elements.GK.classList.add("-top-[800px]");
+    elements.CDM.classList.add("-top-[400px]");
   }
-  
+}
+
 
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
@@ -49,7 +47,6 @@ let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
 let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
-
 
 
 function ajoutePlayers(positio) {
@@ -79,19 +76,17 @@ function ajoutePlayers(positio) {
 
     if (found) {
       alert(`Position ${position.value} is already occupied.`);
-
     }
-     else{
+    else {
       tablue_players.push(players)
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
       clearFields();
-      removePlayer(i)
-      }
+    }
 
-    
+
   }
- 
+
 }
 
 function clearFields() {
@@ -109,10 +104,6 @@ function clearFields() {
   clup.value = "";
 }
 
-
-
-
-
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 
 Photo_du_Joueur.addEventListener("wheel", (evnt) => {
@@ -120,7 +111,7 @@ Photo_du_Joueur.addEventListener("wheel", (evnt) => {
 
 })
 
-function getSrc(src, alt, flag, positio,logo) {
+function getSrc(src, alt, flag, positio, logo) {
   photosrc.value = src;
   playerName.value = alt;
   nationality.value = flag;
@@ -251,17 +242,16 @@ fetch("https://mohamedmoustir.github.io/api.p/")
   })
 
 
-function afficheJoueurs(positio) {
-
-
+function afficheJoueurs() {
+  console.log(tablue_players);
 
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
+    console.log(container);
+
     if (container) {
-      container.innerHTML = ""
       container.innerHTML = `
-         
             <div class="relative flex px-3 text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
                 <div class="text-base player-rating"></div>
@@ -316,7 +306,7 @@ function afficheJoueurs(positio) {
               <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
     <path onclick = "update(${player.id})" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
 </svg>
- <svg onclick = "removePlayer(${player.id})" class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+ <svg onclick = "removePlayer('${player.position}')" class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
             
             </div>
          `;
@@ -324,23 +314,20 @@ function afficheJoueurs(positio) {
 
     }
 
-    
-  });
 
+  });
 }
 
 
-afficheJoueurs();
-
 function update(i) {
- 
-  
+
+
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   Photo_du_Joueur.classList.toggle("hidden")
-   
+
   const player = tablue_players.find(player => player.id === i);
   const container = document.getElementById(player.position);
-  
+
   if (player.id) {
 
     playerName.value = player.name;
@@ -353,39 +340,44 @@ function update(i) {
     dribbling.value = player.dribbling
     defending.value = player.defending
     physical.value = player.physical
-    document.getElementById("btnajout") .innerText ="update"
- }
+    document.getElementById("btnajout").innerText = "update"
+  }
 
- document.getElementById("btnajout"). onclick = function () {
-  player.name = playerName.value;
-  player.photo = photosrc.value;
-  player.position = position.value;
-  player.nationality = nationality.value;
-  player.flag = shooting.value;
-  player.club = clup.value;
-  player.passing = passing.value;
-  player.dribbling = dribbling.value;
-  player.defending = defending.value;
-  player.physical = physical.value;
-  container.innerHTML =""
-  afficheJoueurs();
-  localStorage.setItem("players", JSON.stringify(tablue_players));
+  document.getElementById("btnajout").onclick = function () {
+    player.name = playerName.value;
+    player.photo = photosrc.value;
+    player.position = position.value;
+    player.nationality = nationality.value;
+    player.flag = shooting.value;
+    player.club = clup.value;
+    player.passing = passing.value;
+    player.dribbling = dribbling.value;
+    player.defending = defending.value;
+    player.physical = physical.value;
+    container.innerHTML = ""
+    afficheJoueurs();
+    localStorage.setItem("players", JSON.stringify(tablue_players));
     clearFields();
-  document.getElementById("pop_up_ajoute").classList.toggle("hidden");
-  Photo_du_Joueur.classList.toggle("hidden");
-}
+    document.getElementById("pop_up_ajoute").classList.toggle("hidden");
+    Photo_du_Joueur.classList.toggle("hidden");
+  }
 }
 
 
 function removePlayer(i) {
- 
-  console.log(i);
-  
-  tablue_players = tablue_players.filter(filter => filter.id !== i)
-  
+  tablue_players = tablue_players.filter(filter => filter.position !== i)
+
   localStorage.setItem("players", JSON.stringify(tablue_players));
- 
-  afficheJoueurs();
+
+  
+    const container = document.getElementById(i);
+
+    if (container) {
+      container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RM</h1>
+          </svg> `;
+    }
 
 }
 
@@ -393,3 +385,14 @@ afficheJoueurs();
 
 
 // rejex
+let validation_playerName
+let validation_photosrc
+let validation_position
+let validation_nationality
+let validation_pace
+let validation_shooting
+let validation_passing
+let validation_dribbling
+let validation_defending
+let validation_physical
+let validation_clup
