@@ -84,4 +84,21 @@ background: rgb(43, 41, 41);
 
     }
   }
+  /* .player-container {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .club-name {
+    font-size: 14px;
+    color: #333;
+  }
+  .club-name {
+    display: none;
+  }
+  
+  .player-container:hover .club-name {
+    display: block;
+  } */
   

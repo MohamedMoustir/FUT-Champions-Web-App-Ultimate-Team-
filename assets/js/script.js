@@ -16,14 +16,45 @@ let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
 
 
+fetch("https://mohamedmoustir.github.io/api.p/")
+  .then(result => result.json())
+  .then(function (data) {
+    
+   
+    let ALphoto = data.players;
 
+    ALphoto.forEach(src => {
+      const photoContainer = document.getElementById("Photo_du_Joueur");
+      if (!photoContainer) {
+        console.error(" Photo_du_Joueur  ")
+        return
+      }
 
+      photoContainer.innerHTML += `
+        <img 
+          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes)" 
+          src="${src.photo}" 
+          alt="${src.name}" 
+          id="${src.logo}" 
+          name="${src.flag}" 
+          sizes="${src.position}"
+         >
+      `;
+console.log(ALphoto);
 
+      
+    });
+  })
+  .catch(error => console.error( error));
 
-
-
-
-
+  function getSrc(src, alt,id,name,sizes) {
+    photosrc.value = src;
+    playerName.value = alt;
+    nationality.value = name;
+    position.value = sizes;
+    clup.value = id
+  
+  }
 function updateFormation(soccer) {
   console.log(soccer);
 
@@ -143,36 +174,6 @@ Photo_du_Joueur.addEventListener("wheel", (evnt) => {
   Photo_du_Joueur.scrollLeft += evnt.deltaX;
 
 })
-
-function getSrc(src, alt, flag, positio, logo) {
-  photosrc.value = src;
-  playerName.value = alt;
-  nationality.value = flag;
-  position.value = positio;
-  logo.value = logo
-
-}
-
-fetch("https://mohamedmoustir.github.io/api.p/")
-  .then(result => result.json())
-
-  .then(function (data) {
-    let ALphoto = data.players;
-
-
-    ALphoto.forEach(src => {
-
-
-      document.getElementById("Photo_du_Joueur").innerHTML += `
-      <img onclick="getSrc(this.src,this.alt,this.name,this.sizes,this.id)" src="${src.photo}" alt=" ${src.name}" class=" id="${src.logo}" w-[40px] h-[40px] my-[50px] rounded-b-full" name="${src.flag
-        }" sizes="${src.position}"  >
-`
-      afficheJoueurs(src.position)
-    })
-
-
-  })
-  .catch(error =>console.log(error))
 
 
 
@@ -433,17 +434,5 @@ function Calcul_de_la_Chimie() {
 
 Calcul_de_la_Chimie()
 
-// rejex
-let validation_playerName = "/^\w+\s?\w+/"
-let validation_photosrc
-let validation_position
-let validation_nationality
-let validation_pace
-let validation_shooting
-let validation_passing
-let validation_dribbling
-let validation_defending
-let validation_physical
-let validation_clup
 
 
