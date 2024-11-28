@@ -12,12 +12,12 @@ let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
 let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || []
+let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
+let carousel_cards = document.getElementById('carousel-cards');
 
 
-const validateInput = (input, regex) => regex.test(input);
-const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,15}/);
-const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
-const isPaceValid = validateInput(pace, /^\d{1,2}$/);
+
+
 
 
 
@@ -51,59 +51,77 @@ document.getElementById("closeButton").onclick = function () {
 
 }
 
+// open modle form
 function ajoutePlayers(positio) {
+
+
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
-  let playerCard = document.getElementById(`${positio}`);
+  // let playerCard = document.getElementById(`${positio}`);
 
+
+  // add data in local 
   document.getElementById("btnajout").onclick = function () {
-    document.getElementById("pop_up_ajoute").classList.toggle("hidden")
-    Photo_du_Joueur.classList.toggle("hidden")
-    let id = 1
-    let players = {
-      id: Math.random() * 100,
-      name: playerName.value,
-      photo: photosrc.value,
-      position: position.value,
-      nationality: nationality.value,
-      flag: shooting.value,
-      club: clup.value,
-      passing: passing.value,
-      dribbling: dribbling.value,
-      defending: defending.value,
-      physical: physical.value
-    }
-    const found_position = tablue_players.some(element => element.position === position.value);
-    const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
 
 
-    if (found_position || namePlayer) {
-      document.getElementById("alert_Danger").classList.toggle("hidden")
-      setTimeout(() => {
+    // rejex
+    const validateInput = (input, regex) => regex.test(input);
+    const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,20}/);
+    const isphotosrcValid = validateInput(photosrc.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
+    const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
+    const isclupValid = validateInput(clup.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
+    const isPaceValid = validateInput(pace.value, /^\d{1,2}$/);
+
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid ) {
+      Photo_du_Joueur.classList.remove("hidden")
+      document.getElementById("pop_up_ajoute").classList.remove("hidden")
+
+    } else {
+      document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+      Photo_du_Joueur.classList.toggle("hidden")
+      let id = 1
+      let players = {
+        id: Math.random() * 100,
+        name: playerName.value,
+        photo: photosrc.value,
+        position: position.value,
+        nationality: nationality.value,
+        flag: shooting.value,
+        club: clup.value,
+        passing: passing.value,
+        dribbling: dribbling.value,
+        defending: defending.value,
+        physical: physical.value
+      }
+      const found_position = tablue_players.some(element => element.position === position.value);
+      const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
+
+      if (found_position || namePlayer) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-      }, 1500)
-    }
-    else {
-    
-      tablue_players.push(players)
-      localStorage.setItem("players", JSON.stringify(tablue_players));
-      afficheJoueurs();
-      clearFields();
-      // Calcul_de_la_Chimie()
+        setTimeout(() => {
+          document.getElementById("alert_Danger").classList.toggle("hidden")
+        }, 1500)
+      }
+      else {
 
-      document.getElementById("Success_alert").classList.toggle("hidden")
-      setTimeout(() => {
+        tablue_players.push(players)
+        localStorage.setItem("players", JSON.stringify(tablue_players));
+        afficheJoueurs();
+        clearFields();
+        // Calcul_de_la_Chimie()
+
         document.getElementById("Success_alert").classList.toggle("hidden")
-      }, 1500)
+        setTimeout(() => {
+          document.getElementById("Success_alert").classList.toggle("hidden")
+        }, 1500)
+
+      }
+
 
     }
-
-
   }
-
 }
-
 
 function clearFields() {
   playerName.value = "";
@@ -120,7 +138,6 @@ function clearFields() {
   clup.value = "";
 }
 
-let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 
 Photo_du_Joueur.addEventListener("wheel", (evnt) => {
   Photo_du_Joueur.scrollLeft += evnt.deltaX;
@@ -155,18 +172,16 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
 
   })
-  .catch(console.log("dd"))
+  .catch(error =>console.log(error))
 
 
 
-let carousel_cards = document.getElementById('carousel-cards');
 
 function slideLeft() {
   carousel_cards.style.scrollBehavior = "smooth"
   carousel_cards.scrollLeft -= 500
 
 }
-
 
 function slideRighe() {
   carousel_cards.style.scrollBehavior = "smooth"
@@ -264,7 +279,7 @@ function afficheJoueurs() {
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
-  
+
     if (container) {
       container.innerHTML = `
             <div class="relative flex px-3 text-[#e9cc74]">
@@ -331,9 +346,9 @@ function afficheJoueurs() {
 
             </div>
          `;
-    }else{
-        
- 
+    } else {
+
+
     }
 
   });
@@ -365,6 +380,7 @@ function update(i) {
   }
 
   document.getElementById("btnajout").onclick = function () {
+
     player.name = playerName.value;
     player.photo = photosrc.value;
     player.position = position.value;
@@ -404,17 +420,17 @@ afficheJoueurs();
 
 
 function Calcul_de_la_Chimie() {
-  let a=0 ;
+  let a = 0;
   tablue_players.forEach(player => {
     if (player.nationality === nationality.value) {
       console.log(++a);
-      
+
     }
   });
 }
 
 
-  
+
 Calcul_de_la_Chimie()
 
 // rejex
