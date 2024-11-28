@@ -1,16 +1,19 @@
-let id = 1;
-var tmp = null;
-console.log(tmp);
+let playerName = document.getElementById("playerName");
+let photosrc = document.getElementById("photosrc");
+let position = document.getElementById("position");
+let Position = document.getElementById("Position");
+let nationality = document.getElementById("nationality");
+let pace = document.getElementById("pace")
+let shooting = document.getElementById("shooting")
+let passing = document.getElementById("passing")
+let dribbling = document.getElementById("dribbling")
+let defending = document.getElementById("defending")
+let physical = document.getElementById("physical")
+let clup = document.getElementById("clup")
+let mood = true;
+let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
-// function chenge_formation(formationId) {
-//   alert("e")
 
-//   if (formationId === "4141") {
-//     updateFormation("4141");
-//   } else if (formationId === "433") {
-//     updateFormation("433");
-//   }
-// }
 
 function updateFormation(soccer) {
   console.log(soccer);
@@ -32,21 +35,6 @@ function updateFormation(soccer) {
   }
 }
 
-
-let playerName = document.getElementById("playerName");
-let photosrc = document.getElementById("photosrc");
-let position = document.getElementById("position");
-let Position = document.getElementById("Position");
-let nationality = document.getElementById("nationality");
-let pace = document.getElementById("pace")
-let shooting = document.getElementById("shooting")
-let passing = document.getElementById("passing")
-let dribbling = document.getElementById("dribbling")
-let defending = document.getElementById("defending")
-let physical = document.getElementById("physical")
-let clup = document.getElementById("clup")
-let mood = true;
-let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 
 
 function ajoutePlayers(positio) {
@@ -85,6 +73,7 @@ console.log(found_position||namePlayer);
       localStorage.setItem("players", JSON.stringify(tablue_players));
       afficheJoueurs();
       clearFields();
+      Calcul_de_la_Chimie()
     }
 
 
@@ -272,7 +261,7 @@ function afficheJoueurs() {
             </div>
             <div class="relative">
               <div class="block px-1 text-[#e9cc74] w-[80%] mx-auto">
-                <div class="block text-center text-base uppercase pb-1">${player.name}</div>
+                <div class="block text-center text-base uppercase pb-1">${player.name.slice(0,11)}</div>
                 <div class="flex justify-center my-1 player-features">
                   <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
@@ -405,3 +394,26 @@ let validation_dribbling
 let validation_defending
 let validation_physical
 let validation_clup
+
+
+function Calcul_de_la_Chimie() {
+  let a =0
+  const namePlayer = tablue_players.forEach(player => player.nationality === nationality.value);
+  if (namePlayer) {
+    
+     ++a
+  }
+  console.log(a);
+  
+}
+
+let array = [1, 2, 3, 1];
+let count = array.filter(item => item === 1).length;
+
+if (count === 2) {
+ 
+} else {
+  
+}
+
+console.log(array);
