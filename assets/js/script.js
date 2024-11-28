@@ -63,10 +63,13 @@ function ajoutePlayers(positio) {
     const found_position = tablue_players.some(element => element.position === position.value);
     const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
 
-console.log(found_position||namePlayer);
 
-    if ( namePlayer) {
-      alert(`Position ${position.value} is already occupied.`);
+
+    if ( found_position||namePlayer) {
+      document.getElementById("alert_Danger").classList.toggle("hidden")
+setTimeout(()=>{
+  document.getElementById("alert_Danger").classList.toggle("hidden")
+},1500)
     }
     else {
       tablue_players.push(players)
@@ -398,22 +401,28 @@ let validation_clup
 
 function Calcul_de_la_Chimie() {
   let a =0
-  const namePlayer = tablue_players.forEach(player => player.nationality === nationality.value);
-  if (namePlayer) {
+  const namePlaye = tablue_players.filter(player => player.nationality !== nationality.value);
+console.log(namePlaye);
+
+  if (namePlaye) {
+    ++a;
+    console.log(a);
     
-     ++a
+console.log(namePlaye);
+
   }
   console.log(a);
   
 }
 
-let array = [1, 2, 3, 1];
-let count = array.filter(item => item === 1).length;
+// let array = [1, 2, 3, 1];
+// let count = array.filter(item => item === 1).length;
 
-if (count === 2) {
+// if (count === 2) {
  
-} else {
+ 
+// } else {
   
-}
+// }
 
-console.log(array);
+// console.log(array);
