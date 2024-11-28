@@ -72,9 +72,12 @@ function ajoutePlayers(positio) {
       defending: defending.value,
       physical: physical.value
     }
-    const found = tablue_players.some(element => element.position === position.value);
+    const found_position = tablue_players.some(element => element.position === position.value);
+    const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
 
-    if (found) {
+console.log(found_position||namePlayer);
+
+    if ( namePlayer) {
       alert(`Position ${position.value} is already occupied.`);
     }
     else {
@@ -243,12 +246,12 @@ function slideRighe() {
 
 
 function afficheJoueurs() {
-  console.log(tablue_players);
+ 
 
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
-    console.log(container);
+   
 
     if (container) {
       container.innerHTML = `
@@ -260,11 +263,11 @@ function afficheJoueurs() {
                   <img src="${player.nationality}" alt="Nationalité" class="w-full h-full object-contain"/>
                 </div>
                 <div class="block w-[1.5rem] h-[25px] player-club">
-                  <img src="${player.club}" alt="Club" class="w-full h-full object-contain"/>
+                  <img src="${player.club}" alt="Club" class="mr-12 w-full h-full object-contain"/>
                 </div>
               </div>
-              <div class="relative w-[90px] h-[90px] mx-auto overflow-hidden player-picture">
-                <img src="${player.photo}" alt="${player.name}" class="w-full h-full object-contain"/>
+              <div class="  relative w-[90px] h-[90px] mx-auto overflow-hidden player-picture">
+                <img src="${player.photo}" alt="${player.name}" class=" w-full h-full object-contain"/>
               </div>
             </div>
             <div class="relative">
@@ -303,11 +306,17 @@ function afficheJoueurs() {
                 </div>
               </div>
               <h1 class="absolute w-[70px] h-[30px] bottom-[-60px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
-              <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
-    <path onclick = "update(${player.id})" d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
-</svg>
- <svg onclick = "removePlayer('${player.position}')" class="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
-            
+          <div >
+ <div id="btn" class="   absolute -top-[65%]  left-[100%] transform -translate-x-1/2 justify-between items-center mt-4 space-x-4 ">
+    <svg onclick="update(${player.id})" class="w-6 h-6 text-gray-300 hover:text-[#e9cc74] cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+      <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
+    </svg>
+    <svg onclick="removePlayer('${player.position}')" class="w-6 h-6 text-gray-300 hover:text-red-500 cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
+    </svg>
+  </div>
+</div>
+
             </div>
          `;
 

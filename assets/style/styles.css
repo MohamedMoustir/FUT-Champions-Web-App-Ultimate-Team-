@@ -113,7 +113,36 @@ background: rgb(43, 41, 41);
     left: 50%;
     top: calc(50% - 9px);
     opacity: 0;    
-  } */*
+  } */
+
   #ff{
     background: red;
   }
+
+  .btnCB {
+    width: 130px;  
+    max-width: 130px ;
+    max-height: 230px;
+    aspect-ratio: 2 / 3; 
+    background-position: center;
+    transition: transform 0.3s ease-in-out, width 0.3s ease-in-out; 
+  }
+   
+  .btnCB:hover {
+    transform: scale(1.1); 
+  }
+  
+  @media screen and (max-width: 468px) {
+    .btnCB {
+      max-width: 120px; 
+      margin: 20px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .btnCB {
+      max-width: 150px; 
+
+    }
+  }
+  

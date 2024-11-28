@@ -15,15 +15,8 @@
 
 <body class="h-[1000vh]">
   
-     <div>
-      <h2 class="soccer" id="4141" onclick="chenge_formation(4141)">4141</h2>
-      <h2 class="socce2" id="433" onclick="chenge_formatio(433)">433</h2>
-      <div 
-      class="btnCB relative bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
-      
-      id="player-S">
      
-<div class="fixed top-4 right-4 z-50">
+<div class="fixed z-19 top-4 right-4 z-50">
   <button onclick="ajoutePlayers()" class="btn-ajout text-white bg-green-700 hover:bg-green-800 font-semibold p-4 rounded-full shadow-lg transition-all duration-300">
       Ajouter
   </button>
@@ -45,7 +38,7 @@
 
       <div id="ST" class="flex justify-evenly relative -top-[80px]">
         <div  
-          class="btnCB  relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB  relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-ST">
           
@@ -60,35 +53,49 @@
       
       <div id="CM" class="flex justify-center  relative -top-[260px] gap-[180px]">
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
-          id="player-CML">
+          id="player-LW">
           
           <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
           </svg>
       
           <!-- Optionally, you can add a label showing the position -->
-          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">CML</h1>
+          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">LW</h1>
         </div>
         <div  
-        class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+        class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
         style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
-        id="player-CMR">
+        id="player-RW">
         
         <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
           <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
         </svg>
     
         <!-- Optionally, you can add a label showing the position -->
-        <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">CMR</h1>
+        <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RW</h1>
       </div>
       </div>
 
       <div id="RM_RL" class="flex justify-evenly  relative -top-[280px] ">
-        <div id="RM" class="">
+        <div id="LB" class="">
           <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
+          id="player-LM">
+          
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+      
+          <!-- Optionally, you can add a label showing the position -->
+          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">LM</h1>
+        </div>
+        </div>
+        <div id="RL" class="">
+          <div  
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-RM">
           
@@ -100,25 +107,11 @@
           <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RM</h1>
         </div>
         </div>
-        <div id="RL" class="">
-          <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
-          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
-          id="player-RL">
-          
-          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-            <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          </svg>
-      
-          <!-- Optionally, you can add a label showing the position -->
-          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RL</h1>
-        </div>
-        </div>
 
       </div>
       <div id="CDM" class="flex justify-center  relative -top-[450px]">
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-CDM">
           
@@ -135,23 +128,9 @@
 
       <div id="LB_RB" class="flex justify-around  relative -top-[500px] gap-[60px]">
 
-        <div id="RB" class="">
-          <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
-          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
-          id="player-RB">
-          
-          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-            <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          </svg>
-      
-          <!-- Optionally, you can add a label showing the position -->
-          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RB</h1>
-        </div>
-        </div>
         <div id="LB" class="">
           <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-LB">
           
@@ -163,11 +142,25 @@
           <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">LB</h1>
         </div>
         </div>
+        <div id="RB" class="">
+          <div  
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
+          id="player-RB">
+          
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          </svg>
+      
+          <!-- Optionally, you can add a label showing the position -->
+          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">RB</h1>
+        </div>
+        </div>
 
       </div>
       <div id="CB" class="flex justify-center  relative -top-[740px] gap-[250px]">
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-CBL">
           
@@ -179,7 +172,7 @@
           <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">CBL</h1>
         </div>
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-CBR">
           
@@ -193,7 +186,7 @@
       </div>
       <div id="GK" class="flex justify-center  relative -top-[900px] gap-[280px]">
         <div  
-          class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
+          class="btnCB relative top-[200px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200" 
           style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" 
           id="player-GK">
           
@@ -209,92 +202,78 @@
     </div>
 
 
-    <div id="pop_up_ajoute" class="hidden absolute top-[10%] z-20 left-[50%] -translate-x-1/2 bg-gray-800 flex justify-center items-center p-6 sm:p-8 md:p-10 w-[550px]">
-      <div class="bg-gray-900 shadow-2xl rounded-lg w-full relative p-8">
-          <!-- Close Button -->
-          <button id="closeButton" class="absolute top-4 right-4 text-white text-4xl w-10 h-10 flex items-center justify-center bg-red-500 rounded-full hover:bg-red-600 transition-colors duration-300">
-              &times;
-          </button>
-  
-          <h2 class="text-3xl font-bold mb-6 text-center text-white">Ajouter une Carte de Joueur</h2>
-  
-          <form id="playerForm" class="space-y-6">
-              <!-- Nom du joueur et Club du Joueur -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div class="max-w-[500px]">
-                      <label for="playerName" class="block text-gray-200 font-semibold mb-2">Nom du Joueur</label>
-                      <input type="text" id="playerName" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez le nom du joueur">
-                  </div>
-  
-                  <div class="max-w-[500px]">
-                      <label for="clup" class="block text-gray-200 font-semibold mb-2">Club du Joueur</label>
-                      <input type="text" id="clup" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Nom du club">
-                  </div>
-              </div>
-  
-              <!-- Position du joueur -->
-              <div class="max-w-[500px]">
-                  <label for="position" class="block text-gray-200 font-semibold mb-2">Position du Joueur</label>
-                  <input type="text" id="position" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: Attaquant">
-              </div>
-  
-              <!-- Nationalité du joueur -->
-              <div class="max-w-[500px]">
-                  <label for="nationality" class="block text-gray-200 font-semibold mb-2">Nationalité</label>
-                  <input type="text" id="nationality" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez la nationalité (URL de l'image)">
-              </div>
-  
-              <!-- Photo du joueur -->
-              <div class="max-w-[500px]">
-                  <label for="photosrc" class="block text-gray-200 font-semibold mb-2">Photo du Joueur</label>
-                  <input type="text" id="photosrc" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="URL de la photo du joueur">
-              </div>
-  
-              <!-- Caractéristiques du joueur -->
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                  <div class="max-w-[500px]">
-                      <label for="pace" class="block text-gray-200 font-semibold mb-2">Vitesse (PAC)*</label>
-                      <input type="number" id="pace" value="97" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 97">
-                  </div>
-                  <div class="max-w-[500px]">
-                      <label for="shooting" class="block text-gray-200 font-semibold mb-2">Tir (SHO)*</label>
-                      <input type="number" id="shooting" value="95" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 95">
-                  </div>
-                  <div class="max-w-[500px]">
-                      <label for="passing" class="block text-gray-200 font-semibold mb-2">Passes (PAS)*</label>
-                      <input type="number" id="passing" value="94" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 94">
-                  </div>
-                  <div class="max-w-[500px]">
-                      <label for="dribbling" class="block text-gray-200 font-semibold mb-2">Dribble (DRI)*</label>
-                      <input type="number" id="dribbling" value="99" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 99">
-                  </div>
-                  <div class="max-w-[500px]">
-                      <label for="defending" class="block text-gray-200 font-semibold mb-2">Défense (DEF)*</label>
-                      <input type="number" id="defending" value="35" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 35">
-                  </div>
-                  <div class="max-w-[500px]">
-                      <label for="physical" class="block text-gray-200 font-semibold mb-2">Physique (PHY)*</label>
-                      <input type="number" id="physical" value="86" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 68">
-                  </div>
-              </div>
-  
-              <!-- Bouton pour soumettre le formulaire -->
-              <div class="text-center">
-                  <button type="button" id="btnajout" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
-              </div>
-          </form>
+    <div id="pop_up_ajoute" class="hidden absolute  top-[0] z-20 left-1/2 transform -translate-x-1/2 bg-gray-800 flex justify-center items-center p-4 sm:p-6 md:p-8 w-[90%] max-w-[600px]">
+      <div class="bg-gray-900 shadow-2xl rounded-lg w-full relative p-6 sm:p-8">
+        <button id="closeButton" class="absolute top-4 right-4 text-white text-2xl sm:text-4xl w-8 sm:w-10 h-8 sm:h-10 flex items-center justify-center bg-red-500 rounded-full hover:bg-red-600 transition-colors duration-300">
+          &times;
+        </button>
+    
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center text-white">Ajouter une Carte de Joueur</h2>
+    
+        <form id="playerForm" class="space-y-4 sm:space-y-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+            <div>
+              <label for="playerName" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nom du Joueur</label>
+              <input type="text" id="playerName" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez le nom du joueur">
+            </div>
+            <div>
+              <label for="clup" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Club du Joueur</label>
+              <input type="text" id="clup" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Nom du club">
+            </div>
+          </div>
+    
+          <div>
+            <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
+            <input type="text" id="position" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: Attaquant">
+          </div>
+    
+          <div>
+            <label for="nationality" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
+            <input type="text" id="nationality" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez la nationalité (URL de l'image)">
+          </div>
+    
+          <div>
+            <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du Joueur</label>
+            <input type="text" id="photosrc" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="URL de la photo du joueur">
+          </div>
+    
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <div>
+              <label for="pace" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse (PAC)*</label>
+              <input type="number" id="pace" value="97" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 97">
+            </div>
+            <div>
+              <label for="shooting" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir (SHO)*</label>
+              <input type="number" id="shooting" value="95" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 95">
+            </div>
+            <div>
+              <label for="passing" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes (PAS)*</label>
+              <input type="number" id="passing" value="94" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 94">
+            </div>
+            <div>
+              <label for="dribbling" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble (DRI)*</label>
+              <input type="number" id="dribbling" value="99" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 99">
+            </div>
+            <div>
+              <label for="defending" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense (DEF)*</label>
+              <input type="number" id="defending" value="35" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 35">
+            </div>
+            <div>
+              <label for="physical" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique (PHY)*</label>
+              <input type="number" id="physical" value="86" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 68">
+            </div>
+          </div>
+    
+          <div class="text-center">
+            <button type="button" id="btnajout" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
+          </div>
+        </form>
       </div>
-  </div>
+    </div>
+    
   
   
-    
-    
-    
-    
-    
-
-    
- 
+  
     <div id="Photo_du_Joueur" class="hidden  items-center gap-8 h-[550px]  max-w-[600px] justify-center absolute top-[20%] right-[5%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
     
     </div>
@@ -312,34 +291,15 @@
         <!-- Slider indicators -->
 
         <!-- Slider controls -->
-        <button type="button" onclick="slideLeft()"
-          class=" mx-[40px]  absolute top-[120%]  -left-12 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group "
-          data-carousel-prev>
-          <span
-            class="inline-flex items-center justify-center w-10 h-10 rounded-full  bg-[#0000]/30  group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M5 1 1 5l4 4" />
-            </svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button type="button" onclick="slideRighe()"
-          class="mx-[40px]  absolute top-[120%]  end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group "
-          data-carousel-next>
-          <span
-            class=" inline-flex items-center justify-center  w-10 h-10 rounded-full bg-[#0000]/30 dark:bg-gray-800/30 group-focus:ring-4 group-focus:ring-white  dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg class="w-4 h-4  dark:text-gray-800  rtl:rotate-180" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="m1 9 4-4-4-4" />
-            </svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button>
-      </div>
       
+      </div>
+      <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center">
+
+
+  <div class="mt-6 fixed text-center  top-[50%] right-8">
+    <h3 class=" font-bold text-gray-200"> la Chimie de l'Équipe</h3>
+    <p id="team-chemistry" class="text-4xl font-bold text-green-400 mt-2">0</p>
+  </div>
   </section>
 </body>
 <script src="./assets/js/script.js"></script>
