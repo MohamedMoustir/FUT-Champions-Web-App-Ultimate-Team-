@@ -19,41 +19,33 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
+    
+   
     let ALphoto = data.players;
 
     ALphoto.forEach(src => {
       const photoContainer = document.getElementById("Photo_du_Joueur");
       if (!photoContainer) {
-        console.error(" Photo_du_Joueur not found ");
-        return;
+        console.error(" Photo_du_Joueur  ")
+        return
       }
 
-      const imgElement = document.createElement('img');
-      imgElement.src = src.photo;
-      imgElement.alt = src.name;
-      imgElement.id = src.logo;
-      imgElement.name = src.flag;
-      imgElement.sizes = src.position;
-// click imge one
-      imgElement.addEventListener('click', function() {
-        getSrc(this.src, this.alt, this.id, this.name, this.sizes);
-      }, { once: true });
+      photoContainer.innerHTML += `
+        <img 
+          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes)" 
+          src="${src.photo}" 
+          alt="${src.name}" 
+          id="${src.logo}" 
+          name="${src.flag}" 
+          sizes="${src.position}"
+         >
+      `;
 
-      photoContainer.appendChild(imgElement);
+
+      
     });
   })
-  .catch(error => console.error(error));
-
-
-  
-function getSrc(src, alt, id, name, sizes) {
-  console.log("Image clicked!");
-  console.log("Source: ", src);
-  console.log("Alt Text: ", alt);
-  console.log("ID: ", id);
-  console.log("Name: ", name);
-  console.log("Sizes: ", sizes);
-}
+  .catch(error => console.error( error));
 
 
   function getSrc(src, alt,id,name,sizes) {
@@ -64,26 +56,21 @@ function getSrc(src, alt, id, name, sizes) {
     clup.value = id
   
   }
-function updateFormation(soccer) {
-  console.log(soccer);
 
-  const elements = {
-    CM: document.getElementById("CM"),
-    GK: document.getElementById("GK"),
-    CDM: document.getElementById("CDM"),
-  };
+  function setFormation(p) {
+    if (p=="4141") {
+       document.getElementById("CDM").classList.add("-top-[330px]");
+  document.getElementById("CM").classList.add("-top-[80px]", "gap-[100px]");
+  document.getElementById("GK").classList.add("-top-[800px]");
 
-  if (soccer === "4141") {
-    elements.CM.classList.remove("-top-[80px]", "gap-[100px]");
-    elements.GK.classList.remove("-top-[800px]");
-    elements.CDM.classList.remove("-top-[400px]");
-  } else {
-    elements.CM.classList.add("-top-[80px]", "gap-[100px]");
-    elements.GK.classList.add("-top-[800px]");
-    elements.CDM.classList.add("-top-[400px]");
+    }else{
+      document.getElementById("CM").scrollBehavior ="smooth"
+      document.getElementById("CDM").classList.remove("-top-[330px]");
+      document.getElementById("CM").classList.remove("-top-[80px]", "gap-[100px]");
+    }
+
   }
-}
-
+  
 // close form ajoute
 document.getElementById("closeButton").onclick = function () {
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
