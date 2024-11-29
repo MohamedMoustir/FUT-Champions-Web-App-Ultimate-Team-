@@ -16,264 +16,254 @@
 <body class="h-[1000vh]">
 
 
-  <div class="fixed z-19 top-4 right-4 z-50">
+
+
+  <div class="fixed z-19 top-1 right-4 z-50">
+    <button class=" text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all"
+      onclick="setFormation('4141')">4-1-4-1</button>
+    <button class="text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all"
+      onclick="setFormation('433')">4-3-3</button>
     <button onclick="ajoutePlayers()"
-      class="btn-ajout text-white bg-green-700 hover:bg-green-800 font-semibold p-4 rounded-full shadow-lg transition-all duration-300">
-      Ajouter
+      class="btn-ajout text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all ">Ajouter
     </button>
+
   </div>
 
 
-  <div id="confirmationMessage" class="hidden bg-green-500 text-white p-4 rounded-lg fixed top-16 right-4 z-50">
-    Joueur ajouté avec succès!
-  </div>
-  <div class="text-center mt-8">
-    <p class="text-lg font-bold mb-4"></p>
-    <div class="space-x-4">
-      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition" 
-              onclick="setFormation('4141')">4-1-4-1</button>
-      <button class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700 transition" 
-              onclick="setFormation('433')">4-3-3</button>
-
-              
-    
-    </div>
-  </div>
-  
   <div id="formationPreview" class="mt-8 flex flex-col items-center gap-4">
-    <!-- سيتم عرض الخطة هنا -->
+
   </div>
-  
+
 
   <!-- Optionally, you can add a label showing the position -->
   </div>
   </div>
   <section id="continer">
-    <div id="studiom" class=" lg:max-w-[100%] ">
-<div class="">
-  <div id="ST" class="flex justify-center -top-[100px] ">
-    <div
-      class="btnCB   relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="player-ST">
+    <div id="studiom" class="lg:max-w-[100%] ">
+      <div class=" relative -left-[100px]">
+        <div id="ST" class="flex justify-center relative -left-[7%] -top-[100px] ">
+          <div
+            class="btnCB   relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-ST">
 
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
 
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        ST</h1>
-    </div>
-  </div>
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              ST</h1>
+          </div>
+        </div>
 
-  <div id="CM" class="flex justify-center  relative -top-[300px] gap-[380px]">
-    <div
-      class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="player-LW">
+        <div id="CM" class="flex justify-center  -left-[100px]  relative  -top-[350px] gap-[380px]">
+          <div
+            class="btnCB relative top-[150px]   h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-LW">
 
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
 
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        LW</h1>
-    </div>
-    <div
-      class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="player-RW">
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              LW</h1>
+          </div>
+          <div
+            class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-RW">
 
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
 
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        RW</h1>
-    </div>
-  </div>
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              RW</h1>
+          </div>
+        </div>
 
-  <div id="RM_RL" class="flex justify-evenly  relative -top-[280px] gap-[120px] ">
-    <div id="LB" class="">
-      <div
-        class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-        style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-        id="player-LM">
+        <div id="RM_RL" class="flex justify-evenly -left-[100px]   relative -top-[280px] gap-[120px] ">
+          <div id="LB" class="">
+            <div
+              class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+              style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+              id="player-LM">
 
-        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-          class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-          <path
-            d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-            stroke="currentColor" stroke-width="1.5" fill="none" />
-        </svg>
+              <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+                <path
+                  d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                  stroke="currentColor" stroke-width="1.5" fill="none" />
+              </svg>
 
-        <!-- Optionally, you can add a label showing the position -->
-        <h1
-          class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-          LM</h1>
+              <!-- Optionally, you can add a label showing the position -->
+              <h1
+                class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+                LM</h1>
+            </div>
+          </div>
+          <div id="RL" class="">
+            <div
+              class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+              style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+              id="player-RM">
+
+              <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+                <path
+                  d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                  stroke="currentColor" stroke-width="1.5" fill="none" />
+              </svg>
+
+              <!-- Optionally, you can add a label showing the position -->
+              <h1
+                class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+                RM</h1>
+            </div>
+          </div>
+
+        </div>
+        <div id="CDM" class="flex justify-center -left-[7%]  relative -top-[400px]">
+          <div
+            class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-CDM">
+
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              CDM</h1>
+          </div>
+
+        </div>
+
+
+        <div id="LB_RB" class=" flex justify-evenly  -left-[100px]  relative -top-[480px]  gap-[500px]">
+
+          <div id="LB" class="">
+            <div
+              class="btnCB  relative top-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+              style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+              id="player-LB">
+
+              <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+                <path
+                  d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                  stroke="currentColor" stroke-width="1.5" fill="none" />
+              </svg>
+
+              <!-- Optionally, you can add a label showing the position -->
+              <h1
+                class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+                LB</h1>
+            </div>
+          </div>
+          <div id="RB" class="">
+            <div
+              class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+              style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+              id="player-RB">
+
+              <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+                class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+                <path
+                  d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                  stroke="currentColor" stroke-width="1.5" fill="none" />
+              </svg>
+
+              <!-- Optionally, you can add a label showing the position -->
+              <h1
+                class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+                RB</h1>
+            </div>
+          </div>
+
+        </div>
+        <div id="player-CBB" class="flex justify-center -left-[100px]  relative -top-[640px] gap-[80px] lg:gap-[200px]">
+          <div
+            class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-CBL">
+
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute  w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              CBL</h1>
+          </div>
+          <div
+            class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-CBR">
+
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+
+            <!-- Optionally, you can add a label showing the position -->
+            <h1
+              class="absolute  w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+              CBR</h1>
+          </div>
+        </div>
+        <div id="GK" class="flex justify-center -left-[7%]  relative -top-[800px] gap-[280px]">
+          <div
+            class="btnCB relative top-[200px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+            style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+            id="player-GK">
+
+            <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+              class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+              <path
+                d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+                stroke="currentColor" stroke-width="1.5" fill="none" />
+            </svg>
+
+            <!-- Optionally, you can add a label showing the position -->
+          </div>
+          <h1
+            class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
+            GK</h1>
+        </div>
+
       </div>
-    </div>
-    <div id="RL" class="">
-      <div
-        class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-        style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-        id="player-RM">
 
-        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-          class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-          <path
-            d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-            stroke="currentColor" stroke-width="1.5" fill="none" />
-        </svg>
 
-        <!-- Optionally, you can add a label showing the position -->
-        <h1
-          class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-          RM</h1>
-      </div>
     </div>
 
-  </div>
-  <div id="CDM" class="flex justify-center  relative -top-[400px]">
-    <div
-      class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="player-CDM">
-
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
-
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        CDM</h1>
-    </div>
-
-  </div>
-
-
-  <div id="LB_RB" class=" flex justify-around  relative -top-[480px]  gap-[500px]">
-
-    <div id="LB" class="">
-      <div
-        class="btnCB  relative top-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-        style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-        id="player-LB">
-
-        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-          class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-          <path
-            d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-            stroke="currentColor" stroke-width="1.5" fill="none" />
-        </svg>
-
-        <!-- Optionally, you can add a label showing the position -->
-        <h1
-          class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-          LB</h1>
-      </div>
-    </div>
-    <div id="RB" class="">
-      <div
-        class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-        style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-        id="player-RB">
-
-        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-          class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-          <path
-            d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-            stroke="currentColor" stroke-width="1.5" fill="none" />
-        </svg>
-
-        <!-- Optionally, you can add a label showing the position -->
-        <h1
-          class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-          RB</h1>
-      </div>
-    </div>
-
-  </div>
-  <div id="player-CBB" class="flex justify-center  relative -top-[640px] gap-[180px] lg:gap-[500px]">
-    <div
-      class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="playe-CB">
-
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
-
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute  w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        CB</h1>
-    </div>
-    <div
-      class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="playr-CB">
-
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
-
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
-        class="absolute  w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-        CB</h1>
-    </div>
-  </div>
-  <div id="GK" class="flex justify-center  relative -top-[800px] gap-[280px]">
-    <div
-      class="btnCB relative top-[200px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
-      style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
-      id="player-GK">
-
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
-
-      <!-- Optionally, you can add a label showing the position -->
-    </div>
-    <h1
-      class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-      GK</h1>
-  </div>
-
-</div>
-
-
-</div>
-    
 
     <div id="pop_up_ajoute"
       class="hidden absolute  top-[0] z-20 left-1/2 transform -translate-x-1/2 bg-gray-800 flex justify-center items-center p-4 sm:p-6 md:p-8 w-[90%] max-w-[600px]">
@@ -302,14 +292,37 @@
                 placeholder="Nom du club">
             </div>
           </div>
-
           <div>
-            <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du
-              Joueur</label>
-            <input type="text" id="position" onkeydown="recherch()"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: Attaquant">
-            </div>
+            <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
+            
+            <input 
+              type="text" 
+              id="position" 
+              list="positions" 
+              class="w-full px-3 py-2 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Choisissez une position ou entrez une nouvelle"
+            />
+            
+            <datalist id="positions">
+              <option value="player-GK"></option>
+              <option value="player-CBL"></option>
+              <option value="player-CDM"></option>
+              <option value="player-LB"></option>
+              <option value="player-LM"></option>
+              <option value="player-LW"></option>
+              <option value="player-RB"></option>
+              <option value="player-ST"></option>
+              <option value="player-RM"></option>
+              <option value="player-CBR"></option>
+              <option value="player-RW"></option>
+              <option value="chang_1"></option>
+              <option value="chang_2"></option>
+              <option value="chang_3"></option>
+              <option value="chang_4"></option>
+            </datalist>
+          </div>
+          
+          
 
           <div>
             <label for="nationality"
@@ -384,7 +397,7 @@
 
 
     <div id="Photo_du_Joueur"
-      class="hidden  items-center gap-8 h-[550px]  max-w-[600px] justify-center absolute top-[20%] right-[5%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
+      class="hidden  items-center gap-8 h-[550px]  max-w-[200px] justify-center absolute top-[160%] left-[50%]   lg:top-[20%] lg:left-[80%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
 
     </div>
 
@@ -397,47 +410,121 @@
     </div>
     </div>
 
-      <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center">
+    <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center">
 
 
-        <div class="mt-6 fixed text-center  top-[50%] right-8">
-          <h3 class=" font-bold text-gray-200"> la Chimie de l'Équipe</h3>
-          <p id="team-chemistry" class="text-4xl font-bold text-green-400 mt-2">0</p>
+      <div class="mt-6 fixed text-center  top-[50%] right-8">
+        <h3 class=" font-bold text-gray-200"> la Chimie de l'Équipe</h3>
+        <p id="team-chemistry" class="text-4xl font-bold text-green-400 mt-2">0</p>
+      </div>
+
+
+
+      <!-- alert -->
+      <div id="alert_Danger"
+        class=" hidden fixed top-8 left-[50%] -translate-x-1/2  z-50 flex w-[30%] items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
+        role="alert">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Danger alert!</span> Position or name player is already occupied.
         </div>
+      </div>
+
+      <div id="Success_alert"
+        class="hidden fixed z-50 top-8 left-[52%] -translate-x-1/2  items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
+        role="alert">
+        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+        </svg>
+        <span class="sr-only">Info</span>
+        <div>
+          <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
+        </div>
+      </div>
 
 
 
-        <!-- alert -->
-        <div id="alert_Danger"
-          class=" hidden fixed top-8 left-[50%] -translate-x-1/2  z-50 flex w-[30%] items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
-          role="alert">
-          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor" viewBox="0 0 20 20">
+      <div id="changmont" class="flex justify-evenly -left-[100px]  relative -top-[740px] flex-wrap">
+
+        <div class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+          id="chang_1">
+
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path
-              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
           </svg>
-          <span class="sr-only">Info</span>
-          <div>
-            <span class="font-medium">Danger alert!</span> Position or name player is already occupied.
-          </div>
+    
+          <!-- Optionally, you can add a label showing the position -->
+          
+        </div>
+        <div
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+          id="chang_2">
+    
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+        </div>
+        <div
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+          id="chang_3">
+    
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+    
+        </div>
+        <div
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+          id="chang_4">
+    
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+    
+        
+        </div>
+        <div
+          class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
+          style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');"
+          id="chang_5">
+    
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+    
+          <!-- Optionally, you can add a label showing the position -->
+          
         </div>
 
-        <div id="Success_alert"
-          class="hidden fixed z-50 top-8 left-[52%] -translate-x-1/2  items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
-          role="alert">
-          <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor" viewBox="0 0 20 20">
-            <path
-              d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-          </svg>
-          <span class="sr-only">Info</span>
-          <div>
-            <span class="font-medium">Success alert!</span> Change a few things up and try submitting again.
-          </div>
-        </div>
-       
- 
-      
+      </div>
+
+
   </section>
 </body>
 <script src="./assets/js/script.js"></script>

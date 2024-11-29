@@ -15,18 +15,16 @@ let tablue_players = JSON.parse(localStorage.getItem("players")) || []
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
 
-
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
     
-   
     let ALphoto = data.players;
 
     ALphoto.forEach(src => {
       const photoContainer = document.getElementById("Photo_du_Joueur");
       if (!photoContainer) {
-        console.error(" Photo_du_Joueur  ")
+        console.error(" Photo_du_Joueur")
         return
       }
 
@@ -36,8 +34,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
           src="${src.photo}" 
           alt="${src.name}" 
           id="${src.logo}" 
-          name="${src.flag}" 
-          sizes="${src.position}"
+          name="${src.flag}"
          >
       `;
 
@@ -48,11 +45,11 @@ fetch("https://mohamedmoustir.github.io/api.p/")
   .catch(error => console.error( error));
 
 
-  function getSrc(src, alt,id,name,sizes) {
+  function getSrc(src, alt,id,name) {
     photosrc.value = src;
     playerName.value = alt;
     nationality.value = name;
-    position.value = sizes;
+  
     clup.value = id
   
   }
@@ -100,10 +97,9 @@ function ajoutePlayers(positio) {
 
 
 
-    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || isclupValid || isphotosrcValid ) {
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid) {
       Photo_du_Joueur.classList.remove("hidden")
       document.getElementById("pop_up_ajoute").classList.remove("hidden")
-      clearFields()
     } else {
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       Photo_du_Joueur.classList.toggle("hidden")
@@ -264,13 +260,12 @@ function slideRighe() {
 function afficheJoueurs() {
 
   
-
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
 
     if (container) {
       container.innerHTML = `
-            <div class="relative flex px-3 text-[#e9cc74]">
+            <div class="relative flex px-3  text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
                 <div class="text-base player-rating"></div>
                 <div class="text-xs player-position"><span>${player.position.slice(7)}</span></div>
@@ -334,9 +329,19 @@ function afficheJoueurs() {
 
             </div>
          `;
-    } else {
+    } else{
 
-
+      container.innerHTML+=`
+      
+          <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
+            class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+            <path
+              d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
+              stroke="currentColor" stroke-width="1.5" fill="none" />
+          </svg>
+    
+          <!-- Optionally, you can add a label showing the position -->
+          `
     }
 
   });
