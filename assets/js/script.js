@@ -172,89 +172,7 @@ function slideRighe() {
   carousel_cards.scrollLeft += 500
 }
 
-// fetch("https://mohamedmoustir.github.io/api.p/")
-//   .then(result => result.json())
 
-//   .then(function (data) {
-//     let ALphoto = data.players;
-//     console.log(ALphoto);
-
-//     ALphoto.forEach(src => {
-
-
-//       carousel_cards.innerHTML += `
-//       <div onclick="" 
-//         class="btnCB relative top-[150px] w-[150px] h-[240px] bg-cover bg-center bg-none p-4 z-[2] h-[100%] transition ease-in duration-200 " 
-//         style="background-image: url('https://www.futbin.com/design2/img/static/evolutions/placeholder-card-normal.webp');" id="">
-//     <div class="relative flex px-3 text-[#e9cc74] " >
-//    <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
-//      <div class="text-base player-rating"><span></span></div>
-//      <div class="text-xs player-position"><span>${src.position}</span></div>
-//      <div class="block w-[1.2rem] h-[12px] my-1 player-nation">
-//        <img src="${src.flag
-//         }" alt="Argentina" class="w-full h-full object-contain" draggable="false"/>
-//      </div>
-//      <div class="block w-[1.5rem] h-[25px] player-club">
-//        <img src="${src.logo
-//         }" alt="Barcelona" class="w-full h-full object-contain" draggable="false"/>
-//      </div>
-//    </div>
-//    <div class="relative w-[90px] h-[90px] mx-auto overflow-hidden player-picture ">
-//      <img src="${src.photo}" alt="Messi" class="w-full h-full object-contain relative -right-2 bottom-0" draggable="false"/>
-//      <div class="absolute right-0 bottom-[-0.2rem] font-bold uppercase w-full h-5 px-3 text-right bg-none">
-//        <span class="ml-1 text-shadow-md">4*SM</span>
-//        <span class="ml-1 text-shadow-md">4*WF</span>
-//      </div>
-//    </div>
-//  </div>
-//  <!-- Bas de la carte -->
-//  <div class="relative ">
-//    <div class="block px-1 text-[#e9cc74] w-[80%] mx-auto">
-//      <!-- Nom du joueur -->
-//      <div class="block text-center text-base uppercase border-b border-opacity-10 border-[#e9cc74] pb-1 overflow-hidden">
-//        <span class="block text-shadow-md">${src.name || 20}</span>
-//      </div>
-//      <!-- Caractéristiques du joueur -->
-//      <div class="flex justify-center my-1 player-features">
-//        <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.pace || 95}</div>
-//            <div class="font-light">PAC</div>
-//          </span>
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.shooting || 90}</div>
-//            <div class="font-light">SHO</div>
-//          </span>
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.passing || 97}</div>
-//            <div class="font-light">PAS</div>
-//          </span>
-//        </div>
-//        <div class="items-center px-2">
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.dribbling || 85}</div>
-//            <div class="font-light">DRI</div>
-//          </span>
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.defending || 45}</div>
-//            <div class="font-light">DEF</div>
-//          </span>
-//          <span class="flex text-xs uppercase">
-//            <div class="mr-1 font-bold">${src.physical || 90}</div>
-//            <div class="font-light">PHY</div>
-//          </span>
-//        </div>
-//      </div>
-//    </div>
-//    </div>
-//     </div>
-// `
-
-//     })
-
-
-
-//   })
 
 
 function afficheJoueurs() {
@@ -330,6 +248,7 @@ function afficheJoueurs() {
             </div>
          `;
     } else{
+     
 
       container.innerHTML+=`
       
