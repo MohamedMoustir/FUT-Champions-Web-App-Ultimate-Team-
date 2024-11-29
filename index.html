@@ -24,7 +24,7 @@
     <button class="text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all"
       onclick="setFormation('433')">4-3-3</button>
     <button onclick="ajoutePlayers()"
-      class="btn-ajout text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all ">Ajouter
+      class="btn-ajout text-white bg-blue-500 hover:bg-blue-800 font-semibold p-4 rounded-md shadow-lg transition-all ">Ajouter
     </button>
 
   </div>
@@ -264,7 +264,7 @@
 
     </div>
 
-
+<!-- 
     <div id="pop_up_ajoute"
       class="hidden absolute  top-[0] z-20 left-1/2 transform -translate-x-1/2 bg-gray-800 flex justify-center items-center p-4 sm:p-6 md:p-8 w-[90%] max-w-[600px]">
       <div class="bg-gray-900 shadow-2xl rounded-lg w-full relative p-6 sm:p-8">
@@ -291,8 +291,8 @@
                 class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
                 placeholder="Nom du club">
             </div>
-          </div>
-          <div>
+           </div>
+           <div>
             <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
             
             <input 
@@ -320,27 +320,27 @@
               <option value="chang_3"></option>
               <option value="chang_4"></option>
             </datalist>
-          </div>
+           </div>
           
           
 
-          <div>
+           <div>
             <label for="nationality"
               class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
             <input type="text" id="nationality"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Entrez la nationalité (URL de l'image)">
-          </div>
+           </div>
 
-          <div>
+           <div>
             <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du
               Joueur</label>
             <input type="text" id="photosrc"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="URL de la photo du joueur">
-          </div>
+           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+           <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             <div>
               <label for="pace" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
                 (PAC)*</label>
@@ -391,16 +391,137 @@
           </div>
         </form>
       </div>
+    </div> -->
+
+    <section
+    class="hidden flex text-white flex-col px-4 py-5 bg-slate-600 rounded-md shadow-md fixed w-[90%] md:max-w-[500px] md:min-w-[300px] top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-10"
+    id="pop_up_ajoute">
+    <button type="button" id="closeButton"><img src="./assets/imgs/close.png" alt="close"
+            class="w-[30px] h-[30px] absolute right-4 top-2 "></button>
+    <h2 class="text-lg mx-auto font-bold text-white mb-3">Add Player</h2>
+    
+    <form action="" class="flex flex-col" id="add-player-form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div>
+            <label for="playerName" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nom du
+              Joueur</label>
+            <input type="text" id="playerName"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Entrez le nom du joueur">
+          </div>
+          <div>
+            <label for="clup" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Club du
+              Joueur</label>
+            <input type="text" id="clup"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Nom du club">
+          </div>
+         </div>
+         <div>
+          <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
+          
+          <input 
+          onchange="myFunction()"
+            type="text" 
+            id="position" 
+            list="positions" 
+            class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Choisissez une position ou entrez une nouvelle"
+          />
+          <datalist id="positions">
+            <option value="player-GK"></option>
+            <option value="player-CBL"></option>
+            <option value="player-CDM"></option>
+            <option value="player-LB"></option>
+            <option value="player-LM"></option>
+            <option value="player-LW"></option>
+            <option value="player-RB"></option>
+            <option value="player-ST"></option>
+            <option value="player-RM"></option>
+            <option value="player-CBR"></option>
+            <option value="player-RW"></option>
+            <option value="chang_1"></option>
+            <option value="chang_2"></option>
+            <option value="chang_3"></option>
+            <option value="chang_4"></option>
+          </datalist>
+         </div>
+        
+        
+
+         <div>
+          <label for="nationality"
+            class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
+          <input type="text" id="nationality"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            placeholder="Entrez la nationalité (URL de l'image)">
+         </div>
+
+         <div>
+          <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du
+            Joueur</label>
+          <input type="text" id="photosrc"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            placeholder="URL de la photo du joueur">
+         </div>
+
+         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div>
+            <label for="pace" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
+              (PAC)*</label>
+            <input type="number" id="pace" value="97"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 97">
+          </div>
+          <div>
+            <label for="shooting" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
+              (SHO)*</label>
+            <input type="number" id="shooting" value="95"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 95">
+          </div>
+          <div>
+            <label for="passing" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
+              (PAS)*</label>
+            <input type="number" id="passing" value="94"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 94">
+          </div>
+          <div>
+            <label for="dribbling" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
+              (DRI)*</label>
+            <input type="number" id="dribbling" value="99"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 99">
+          </div>
+          <div>
+            <label for="defending" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
+              (DEF)*</label>
+            <input type="number" id="defending" value="35"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 35">
+          </div>
+          <div>
+            <label for="physical" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
+              (PHY)*</label>
+            <input type="number" id="physical" value="86"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 68">
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button type="button" id="btnajout"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 my-4 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
+        </div>
+      </form>
+    
+</section>
+
+  <div id="Photo_du_Joueur"
+      class="hidden  items-center gap-8 h-[580px]  max-w-[200px] justify-center fixed top-[160%] left-[50%]   lg:top-[10%] lg:left-[80%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
+
     </div>
-
-
-
-
-    <div id="Photo_du_Joueur"
-      class="hidden  items-center gap-8 h-[550px]  max-w-[200px] justify-center absolute top-[160%] left-[50%]   lg:top-[20%] lg:left-[80%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
-
-    </div>
-
 
     <!--HTML CODE-->
     <div class="mb-4 flex justify-around overflow-hidden h-[100%] gap-8 relative -top-[140px]" id="carousel-cards">

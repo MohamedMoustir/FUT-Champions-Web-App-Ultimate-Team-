@@ -244,8 +244,7 @@ function afficheJoueurs() {
     </svg>
   </div>
 </div>
-
-            </div>
+ </div>
          `;
     } else{
      
@@ -259,7 +258,6 @@ function afficheJoueurs() {
               stroke="currentColor" stroke-width="1.5" fill="none" />
           </svg>
     
-          <!-- Optionally, you can add a label showing the position -->
           `
     }
 
@@ -318,8 +316,7 @@ function update(i) {
           stroke="currentColor" stroke-width="1.5" fill="none" />
       </svg>
 
-      <!-- Optionally, you can add a label showing the position -->
-      <h1
+      
        `
   }
 
