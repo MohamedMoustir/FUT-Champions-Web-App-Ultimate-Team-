@@ -18,7 +18,7 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
-    
+
     let ALphoto = data.players;
 
     ALphoto.forEach(src => {
@@ -39,35 +39,35 @@ fetch("https://mohamedmoustir.github.io/api.p/")
       `;
 
 
-      
+
     });
   })
-  .catch(error => console.error( error));
+  .catch(error => console.error(error));
 
 
-  function getSrc(src, alt,id,name) {
-    photosrc.value = src;
-    playerName.value = alt;
-    nationality.value = name;
-  
-    clup.value = id
-  
+function getSrc(src, alt, id, name) {
+  photosrc.value = src;
+  playerName.value = alt;
+  nationality.value = name;
+
+  clup.value = id
+
+}
+
+function setFormation(p) {
+  if (p == "4141") {
+    document.getElementById("CDM").classList.add("-top-[330px]");
+    document.getElementById("CM").classList.add("-top-[80px]", "gap-[100px]");
+    document.getElementById("GK").classList.add("-top-[800px]");
+
+  } else {
+    document.getElementById("CM").scrollBehavior = "smooth"
+    document.getElementById("CDM").classList.remove("-top-[330px]");
+    document.getElementById("CM").classList.remove("-top-[80px]", "gap-[100px]");
   }
 
-  function setFormation(p) {
-    if (p=="4141") {
-       document.getElementById("CDM").classList.add("-top-[330px]");
-  document.getElementById("CM").classList.add("-top-[80px]", "gap-[100px]");
-  document.getElementById("GK").classList.add("-top-[800px]");
+}
 
-    }else{
-      document.getElementById("CM").scrollBehavior ="smooth"
-      document.getElementById("CDM").classList.remove("-top-[330px]");
-      document.getElementById("CM").classList.remove("-top-[80px]", "gap-[100px]");
-    }
-
-  }
-  
 // close form ajoute
 document.getElementById("closeButton").onclick = function () {
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
@@ -173,11 +173,30 @@ function slideRighe() {
 }
 
 
+function changer_lesstats(position) {
+  if (position === "player-GK") {
+    let ratin = document.getElementsByClassName("pace")[0].innerText ="rating*"
+    document.getElementsByClassName("shooting")[0].innerText ="diving*"
+    document.getElementsByClassName("passing")[0].innerText ="handling*"
+    document.getElementsByClassName("dribbling")[0].innerText ="kicking*"
+    document.getElementsByClassName("defending")[0].innerText ="reflexes*"
+    document.getElementsByClassName("physical")[0].innerText ="speed*"
+    afficheJoueurs(rating)
+  }else{
+    document.getElementsByClassName("pace")[0].innerText ="Vitesse(PAC)*"
+    document.getElementsByClassName("shooting")[0].innerText ="divingTir(SHO)*"
+    document.getElementsByClassName("passing")[0].innerText ="Passes(PAS)*"
+    document.getElementsByClassName("dribbling")[0].innerText ="Dribble(DRI)*"
+    document.getElementsByClassName("defending")[0].innerText ="Défense(DEF)*"
+    document.getElementsByClassName("physical")[0].innerText ="Physique(PHY)*"
+  }
+
+}
+
+function afficheJoueurs(ratin) {
 
 
-function afficheJoueurs() {
 
-  
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
 
@@ -205,7 +224,7 @@ function afficheJoueurs() {
                   <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.flag}</div>
-                      <div class="font-light">PAC</div>
+                      <div class="font-light">${ratin}</div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling
@@ -246,10 +265,10 @@ function afficheJoueurs() {
 </div>
  </div>
          `;
-    } else{
-     
+    } else {
 
-      container.innerHTML+=`
+
+      container.innerHTML += `
       
           <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
             class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
@@ -350,3 +369,6 @@ afficheJoueurs();
 //     }
 //   });
 // }
+
+
+

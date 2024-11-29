@@ -13,7 +13,7 @@
   <title>FUT Champions Web App Ultimate Team</title>
 </head>
 
-<body class="h-[1000vh]">
+<body class="h-[100vh]">
 
 
 
@@ -421,7 +421,7 @@
           <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
           
           <input 
-          onchange="myFunction()"
+          onchange="changer_lesstats(this.value)"
             type="text" 
             id="position" 
             list="positions" 
@@ -467,42 +467,42 @@
 
          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           <div>
-            <label for="pace" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
+            <label  for="pace" class="pace block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
               (PAC)*</label>
             <input type="number" id="pace" value="97"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Ex: 97">
           </div>
           <div>
-            <label for="shooting" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
+            <label for="shooting" class="shooting  block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
               (SHO)*</label>
             <input type="number" id="shooting" value="95"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Ex: 95">
           </div>
           <div>
-            <label for="passing" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
+            <label for="passing" class="passing block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
               (PAS)*</label>
             <input type="number" id="passing" value="94"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              class=" w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Ex: 94">
           </div>
           <div>
-            <label for="dribbling" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
+            <label for="dribbling" class="dribbling  block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
               (DRI)*</label>
             <input type="number" id="dribbling" value="99"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Ex: 99">
           </div>
           <div>
-            <label for="defending" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
+            <label for="defending" class="defending block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
               (DEF)*</label>
             <input type="number" id="defending" value="35"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               placeholder="Ex: 35">
           </div>
           <div>
-            <label for="physical" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
+            <label for="physical" class=" physical block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
               (PHY)*</label>
             <input type="number" id="physical" value="86"
               class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
@@ -519,7 +519,7 @@
 </section>
 
   <div id="Photo_du_Joueur"
-      class="hidden  items-center gap-8 h-[580px]  max-w-[200px] justify-center fixed top-[160%] left-[50%]   lg:top-[10%] lg:left-[80%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
+      class="hidden  items-center gap-8 h-[580px]  max-w-[200px] justify-center fixed top-[10%] left-[80%] lg:top-[10%] lg:left-[80%] z-20 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-xl overflow-x-auto">
 
     </div>
 
