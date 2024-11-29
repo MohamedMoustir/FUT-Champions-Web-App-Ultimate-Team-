@@ -172,6 +172,7 @@ function slideRighe() {
   carousel_cards.scrollLeft += 500
 }
 
+let ratin = document.getElementsByClassName("pace")[0]
 
 function changer_lesstats(position) {
   if (position === "player-GK") {
@@ -181,7 +182,7 @@ function changer_lesstats(position) {
     document.getElementsByClassName("dribbling")[0].innerText ="kicking*"
     document.getElementsByClassName("defending")[0].innerText ="reflexes*"
     document.getElementsByClassName("physical")[0].innerText ="speed*"
-    afficheJoueurs(rating)
+    afficheJoueurs(ratin)
   }else{
     document.getElementsByClassName("pace")[0].innerText ="Vitesse(PAC)*"
     document.getElementsByClassName("shooting")[0].innerText ="divingTir(SHO)*"
@@ -193,7 +194,7 @@ function changer_lesstats(position) {
 
 }
 
-function afficheJoueurs(ratin) {
+function afficheJoueurs() {
 
 
 
