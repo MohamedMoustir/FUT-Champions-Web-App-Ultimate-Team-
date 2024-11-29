@@ -96,8 +96,11 @@ function ajoutePlayers(positio) {
     const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isclupValid = validateInput(clup.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isPaceValid = validateInput(pace.value, /^\d{1,2}$/);
+    const isPosition = validateInput(position.value, /^player-\w{2}$/);
 
-    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid ) {
+
+
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || isclupValid || isphotosrcValid ) {
       Photo_du_Joueur.classList.remove("hidden")
       document.getElementById("pop_up_ajoute").classList.remove("hidden")
       clearFields()
@@ -395,7 +398,7 @@ function update(i) {
       <h1
        `
   }
-  
+
 }
 
 
@@ -417,19 +420,12 @@ function removePlayer(i) {
 afficheJoueurs();
 
 
-function Calcul_de_la_Chimie() {
-  let a = 0;
-  tablue_players.forEach(player => {
-    if (player.nationality === nationality.value) {
-      console.log(++a);
+// function Calcul_de_la_Chimie() {
+//   let a = 0;
+//   tablue_players.forEach(player => {
+//     if (player.nationality === nationality.value) {
+//       console.log(++a);
 
-    }
-  });
-}
-
-
-
-Calcul_de_la_Chimie()
-
-
-
+//     }
+//   });
+// }
