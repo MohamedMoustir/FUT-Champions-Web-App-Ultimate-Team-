@@ -3,6 +3,7 @@ let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
 let Position = document.getElementById("Position");
 let nationality = document.getElementById("nationality");
+let nationalitytext = document.getElementById('flag');
 let pace = document.getElementById("pace")
 let shooting = document.getElementById("shooting")
 let passing = document.getElementById("passing")
@@ -11,9 +12,11 @@ let defending = document.getElementById("defending")
 let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
 let mood = true;
-let tablue_players = JSON.parse(localStorage.getItem("players")) || []
+let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
+
+
 
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
@@ -30,27 +33,31 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
       photoContainer.innerHTML += `
         <img 
-          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes)" 
+          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes ,this.class)" 
           src="${src.photo}" 
           alt="${src.name}" 
           id="${src.logo}" 
           name="${src.flag}"
+          sizes ="${src.nationality}"
+          
          >
       `;
-
-
+      
 
     });
   })
   .catch(error => console.error(error));
 
 
-function getSrc(src, alt, id, name) {
+function getSrc(src, alt, id, name,sizes,position) {
   photosrc.value = src;
   playerName.value = alt;
   nationality.value = name;
+  clup.value = id;
+  nationalitytext.value = sizes;
 
-  clup.value = id
+  console.log(position)
+  
 
 }
 
@@ -110,6 +117,7 @@ function ajoutePlayers(positio) {
         photo: photosrc.value,
         position: position.value,
         nationality: nationality.value,
+        nationalitytext: nationalitytext.value,
         flag: shooting.value,
         club: clup.value,
         passing: passing.value,
@@ -132,7 +140,7 @@ function ajoutePlayers(positio) {
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-        // Calcul_de_la_Chimie()
+       
 
         document.getElementById("Success_alert").classList.toggle("hidden")
         setTimeout(() => {
@@ -200,7 +208,6 @@ function afficheJoueurs() {
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
-
     if (container) {
       container.innerHTML = `
             <div class="relative flex px-3  text-[#e9cc74]">
@@ -225,7 +232,7 @@ function afficheJoueurs() {
                   <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.flag}</div>
-                      <div class="font-light">${ratin}</div>
+                      <div class="font-light"></div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling
@@ -280,13 +287,13 @@ function afficheJoueurs() {
     
           `
     }
-
+     Calcul_de_la_Chimie(player)
   });
+ 
 }
 
 
 function update(i) {
-
 
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   Photo_du_Joueur.classList.toggle("hidden")
@@ -306,7 +313,7 @@ function update(i) {
     dribbling.value = player.dribbling
     defending.value = player.defending
     physical.value = player.physical
-    document.getElementById("btnajout").innerText = "update"
+    document.getElementById("btnajout").innerText = "update";
   }
 
   document.getElementById("btnajout").onclick = function () {
@@ -335,8 +342,6 @@ function update(i) {
           d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
           stroke="currentColor" stroke-width="1.5" fill="none" />
       </svg>
-
-      
        `
   }
 
@@ -344,7 +349,7 @@ function update(i) {
 
 
 function removePlayer(i) {
-  tablue_players = tablue_players.filter(filter => filter.position !== i)
+  tablue_players = tablue_players.filter(filter => filter.position !==i)
 
   localStorage.setItem("players", JSON.stringify(tablue_players));
   const container = document.getElementById(i);
@@ -361,15 +366,14 @@ function removePlayer(i) {
 afficheJoueurs();
 
 
-// function Calcul_de_la_Chimie() {
-//   let a = 0;
-//   tablue_players.forEach(player => {
-//     if (player.nationality === nationality.value) {
-//       console.log(++a);
+function Calcul_de_la_Chimie(player) {
 
-//     }
-//   });
-// }
-
+  let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length
+ console.log(player.nationalitytext ,count*1);
+ 
+  
+  
+}
 
 
+Calcul_de_la_Chimie()
