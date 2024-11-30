@@ -205,7 +205,7 @@ background: rgb(43, 41, 41);
 
 
 /* pop up */
- .notifications{
+  .notifications{
   position: fixed;
   top: 30px;
   right: 20px;
@@ -271,8 +271,12 @@ background: rgb(43, 41, 41);
       width: 0;
   }
 }
-.alert_Danger{
- 
+.toast.error{
+  --color: #f24d4c;
+  background-image: 
+      linear-gradient(
+          to right, #f24d4c55, #22242F 30%
+      );
 }
 .toast.warning{
   --color: #e9bd0c;
@@ -286,5 +290,5 @@ background: rgb(43, 41, 41);
   background-image: 
       linear-gradient(
           to right, #3498db55, #22242F 30%
-      );
+      )
 }

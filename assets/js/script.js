@@ -21,6 +21,7 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
+    
     const photoContainer = document.getElementById("Photo_du_Joueur");
     let ALphoto = data.players;
     ALphoto.forEach(src => {
@@ -31,23 +32,21 @@ fetch("https://mohamedmoustir.github.io/api.p/")
               alt="${src.name}" 
               style="cursor: pointer; width: 120px; margin: 10px;">
           `;
-          
-    });
-    
-  })
-  
-  .catch(error => console.error(error));
 
-function showPlayerInfo(photo, name, flag, logo, nationalityt,position_get) {
- 
+    });
+
+  }).catch(error => console.error(error));
+
+function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get) {
+
   photosrc.value = photo;
   playerName.value = name;
   nationality.value = flag;
   clup.value = logo;
   nationalitytext.value = nationalityt;
- position.value = position_get;
- nam(position_get)
- 
+  position.value = position_get;
+  nam(position_get)
+
 }
 
 function setFormation(p) {
@@ -71,16 +70,17 @@ document.getElementById("closeButton").onclick = function () {
 
 }
 
+// 
 // open modle form
 function ajoutePlayers(positio) {
 
-
+  document.getElementById("studiom").style.filter = "blur(4px)"
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
-    nam()
+
 
     // rejex
     const validateInput = (input, regex) => regex.test(input);
@@ -96,8 +96,12 @@ function ajoutePlayers(positio) {
     if (!isPlayerNameValid || !isNationalityValid || !isPaceValid) {
       Photo_du_Joueur.classList.remove("hidden")
       document.getElementById("pop_up_ajoute").classList.remove("hidden")
+      document.getElementById("studiom").style.filter = "blur(0)"
+
     } else {
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+      document.getElementById("studiom").style.filter = "blur(0)"
+
       Photo_du_Joueur.classList.toggle("hidden")
       let id = 1
       let players = {
@@ -119,8 +123,12 @@ function ajoutePlayers(positio) {
 
       if (found_position || namePlayer) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
+        document.getElementById("studiom").style.filter = "blur(0)"
+
         setTimeout(() => {
           document.getElementById("alert_Danger").classList.toggle("hidden")
+          document.getElementById("studiom").style.filter = "blur(0)"
+
         }, 5000)
       }
       else {
@@ -129,7 +137,7 @@ function ajoutePlayers(positio) {
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-      
+
 
         document.getElementById("Success_alert").classList.toggle("hidden")
         setTimeout(() => {
@@ -173,20 +181,20 @@ let ratin = document.getElementsByClassName("pace")[0]
 
 function changer_lesstats(position) {
   if (position === "player-GK") {
-    let ratin = document.getElementsByClassName("pace")[0].innerText ="rating*"
-    document.getElementsByClassName("shooting")[0].innerText ="diving*"
-    document.getElementsByClassName("passing")[0].innerText ="handling*"
-    document.getElementsByClassName("dribbling")[0].innerText ="kicking*"
-    document.getElementsByClassName("defending")[0].innerText ="reflexes*"
-    document.getElementsByClassName("physical")[0].innerText ="speed*"
+    let ratin = document.getElementsByClassName("pace")[0].innerText = "rating*"
+    document.getElementsByClassName("shooting")[0].innerText = "diving*"
+    document.getElementsByClassName("passing")[0].innerText = "handling*"
+    document.getElementsByClassName("dribbling")[0].innerText = "kicking*"
+    document.getElementsByClassName("defending")[0].innerText = "reflexes*"
+    document.getElementsByClassName("physical")[0].innerText = "speed*"
     afficheJoueurs(ratin)
-  }else{
-    document.getElementsByClassName("pace")[0].innerText ="Vitesse(PAC)*"
-    document.getElementsByClassName("shooting")[0].innerText ="divingTir(SHO)*"
-    document.getElementsByClassName("passing")[0].innerText ="Passes(PAS)*"
-    document.getElementsByClassName("dribbling")[0].innerText ="Dribble(DRI)*"
-    document.getElementsByClassName("defending")[0].innerText ="Défense(DEF)*"
-    document.getElementsByClassName("physical")[0].innerText ="Physique(PHY)*"
+  } else {
+    document.getElementsByClassName("pace")[0].innerText = "Vitesse(PAC)*"
+    document.getElementsByClassName("shooting")[0].innerText = "divingTir(SHO)*"
+    document.getElementsByClassName("passing")[0].innerText = "Passes(PAS)*"
+    document.getElementsByClassName("dribbling")[0].innerText = "Dribble(DRI)*"
+    document.getElementsByClassName("defending")[0].innerText = "Défense(DEF)*"
+    document.getElementsByClassName("physical")[0].innerText = "Physique(PHY)*"
   }
 
 }
@@ -276,9 +284,9 @@ function afficheJoueurs() {
     
           `
     }
-     Calcul_de_la_Chimie(player)
+    Calcul_de_la_Chimie(player)
   });
- 
+
 }
 
 
@@ -331,15 +339,14 @@ function update(i) {
     }
   }
 
- 
-   
-  
+
+
+
 }
 
 
 function removePlayer(i) {
-  tablue_players = tablue_players.filter(filter => filter.position !==i)
-
+  tablue_players = tablue_players.filter(filter => filter.position !== i)
   localStorage.setItem("players", JSON.stringify(tablue_players));
   const container = document.getElementById(i);
 
@@ -358,16 +365,16 @@ afficheJoueurs();
 function Calcul_de_la_Chimie(player) {
 
   let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length;
-  let somme =0;
-  somme += count*1
+  let somme = 0;
+  somme += count * 1
   console.log(somme);
-  
+
 }
 
 function nam(position_get) {
   if (position.value === position_get) {
     console.log("yess");
-     
-   }
+
+  }
 }
 

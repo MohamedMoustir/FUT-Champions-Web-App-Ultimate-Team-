@@ -16,51 +16,59 @@
 <body class="h-[100vh] max-w-[100%]">
 
 
-  <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+  <nav class=" bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
         <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo">
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
-    </a>
-    <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button onclick="ajoutePlayers()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button>
-        <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+      </a>
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <button onclick="ajoutePlayers()" type="button"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get
+          started</button>
+        <button data-collapse-toggle="navbar-sticky" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-sticky" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
           </svg>
-      </button>
-    </div>
-    <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page">Home</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-        </li>
-      </ul>
-    </div>
+        </button>
+      </div>
+      <div class=" items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+        <ul
+          class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+              aria-current="page">Home</a>
+          </li>
+          <li>
+            <select onclick="setFormation(this.value)" id="player-positions">
+              <a href="#" id="about-link"
+                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                <option value="">Reserve</option>
+                <option onclick="setFormation('4141')" value="4141">4141</option>
+                <option onclick="setFormation('433')" value="433">433</option>
+            </select>
+            </a>
+
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+          </li>
+          <li>
+            <a href="#"
+              class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-  
 
 
-
-  <div class="fixed z-19 top-1 right-4 z-50">
-    <button class=" text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all"
-      onclick="setFormation('4141')">4-1-4-1</button>
-    <button class="text-white bg-blue-500 hover:bg-green-800 font-semibold p-4 rounded-md shadow-lg transition-all"
-      onclick="setFormation('433')">4-3-3</button>
-   
-
-  </div>
 
 
   <div id="formationPreview" class="mt-8 flex flex-col items-center gap-4">
@@ -308,93 +316,130 @@
     </div>
 
 
-<section class="hidden flex text-white flex-col px-4 py-5 bg-slate-600 rounded-md shadow-md fixed w-[90%] md:max-w-[500px] md:min-w-[300px] top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-10" id="pop_up_ajoute">
-  <button type="button" id="closeButton">
-    <img src="./assets/imgs/close.png" alt="close" class="w-[30px] h-[30px] absolute right-4 top-2">
-  </button>
-  <h2 class="text-lg mx-auto font-bold text-white mb-3">Add Player</h2>
+    <section
+      class="hidden flex text-white flex-col px-4 py-5 bg-slate-600 rounded-md shadow-md absolute w-[90%]  md:max-w-[600px] md:min-w-[300px] top-[70%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-10"
+      id="pop_up_ajoute">
+      <button type="button" id="closeButton">
+        <!-- <img src="./assets/imgs/close.png" alt="close" class="w-[30px] h-[30px] absolute right-4 top-2"> -->
+      </button>
+      <h2 class="text-lg mx-auto font-bold text-white mb-3">Add Player</h2>
 
-  <form action="" class="flex flex-col space-y-6" id="add-player-form">
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-      <div>
-        <label for="playerName" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nom du Joueur</label>
-        <input type="text" id="playerName" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez le nom du joueur">
-      </div>
-      <div>
-        <label for="clup" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Club du Joueur</label>
-        <input type="text" id="clup" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Nom du club">
-      </div>
-    </div>
+      <form action="" class="flex flex-col space-y-6" id="add-player-form">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div>
+            <label for="playerName" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nom du
+              Joueur</label>
+            <input type="text" id="playerName"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Entrez le nom du joueur">
+          </div>
+          <div>
+            <label for="clup" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Club du Joueur</label>
+            <input type="text" id="clup"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Nom du club">
+          </div>
+        </div>
 
-    <div>
-      <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du Joueur</label>
-      <input onchange="changer_lesstats(this.value)" type="text" id="position" list="positions" class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Choisissez une position ou entrez une nouvelle" />
-      <datalist id="positions">
-        <option value="player-GK"></option>
-        <option value="player-CBL"></option>
-        <option value="player-CDM"></option>
-        <option value="player-LB"></option>
-        <option value="player-LM"></option>
-        <option value="player-LW"></option>
-        <option value="player-RB"></option>
-        <option value="player-ST"></option>
-        <option value="player-CBR"></option>
-        <option value="player-RW"></option>
-        <option value="chang_1"></option>
-        <option value="chang_2"></option>
-        <option value="chang_3"></option>
-        <option value="chang_4"></option>
-        <option value="chang_5"></option>
-      </datalist>
-    </div>
+        <div>
+          <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du
+            Joueur</label>
+          <input onchange="changer_lesstats(this.value)" type="text" id="position" list="positions"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            placeholder="Choisissez une position ou entrez une nouvelle" />
+          <datalist id="positions">
+            <option value="player-GK"></option>
+            <option value="player-CBL"></option>
+            <option value="player-CDM"></option>
+            <option value="player-LB"></option>
+            <option value="player-LM"></option>
+            <option value="player-LW"></option>
+            <option value="player-RB"></option>
+            <option value="player-ST"></option>
+            <option value="player-CBR"></option>
+            <option value="player-RW"></option>
+            <option value="chang_1"></option>
+            <option value="chang_2"></option>
+            <option value="chang_3"></option>
+            <option value="chang_4"></option>
+            <option value="chang_5"></option>
+          </datalist>
+        </div>
 
-    <div>
-      <label for="nationality" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
-      <input type="text" id="nationality" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez la nationalité (URL de l'image)">
-    </div>
+        <div>
+          <label for="nationality"
+            class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
+          <input type="text" id="nationality"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            placeholder="Entrez la nationalité (URL de l'image)">
+        </div>
 
-    <div>
-      <label for="flag" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Flag</label>
-      <input type="text" id="flag" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Entrez la nationalité">
-    </div>
+        <div>
+          <label for="flag" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Flag</label>
+          <input type="text" id="flag"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            placeholder="Entrez la nationalité">
+        </div>
 
-    <div>
-      <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du Joueur</label>
-      <input type="text" id="photosrc" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="URL de la photo du joueur">
-    </div>
+        <div>
+          <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du
+            Joueur</label>
+          <input type="text" id="photosrc"
+            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+            placeholder="URL de la photo du joueur">
+        </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-      <div>
-        <label for="pace" class="pace block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse (PAC)*</label>
-        <input type="number" id="pace" value="97" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 97">
-      </div>
-      <div>
-        <label for="shooting" class="shooting block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir (SHO)*</label>
-        <input type="number" id="shooting" value="95" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 95">
-      </div>
-      <div>
-        <label for="passing" class="passing block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes (PAS)*</label>
-        <input type="number" id="passing" value="94" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 94">
-      </div>
-      <div>
-        <label for="dribbling" class="dribbling block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble (DRI)*</label>
-        <input type="number" id="dribbling" value="99" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 99">
-      </div>
-      <div>
-        <label for="defending" class="defending block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense (DEF)*</label>
-        <input type="number" id="defending" value="35" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 35">
-      </div>
-      <div>
-        <label for="physical" class="physical block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique (PHY)*</label>
-        <input type="number" id="physical" value="86" class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900" placeholder="Ex: 68">
-      </div>
-    </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+          <div>
+            <label for="pace" class="pace block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
+              (PAC)*</label>
+            <input type="number" id="pace" value="97"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 97">
+          </div>
+          <div>
+            <label for="shooting" class="shooting block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
+              (SHO)*</label>
+            <input type="number" id="shooting" value="95"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 95">
+          </div>
+          <div>
+            <label for="passing" class="passing block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
+              (PAS)*</label>
+            <input type="number" id="passing" value="94"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 94">
+          </div>
+          <div>
+            <label for="dribbling" class="dribbling block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
+              (DRI)*</label>
+            <input type="number" id="dribbling" value="99"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 99">
+          </div>
+          <div>
+            <label for="defending" class="defending block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
+              (DEF)*</label>
+            <input type="number" id="defending" value="35"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 35">
+          </div>
+          <div>
+            <label for="physical" class="physical block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
+              (PHY)*</label>
+            <input type="number" id="physical" value="86"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Ex: 68">
+          </div>
+        </div>
 
-    <div class="text-center">
-      <button type="button" id="btnajout" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 my-4 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
-    </div>
-  </form>
-</section>
+        <div class="text-center">
+          <button type="button" id="btnajout"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 my-4 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
+        </div>
+      </form>
+    </section>
 
 
     <div id="Photo_du_Joueur"
@@ -417,29 +462,27 @@
 
 
       <!-- alert -->
-      <div id="alert_Danger"
-        class=" hidden fixed top-8 left-[80%] -translate-x-1/2  z-50 flex w-[30%] "
-        role="alert">
-        <div class="toast Error" style=" --color: #f24d4c; background-image: linear-gradient(to right, #f24d4c55, #22242F 30%);">
+      <div id="alert_Danger" class=" hidden fixed top-8 left-[80%] -translate-x-1/2  z-50 flex w-[30%] " role="alert">
+        <div class="toast Error"
+          style=" --color: #f24d4c; background-image: linear-gradient(to right, #f24d4c55, #22242F 30%);">
           <i class="fa-solid fa-circle-check"></i>
           <div class="content">
-              <div class="title">Info</div>
-              <span> Position or name player is already occupied</span>
+            <div class="title">Info</div>
+            <span> Position or name player is already occupied</span>
           </div>
           <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-      </div>
+        </div>
 
-      <div id="Success_alert"
-        class="hidden fixed z-50 top-8 left-[80%] -translate-x-1/2  items-center p-4 mb-4 text-sm"
-        role="alert">
-        <div class="toast Info">
-          <i class="fa-solid fa-circle-check"></i>
-          <div class="content">
+        <div id="Success_alert"
+          class="hidden fixed z-50 top-8 left-[80%] -translate-x-1/2  items-center p-4 mb-4 text-sm" role="alert">
+          <div class="toast Info">
+            <i class="fa-solid fa-circle-check"></i>
+            <div class="content">
               <div class="title">Success</div>
               <span>This is a success toast.</span>
-          </div>
-          <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
-      </div>;
+            </div>
+            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+          </div>;
         </div>
       </div>
 
@@ -520,9 +563,9 @@
       </div>
 
 
-  
-          
-      </body>
+
+
+    </body>
   </section>
 </body>
 <script src="./assets/js/script.js"></script>
