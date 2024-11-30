@@ -21,7 +21,6 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
-    
     const photoContainer = document.getElementById("Photo_du_Joueur");
     let ALphoto = data.players;
     ALphoto.forEach(src => {
@@ -92,16 +91,22 @@ function ajoutePlayers(positio) {
     const isPosition = validateInput(position.value, /^player-\w{2}$/);
 
 
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid || !isPosition) {
 
-    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid) {
-      Photo_du_Joueur.classList.remove("hidden")
-      document.getElementById("pop_up_ajoute").classList.remove("hidden")
-      document.getElementById("studiom").style.filter = "blur(0)"
-
+      document.getElementById("alert_Danger").classList.toggle("hidden")
+      setTimeout(() => {
+        document.getElementById("alert_Danger").classList.toggle("hidden")
+      
+      }, 5000)
     } else {
+
+      document.getElementById("Success_alert").classList.toggle("hidden")
+      setTimeout(() => {
+        document.getElementById("Success_alert").classList.toggle("hidden")
+      }, 5000)
+
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       document.getElementById("studiom").style.filter = "blur(0)"
-
       Photo_du_Joueur.classList.toggle("hidden")
       let id = 1
       let players = {
@@ -137,13 +142,6 @@ function ajoutePlayers(positio) {
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-
-
-        document.getElementById("Success_alert").classList.toggle("hidden")
-        setTimeout(() => {
-          document.getElementById("Success_alert").classList.toggle("hidden")
-        }, 5000)
-
       }
 
 
