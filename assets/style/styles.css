@@ -19,7 +19,7 @@ background: rgb(43, 41, 41);
 
 }
 #studiom {
-  background-image: url(../img/Container.png);
+  /* background-image: url(../img/Container.png);: */
   background-repeat: no-repeat;
   background-size: cover; 
   height: 150vh;
@@ -71,8 +71,8 @@ background: rgb(43, 41, 41);
   }
   
 
-  #studiom {
-    background-image: url(../img/Container.png);
+  studiom {
+    /* background-image: url(../img/Container.png); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 150vh;
@@ -100,14 +100,14 @@ background: rgb(43, 41, 41);
 
     
 
-  }
+  /* }
+
   #studiom {
-    background-image: url(../img/Container.png);
+    background-image: url(https://www.futbin.com/design2/img/static/field-bg.svg);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 150vh;
-    width: 200%;
-    position: relative;
-    background-position: right;
+    /* height: 150vh;
+    /* width: 200%; 
+   
   }
-    
+     

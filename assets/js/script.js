@@ -21,44 +21,33 @@ let carousel_cards = document.getElementById('carousel-cards');
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
-
+    const photoContainer = document.getElementById("Photo_du_Joueur");
     let ALphoto = data.players;
-
     ALphoto.forEach(src => {
-      const photoContainer = document.getElementById("Photo_du_Joueur");
-      if (!photoContainer) {
-        console.error(" Photo_du_Joueur")
-        return
-      }
-
       photoContainer.innerHTML += `
-        <img 
-          onclick="getSrc(this.src, this.alt, this.id, this.name, this.sizes ,this.class)" 
-          src="${src.photo}" 
-          alt="${src.name}" 
-          id="${src.logo}" 
-          name="${src.flag}"
-          sizes ="${src.nationality}"
+            <img 
+              onclick="showPlayerInfo('${src.photo}', '${src.name}', '${src.flag}', '${src.logo}', '${src.nationality}','${src.position}')" 
+              src="${src.photo}" 
+              alt="${src.name}" 
+              style="cursor: pointer; width: 120px; margin: 10px;">
+          `;
           
-         >
-      `;
-      
-
     });
+    
   })
+  
   .catch(error => console.error(error));
 
-
-function getSrc(src, alt, id, name,sizes,position) {
-  photosrc.value = src;
-  playerName.value = alt;
-  nationality.value = name;
-  clup.value = id;
-  nationalitytext.value = sizes;
-
-  console.log(position)
-  
-
+function showPlayerInfo(photo, name, flag, logo, nationalityt,position_get) {
+ 
+  photosrc.value = photo;
+  playerName.value = name;
+  nationality.value = flag;
+  clup.value = logo;
+  nationalitytext.value = nationalityt;
+ position.value = position_get;
+ nam(position_get)
+ 
 }
 
 function setFormation(p) {
@@ -91,7 +80,7 @@ function ajoutePlayers(positio) {
 
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
-
+    nam()
 
     // rejex
     const validateInput = (input, regex) => regex.test(input);
@@ -140,7 +129,7 @@ function ajoutePlayers(positio) {
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-       
+      
 
         document.getElementById("Success_alert").classList.toggle("hidden")
         setTimeout(() => {
@@ -213,7 +202,7 @@ function afficheJoueurs() {
             <div class="relative flex px-3  text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
                 <div class="text-base player-rating"></div>
-                <div class="text-xs player-position"><span>${player.position.slice(7)}</span></div>
+                <div class="text-xs player-position" ><span>${player.position.slice(7)}</span></div>
                 <div class="block w-[1.2rem] h-[12px] my-1 player-nation">
                   <img src="${player.nationality}" alt="Nationalité" class="w-full h-full object-contain"/>
                 </div>
@@ -226,7 +215,7 @@ function afficheJoueurs() {
               </div>
             </div>
             <div class="relative">
-              <div class="block px-1 text-[#e9cc74] w-[80%] mx-auto">
+              <div class="block  px-1 text-[#e9cc74] w-[80%] mx-auto">
                 <div class="block text-center text-base uppercase pb-1">${player.name.slice(0, 11)}</div>
                 <div class="flex justify-center my-1 player-features">
                   <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
@@ -334,15 +323,7 @@ function update(i) {
     clearFields();
     document.getElementById("pop_up_ajoute").classList.toggle("hidden");
     Photo_du_Joueur.classList.toggle("hidden");
-    container.innerHTML = `
-  
-      <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg"
-        class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-        <path
-          d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z"
-          stroke="currentColor" stroke-width="1.5" fill="none" />
-      </svg>
-       `
+    
   }
 
 }
@@ -368,12 +349,16 @@ afficheJoueurs();
 
 function Calcul_de_la_Chimie(player) {
 
-  let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length
- console.log(player.nationalitytext ,count*1);
- 
-  
+  let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length;
+  let somme =0;
+  somme += count*1
+  console.log(somme);
   
 }
 
-
-Calcul_de_la_Chimie()
+function nam(position_get) {
+  if (position.value === position_get) {
+    console.log("yess");
+     
+   }
+}
