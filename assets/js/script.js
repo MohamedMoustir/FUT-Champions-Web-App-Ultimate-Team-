@@ -215,10 +215,10 @@ function afficheJoueurs() {
               </div>
             </div>
             <div class="relative">
-              <div class="block  px-1 text-[#e9cc74] w-[80%] mx-auto">
+              <div class="block px-1 text-[#e9cc74] w-[80%] mx-auto">
                 <div class="block text-center text-base uppercase pb-1">${player.name.slice(0, 11)}</div>
                 <div class="flex justify-center my-1 player-features">
-                  <div class="items-center border-r border-opacity-10 border-[#e9cc74] px-2">
+                  <div class="items-center relative bottom-[11px]  border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.flag}</div>
                       <div class="font-light"></div>
@@ -233,7 +233,7 @@ function afficheJoueurs() {
                       <div class="font-light">PAS</div>
                     </span>
                   </div>
-                  <div class="items-center px-2">
+                  <div class="items-center relative bottom-[11px] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling}</div>
                       <div class="font-light">DRI</div>

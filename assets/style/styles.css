@@ -19,7 +19,6 @@ background: rgb(43, 41, 41);
 
 }
 #studiom {
-  /* background-image: url(../img/Container.png);: */
   background-repeat: no-repeat;
   background-size: cover; 
   height: 150vh;
@@ -72,7 +71,6 @@ background: rgb(43, 41, 41);
   
 
   studiom {
-    /* background-image: url(../img/Container.png); */
     background-repeat: no-repeat;
     background-size: cover;
     height: 150vh;
@@ -99,15 +97,85 @@ background: rgb(43, 41, 41);
 
 
     
-
-  /* }
-
-  #studiom {
-    background-image: url(https://www.futbin.com/design2/img/static/field-bg.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    /* height: 150vh;
-    /* width: 200%; 
-   
   }
-     
+   
+
+@media (max-width: 360px) {
+  
+  #ST {
+    left: -31px;
+    top: 130px;
+  }
+
+  #CM {
+    gap: 80px;
+    left: -30px;
+    top: -50px;
+  }
+
+  #RM_RL, #LB_RB {
+    gap: 100px;
+    left: -40px;
+    top: -50px;
+  }
+#CDM{
+  left: -22px;
+    top: -350px;
+}
+  .btnCB {
+    width: 120px;
+    height: 120px;
+    top: 100px;
+  }
+#LB_RB{
+  gap: 10px;
+    left: 10px;
+    top: -100px;
+    
+}
+  h1 {
+    font-size: 12px;
+    bottom: -20px;
+    width: 50px;
+    height: 25px;
+  }
+ 
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #ST {
+    flex-direction: row;
+    left: 0;
+    top: -50px;
+  
+    font-size: 14px;
+  }
+
+  #CM {
+    flex-direction: row;
+    gap: 20px; 
+    top: -150px;
+    font-size: 12px;
+  }
+
+  .btnCB {
+    width: 150px; 
+    height: 150px;
+    top: 0;
+    font-size: 12px; 
+  }
+
+  h1 {
+    font-size: 12px; 
+    bottom: -25px;
+    width: 50px; 
+    height: 25px;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
