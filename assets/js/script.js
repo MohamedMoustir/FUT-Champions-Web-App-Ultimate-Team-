@@ -286,7 +286,9 @@ function afficheJoueurs() {
     </svg>
   </div>
 </div>
- </div>
+ 
+</div>
+
          `;
       Calcul_de_la_Chimie(player)
     } else {
