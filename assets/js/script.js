@@ -160,8 +160,7 @@ shooting.removeAttribute("disabled");
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-      nam(position_get)
-
+  
       }
 
 
@@ -270,7 +269,7 @@ function afficheJoueurs() {
                       <div class="font-light">${stats.passing}</div>
                     </span>
                   </div>
-                  
+
                   <div class="items-center relative bottom-[11px] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling}</div>
@@ -301,7 +300,7 @@ function afficheJoueurs() {
 </div>
 
          `;
-      Calcul_de_la_Chimie(player)
+     
     } else {
 
 
@@ -403,38 +402,3 @@ function removePlayer(i) {
 }
 
 afficheJoueurs();
-
-function Calcul_de_la_Chimie(player){
-
-  let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length;
-  let somme = 0;
-  somme += count * 1
-
-  console.log(somme);
-
-  document.getElementById("flagg").innerHTML += `
-      <div class="text-center">
-        <img src="${player.nationality}" alt="Flag" /><br>
-        <span class="font-bold"></span>
-      </div>
-    `
-
-}
-
-
-
-
-
-
-function nam(position_get) {
-  let somme =100
-  if (position.value === position_get) {
-   somme +=10
-  }else{
-   somme -=10
-    
-  }
-  console.log(somme);
-  
-}
-
