@@ -72,7 +72,7 @@ document.getElementById("closeButton").onclick = function () {
 // open navbar
 // document.getElementById("closemenu").onclick = function () {
 //   document.getElementById("menu").classList.toggle("hidden")
-  
+
 
 // }
 
@@ -101,7 +101,7 @@ function ajoutePlayers(positio) {
       document.getElementById("alert_Danger").classList.toggle("hidden")
       setTimeout(() => {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-      
+
       }, 5000)
     } else {
 
@@ -133,11 +133,11 @@ function ajoutePlayers(positio) {
 
       if (found_position || namePlayer) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-        
+
 
         setTimeout(() => {
           document.getElementById("alert_Danger").classList.toggle("hidden")
-      
+
 
         }, 5000)
       }
@@ -183,6 +183,7 @@ function slideRighe() {
 let ratin = document.getElementsByClassName("pace")[0]
 
 function changer_lesstats(position) {
+
   if (position === "player-GK") {
     let ratin = document.getElementsByClassName("pace")[0].innerText = "rating*"
     document.getElementsByClassName("shooting")[0].innerText = "diving*"
@@ -190,7 +191,7 @@ function changer_lesstats(position) {
     document.getElementsByClassName("dribbling")[0].innerText = "kicking*"
     document.getElementsByClassName("defending")[0].innerText = "reflexes*"
     document.getElementsByClassName("physical")[0].innerText = "speed*"
-   
+    
   } else {
     document.getElementsByClassName("pace")[0].innerText = "Vitesse(PAC)*"
     document.getElementsByClassName("shooting")[0].innerText = "divingTir(SHO)*"
@@ -209,7 +210,20 @@ function afficheJoueurs() {
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
     if (container) {
+
+
+      const isGK = player.position === "player-GK";
+      const stats = {
+        pace: isGK ? "RAT" : "PAC",
+        shooting: isGK ? "DIV" : "SHO",
+        passing: isGK ? "HAN" : "PAS",
+        dribbling: isGK ? "KIC" : "DRI",
+        defending: isGK ? "REF" : "DEF",
+        physical: isGK ? "SPD" : "PHY"
+      };
+
       container.innerHTML = `
+            
             <div class="relative flex px-3  text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
                 <div class="text-base player-rating"></div>
@@ -232,30 +246,30 @@ function afficheJoueurs() {
                   <div class="items-center relative bottom-[11px]  border-r border-opacity-10 border-[#e9cc74] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.flag}</div>
-                      <div class="font-light"></div>
+                      <div class="font-light">${stats.pace}</div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling
         }</div>
-                      <div class="font-light">SHO</div>
+                      <div class="font-light">${stats.shooting}</div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.passing}</div>
-                      <div class="font-light">PAS</div>
+                      <div class="font-light">${stats.passing}</div>
                     </span>
                   </div>
                   <div class="items-center relative bottom-[11px] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling}</div>
-                      <div class="font-light">DRI</div>
+                      <div class="font-light">${stats.dribbling}</div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.defending}</div>
-                      <div class="font-light">DEF</div>
+                      <div class="font-light">${stats.defending}</div>
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.physical}</div>
-                      <div class="font-light">${ratin.textContent}</div>
+                      <div class="font-light">${stats.physical}</div>
                     </span>
                   </div>
                 </div>
@@ -273,6 +287,7 @@ function afficheJoueurs() {
 </div>
  </div>
          `;
+      Calcul_de_la_Chimie(player)
     } else {
 
 
@@ -287,7 +302,7 @@ function afficheJoueurs() {
     
           `
     }
-    Calcul_de_la_Chimie(player)
+
   });
 
 }
@@ -341,7 +356,7 @@ function update(i) {
     document.getElementById("pop_up_ajoute").classList.toggle("hidden");
     Photo_du_Joueur.classList.toggle("hidden");
 
-    if (container || !player.position) {
+    if (container && !player.position) {
       container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
               <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
             <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
@@ -361,7 +376,7 @@ function removePlayer(i) {
   const container = document.getElementById(i);
 
   if (container) {
-    container.innerHTML =` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+    container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
           <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${i.slice(7)}</h1>
           </svg> `;
@@ -379,19 +394,19 @@ function Calcul_de_la_Chimie(player) {
   somme += count * 1
 
   console.log(somme);
-  
-     document.getElementById("flagg").innerHTML += `
+
+  document.getElementById("flagg").innerHTML += `
       <div class="text-center">
         <img src="${player.nationality}" alt="Flag" /><br>
         <span class="font-bold"></span>
       </div>
     `
-   
+
 }
 
-  
-    
- 
+
+
+
 
 
 function nam(position_get) {
