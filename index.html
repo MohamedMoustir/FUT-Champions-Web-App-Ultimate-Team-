@@ -13,7 +13,7 @@
   <title>FUT Champions Web App Ultimate Team</title>
 </head>
 
-<body id="menu" class="h-[100vh] max-w-[100%]">
+<body id="" class="h-[100vh] max-w-[100%]">
   <nav class=" bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -21,10 +21,9 @@
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SPORT</span>
       </a>
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button  type="button"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajoute</button>
+
         <button id="closemenu" data-collapse-toggle="navbar-sticky" type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-sticky" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -33,7 +32,7 @@
           </svg>
         </button>
       </div>
-      <div class=" items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+      <div class="menu items-center justify-between hidden lg:hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
         <ul
           class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
           <li>
@@ -119,8 +118,8 @@
               
             </div>
             <h1
-                class="absolute w-[70px] h-[30px] bottom-[-170px] bg-[#1e1d1d] left-[33%] transform -translate-x-1/2 text-center text-white rounded-full">
-                CM</h1>
+                class="roundone absolute w-[70px] h-[30px] bottom-[-170px] bg-[#1e1d1d] left-[33%] transform -translate-x-1/2 text-center text-white rounded-full">
+                LW</h1>
             <div
               class="btnCB relative top-[150px]  h-[240px] bg-cover bg-center bg-none p-4 z-[2] transition ease-in duration-200"
               style="background-image: url('https://assets.fut.gg/frontend/assets/card-empty-bg-25.2.-CHha6vD_.png');"
@@ -137,7 +136,7 @@
              
             </div>
             <h1
-            class="absolute w-[70px] h-[30px] bottom-[-170px] bg-[#1e1d1d] left-[67%] transform -translate-x-1/2 text-center text-white rounded-full">
+            class="round absolute w-[70px] h-[30px] bottom-[-170px] bg-[#1e1d1d] left-[67%] transform -translate-x-1/2 text-center text-white rounded-full">
             RW</h1>
           </div>
 
@@ -178,8 +177,8 @@
                 <!-- Optionally, you can add a label showing the position -->
                 
               </div>
-              <h1
-                  class="absolute w-[70px] h-[30px] bottom-[-180px] bg-[#1e1d1d] left-[71%] transform -translate-x-1/2 text-center text-white rounded-full">
+              <h1 id="rom"
+                  class=" absolute w-[70px] h-[30px] bottom-[-180px] bg-[#1e1d1d] left-[71%] transform -translate-x-1/2 text-center text-white rounded-full">
                   RL</h1>
             </div>
 
@@ -245,10 +244,11 @@
               </svg>
 
               <!-- Optionally, you can add a label showing the position -->
-              <h1
-                class="absolute w-[70px] h-[30px] bottom-[-28px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-                RB</h1>
+              
             </div>
+            <h1
+                class="absolute w-[70px] h-[30px] bottom-[-168px] bg-[#1e1d1d] left-[79%] transform -translate-x-1/2 text-center text-white rounded-full">
+                RB</h1>
           </div>
 
         </div>
@@ -284,10 +284,11 @@
             </svg>
 
             <!-- Optionally, you can add a label showing the position -->
-            <h1
-              class="absolute  w-[70px] h-[30px] bottom-[-22px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">
-              CBR</h1>
+           
           </div>
+          <h1
+          class="absolute  w-[70px] h-[30px] bottom-[-182px] bg-[#1e1d1d] left-[61%] transform -translate-x-1/2 text-center text-white rounded-full">
+          CBR</h1>
         </div>
         <div id="GK" class="flex justify-center -left-[7%]  relative -top-[800px] gap-[280px]">
           <div
@@ -571,7 +572,7 @@
 
 
     <!-- Sidebar card with specific height and width -->
-    <div class="w-80 p-6 bg-gray-800 text-white rounded-lg shadow-lg absolute top-72 right-8">
+    <div id="menu" class="lg:block hidden  w-80 p-6 bg-gray-800 text-white rounded-lg shadow-lg absolute top-72 right-8 absolute z-50 lg:z-10">
       <div class="text-center">
         <button class="w-full bg-green-500 text-white py-2 rounded-lg text-lg" onclick="ajoutePlayers()">Add Player</button>
       </div>

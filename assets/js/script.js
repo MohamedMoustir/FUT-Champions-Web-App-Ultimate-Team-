@@ -53,11 +53,16 @@ function setFormation(p) {
     document.getElementById("CDM").classList.add("-top-[330px]");
     document.getElementById("CM").classList.add("-top-[80px]", "gap-[100px]");
     document.getElementById("GK").classList.add("-top-[800px]");
+    document.getElementsByClassName("round")[0].classList.add("left-[58%]");
+    document.getElementsByClassName("roundone")[0].classList.add("left-[42%]");
 
+  
   } else {
     document.getElementById("CM").scrollBehavior = "smooth"
     document.getElementById("CDM").classList.remove("-top-[330px]");
     document.getElementById("CM").classList.remove("-top-[80px]", "gap-[100px]");
+    document.getElementsByClassName("round")[0].classList.remove("left-[58%]");
+    document.getElementsByClassName("roundone")[0].classList.remove("left-[42%]");
   }
 
 }
@@ -70,22 +75,31 @@ document.getElementById("closeButton").onclick = function () {
 }
 
 // open navbar
-// document.getElementById("closemenu").onclick = function () {
-//   document.getElementById("menu").classList.toggle("hidden")
+document.getElementById("closemenu").onclick = function () {
+  document.getElementById("menu").classList.toggle("hidden")
 
-
-// }
+}
 
 // open modle form
 function ajoutePlayers(positio) {
 
-  document.getElementById("studiom").style.filter = "blur(4px)"
+ 
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
+  playerName.setAttribute("disabled", true);
+  clup.setAttribute("disabled", true);
+  nationality.setAttribute("disabled", true);
+  photosrc.setAttribute("disabled", true);
+  nationalitytext.setAttribute("disabled", true);
+  passing.setAttribute("disabled", true);
+  dribbling.setAttribute("disabled", true);
+  defending.setAttribute("disabled", true);
+  physical.setAttribute("disabled", true);
+  pace.setAttribute("disabled", true);
+  shooting.setAttribute("disabled", true);
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
-
 
     // rejex
     const validateInput = (input, regex) => regex.test(input);
@@ -105,13 +119,9 @@ function ajoutePlayers(positio) {
       }, 5000)
     } else {
 
-      document.getElementById("Success_alert").classList.toggle("hidden")
-      setTimeout(() => {
-        document.getElementById("Success_alert").classList.toggle("hidden")
-      }, 5000)
+     
 
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
-      document.getElementById("studiom").style.filter = "blur(0)"
       Photo_du_Joueur.classList.toggle("hidden")
       let id = 1
       let players = {
@@ -325,6 +335,13 @@ function update(i) {
     nationality.setAttribute("disabled", false);
     photosrc.setAttribute("disabled", false);
     nationalitytext.setAttribute("disabled", false);
+    passing.setAttribute("disabled", false);
+    dribbling.setAttribute("disabled", false);
+    defending.setAttribute("disabled", false);
+    physical.setAttribute("disabled", false);
+    pace.setAttribute("disabled", false);
+    shooting.setAttribute("disabled", false);
+    
 
     playerName.value = player.name;
     photosrc.value = player.photo;
@@ -341,17 +358,9 @@ function update(i) {
   }
 
   document.getElementById("btnajout").onclick = function () {
-    player.name = playerName.value;
-    player.photo = photosrc.value;
+ 
     player.position = position.value;
-    player.nationality = nationality.value;
-    player.flag = shooting.value;
-    player.club = clup.value;
-    player.passing = passing.value;
-    player.dribbling = dribbling.value;
-    player.defending = defending.value;
-    player.physical = physical.value;
-    player.pace = nationalitytext.value
+    
     container.innerHTML = ""
     afficheJoueurs();
     localStorage.setItem("players", JSON.stringify(tablue_players));
@@ -363,6 +372,12 @@ function update(i) {
       container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
               <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
             </svg> `;
+            
+      document.getElementById("Success_alert").classList.toggle("hidden")
+      setTimeout(() => {
+        document.getElementById("Success_alert").classList.toggle("hidden")
+
+      }, 5000)
     }
   }
 
