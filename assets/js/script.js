@@ -88,10 +88,9 @@ function ajoutePlayers(positio) {
     const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isclupValid = validateInput(clup.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isPaceValid = validateInput(pace.value, /^\d{1,2}$/);
-    const isPosition = validateInput(position.value, /^player-\w{2}$/);
+    const isPosition = validateInput(position.value, /^\w+\w{2}$/);
 
-
-    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid || !isPosition) {
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid) {
 
       document.getElementById("alert_Danger").classList.toggle("hidden")
       setTimeout(() => {
@@ -128,11 +127,11 @@ function ajoutePlayers(positio) {
 
       if (found_position || namePlayer) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-        document.getElementById("studiom").style.filter = "blur(0)"
+        
 
         setTimeout(() => {
           document.getElementById("alert_Danger").classList.toggle("hidden")
-          document.getElementById("studiom").style.filter = "blur(0)"
+      
 
         }, 5000)
       }
@@ -297,6 +296,11 @@ function update(i) {
   const container = document.getElementById(player.position);
 
   if (player.id) {
+    playerName.setAttribute("disabled", false);
+    clup.setAttribute("disabled", false);
+    nationality.setAttribute("disabled", false);
+    photosrc.setAttribute("disabled", false);
+    nationalitytext.setAttribute("disabled", false);
 
     playerName.value = player.name;
     photosrc.value = player.photo;
@@ -308,11 +312,11 @@ function update(i) {
     dribbling.value = player.dribbling
     defending.value = player.defending
     physical.value = player.physical
+    nationalitytext.value = player.pace
     document.getElementById("btnajout").innerText = "update";
   }
 
   document.getElementById("btnajout").onclick = function () {
-
     player.name = playerName.value;
     player.photo = photosrc.value;
     player.position = position.value;
@@ -323,13 +327,15 @@ function update(i) {
     player.dribbling = dribbling.value;
     player.defending = defending.value;
     player.physical = physical.value;
+    player.pace = nationalitytext.value
     container.innerHTML = ""
     afficheJoueurs();
     localStorage.setItem("players", JSON.stringify(tablue_players));
     clearFields();
     document.getElementById("pop_up_ajoute").classList.toggle("hidden");
     Photo_du_Joueur.classList.toggle("hidden");
-    if (container) {
+
+    if (container && !player.position) {
       container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
               <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
             <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${player.position.slice(7)}</h1>
@@ -351,7 +357,7 @@ function removePlayer(i) {
   if (container) {
     container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full"></h1>
+          <h1 class="absolute w-[70px] h-[30px] bottom-[-30px] bg-[#1e1d1d] left-1/2 transform -translate-x-1/2 text-center text-white rounded-full">${i.slice(7)}</h1>
           </svg> `;
   }
 

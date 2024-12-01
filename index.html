@@ -340,29 +340,29 @@
         </div>
 
         <div>
-          <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Position du
-            Joueur</label>
-          <input onchange="changer_lesstats(this.value)" type="text" id="position" list="positions"
-            class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            placeholder="Choisissez une position ou entrez une nouvelle" />
-          <datalist id="positions">
-            <option value="player-GK"></option>
-            <option value="player-CBL"></option>
-            <option value="player-CDM"></option>
-            <option value="player-LB"></option>
-            <option value="player-LM"></option>
-            <option value="player-LW"></option>
-            <option value="player-RB"></option>
-            <option value="player-ST"></option>
-            <option value="player-CBR"></option>
-            <option value="player-RW"></option>
-            <option value="chang_1"></option>
-            <option value="chang_2"></option>
-            <option value="chang_3"></option>
-            <option value="chang_4"></option>
-            <option value="chang_5"></option>
-          </datalist>
-        </div>
+          <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">
+  Position du Joueur
+</label>
+<select onchange="changer_lesstats(this.value)" id="position" 
+        class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+  <option value="" disabled selected>Choisissez une position</option>
+  <option value="player-GK">Gardien (GK)</option>
+  <option value="player-CBL">Défenseur Central Gauche (CBL)</option>
+  <option value="player-CDM">Milieu Défensif Central (CDM)</option>
+  <option value="player-LB">Arrière Gauche (LB)</option>
+  <option value="player-LM">Milieu Gauche (LM)</option>
+  <option value="player-LW">Ailier Gauche (LW)</option>
+  <option value="player-RB">Arrière Droit (RB)</option>
+  <option value="player-ST">Attaquant (ST)</option>
+  <option value="player-CBR">Défenseur Central Droit (CBR)</option>
+  <option value="player-RW">Ailier Droit (RW)</option>
+  <option value="chang_1">Option supplémentaire 1</option>
+  <option value="chang_2">Option supplémentaire 2</option>
+  <option value="chang_3">Option supplémentaire 3</option>
+  <option value="chang_4">Option supplémentaire 4</option>
+  <option value="chang_5">Option supplémentaire 5</option>
+</select>
+
 
         <div>
           <label for="nationality"
