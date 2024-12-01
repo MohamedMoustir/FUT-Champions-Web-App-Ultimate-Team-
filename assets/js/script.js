@@ -377,9 +377,22 @@ function Calcul_de_la_Chimie(player) {
   let count = tablue_players.filter(p => p.nationalitytext === player.nationalitytext).length;
   let somme = 0;
   somme += count * 1
-  console.log(somme);
 
+  console.log(somme);
+  
+     document.getElementById("flagg").innerHTML += `
+      <div class="text-center">
+        <img src="${player.nationality}" alt="Flag" /><br>
+        <span class="font-bold"></span>
+      </div>
+    `
+   
 }
+
+  
+    
+ 
+
 
 function nam(position_get) {
   if (position.value === position_get) {

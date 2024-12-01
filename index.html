@@ -21,7 +21,7 @@
         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SPORT</span>
       </a>
       <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-        <button onclick="ajoutePlayers()" type="button"
+        <button  type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ajoute</button>
         <button id="closemenu" data-collapse-toggle="navbar-sticky" type="button"
           class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -42,14 +42,7 @@
               aria-current="page">Home</a>
           </li>
           <li>
-            <select onclick="setFormation(this.value)" id="player-positions">
-              <a href="#" id="about-link"
-                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                <option value="">Reserve</option>
-                <option onclick="setFormation('4141')" value="4141">4141</option>
-                <option onclick="setFormation('433')" value="433">433</option>
-
-            </select>
+           
             </a>
 
           </li>
@@ -317,8 +310,8 @@
     <section
       class="hidden flex text-white flex-col px-4 py-5 bg-slate-600 rounded-md shadow-md absolute w-[90%]  md:max-w-[600px] md:min-w-[300px] top-[70%] translate-y-[-50%] left-[50%] translate-x-[-50%] z-10"
       id="pop_up_ajoute">
- 
-        <button id="closeButton" class="w-[30px] h-[30px] absolute right-4 top-2 bg-blue-600">X</button>
+
+      <button id="closeButton" class="w-[30px] h-[30px] absolute right-4 top-2 bg-blue-600">X</button>
 
       <h2 class="text-lg mx-auto font-bold text-white mb-3">Add Player</h2>
 
@@ -341,101 +334,104 @@
 
         <div>
           <label for="position" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">
-  Position du Joueur
-</label>
-<select  id="position"  onchange="changer_lesstats(this.value)" 
-        class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-  <option value="" disabled selected>Choisissez une position</option>
-  <option value="player-GK">Gardien (GK)</option>
-  <option value="player-CBL">Défenseur Central Gauche (CBL)</option>
-  <option value="player-CDM">Milieu Défensif Central (CDM)</option>
-  <option value="player-LB">Arrière Gauche (LB)</option>
-  <option value="player-LM">Milieu Gauche (LM)</option>
-  <option value="player-LW">Ailier Gauche (LW)</option>
-  <option value="player-RB">Arrière Droit (RB)</option>
-  <option value="player-ST">Attaquant (ST)</option>
-  <option value="player-CBR">Défenseur Central Droit (CBR)</option>
-  <option value="player-RW">Ailier Droit (RW)</option>
-  <option value="chang_1">Option supplémentaire 1</option>
-  <option value="chang_2">Option supplémentaire 2</option>
-  <option value="chang_3">Option supplémentaire 3</option>
-  <option value="chang_4">Option supplémentaire 4</option>
-  <option value="chang_5">Option supplémentaire 5</option>
-</select>
+            Position du Joueur
+          </label>
+          <select id="position" onchange="changer_lesstats(this.value)"
+            class="w-full px-3 py-2 border border-gray-300 rounded-md text-black text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+            <option value="" disabled selected>Choisissez une position</option>
+            <option value="player-GK">Gardien (GK)</option>
+            <option value="player-CBL">Défenseur Central Gauche (CBL)</option>
+            <option value="player-CDM">Milieu Défensif Central (CDM)</option>
+            <option value="player-LB">Arrière Gauche (LB)</option>
+            <option value="player-LM">Milieu Gauche (LM)</option>
+            <option value="player-LW">Ailier Gauche (LW)</option>
+            <option value="player-RB">Arrière Droit (RB)</option>
+            <option value="player-ST">Attaquant (ST)</option>
+            <option value="player-CBR">Défenseur Central Droit (CBR)</option>
+            <option value="player-RW">Ailier Droit (RW)</option>
+            <option value="chang_1">Option supplémentaire 1</option>
+            <option value="chang_2">Option supplémentaire 2</option>
+            <option value="chang_3">Option supplémentaire 3</option>
+            <option value="chang_4">Option supplémentaire 4</option>
+            <option value="chang_5">Option supplémentaire 5</option>
+          </select>
 
 
-        <div>
-          <label for="nationality"
-            class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
-          <input type="text" id="nationality"
-            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-            placeholder="Entrez la nationalité (URL de l'image)">
-        </div>
+          <div>
+            <label for="nationality"
+              class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Nationalité</label>
+            <input type="text" id="nationality"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Entrez la nationalité (URL de l'image)">
+          </div>
 
-        <div>
-          <label for="flag" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Flag</label>
-          <input type="text" id="flag"
-            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-            placeholder="Entrez la nationalité">
-        </div>
+          <div>
+            <label for="flag" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Flag</label>
+            <input type="text" id="flag"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="Entrez la nationalité">
+          </div>
 
-        <div>
-          <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du
-            Joueur</label>
-          <input type="text" id="photosrc"
-            class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-            placeholder="URL de la photo du joueur">
-        </div>
+          <div>
+            <label for="photosrc" class="block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Photo du
+              Joueur</label>
+            <input type="text" id="photosrc"
+              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+              placeholder="URL de la photo du joueur">
+          </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          <div>
-            <label for="pace" class="pace block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
-              (PAC)*</label>
-            <input type="number" id="pace" value="97"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 97">
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+            <div>
+              <label for="pace" class="pace block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Vitesse
+                (PAC)*</label>
+              <input type="number" id="pace" value="97"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 97">
+            </div>
+            <div>
+              <label for="shooting" class="shooting block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
+                (SHO)*</label>
+              <input type="number" id="shooting" value="95"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 95">
+            </div>
+            <div>
+              <label for="passing" class="passing block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
+                (PAS)*</label>
+              <input type="number" id="passing" value="94"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 94">
+            </div>
+            <div>
+              <label for="dribbling"
+                class="dribbling block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
+                (DRI)*</label>
+              <input type="number" id="dribbling" value="99"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 99">
+            </div>
+            <div>
+              <label for="defending"
+                class="defending block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
+                (DEF)*</label>
+              <input type="number" id="defending" value="35"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 35">
+            </div>
+            <div>
+              <label for="physical"
+                class="physical block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
+                (PHY)*</label>
+              <input type="number" id="physical" value="86"
+                class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
+                placeholder="Ex: 68">
+            </div>
           </div>
-          <div>
-            <label for="shooting" class="shooting block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Tir
-              (SHO)*</label>
-            <input type="number" id="shooting" value="95"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 95">
-          </div>
-          <div>
-            <label for="passing" class="passing block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Passes
-              (PAS)*</label>
-            <input type="number" id="passing" value="94"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 94">
-          </div>
-          <div>
-            <label for="dribbling" class="dribbling block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Dribble
-              (DRI)*</label>
-            <input type="number" id="dribbling" value="99"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 99">
-          </div>
-          <div>
-            <label for="defending" class="defending block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Défense
-              (DEF)*</label>
-            <input type="number" id="defending" value="35"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 35">
-          </div>
-          <div>
-            <label for="physical" class="physical block text-gray-200 font-semibold mb-2 text-sm sm:text-base">Physique
-              (PHY)*</label>
-            <input type="number" id="physical" value="86"
-              class="w-full px-3 py-2 sm:px-4 sm:py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
-              placeholder="Ex: 68">
-          </div>
-        </div>
 
-        <div class="text-center">
-          <button type="button" id="btnajout"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 my-4 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
-        </div>
+          <div class="text-center">
+            <button type="button" id="btnajout"
+              class="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 my-4 py-3 rounded-lg transition-colors duration-300">Ajouter</button>
+          </div>
       </form>
     </section>
 
@@ -471,17 +467,17 @@
           <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         </div>
       </div>
-      <div id="Success_alert"
-          class="hidden fixed z-50 top-8 left-[80%] -translate-x-1/2  items-center p-4 mb-4 text-sm" role="alert">
-          <div class="toast Info">
-            <i class="fa-solid fa-circle-check"></i>
-            <div class="content">
-              <div class="title">Success</div>
-              <span>This is a success toast.</span>
-            </div>
-            <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
+      <div id="Success_alert" class="hidden fixed z-50 top-8 left-[80%] -translate-x-1/2  items-center p-4 mb-4 text-sm"
+        role="alert">
+        <div class="toast Info">
+          <i class="fa-solid fa-circle-check"></i>
+          <div class="content">
+            <div class="title">Success</div>
+            <span>This is a success toast.</span>
           </div>
+          <i class="fa-solid fa-xmark" onclick="(this.parentElement).remove()"></i>
         </div>
+      </div>
 
 
 
@@ -563,7 +559,49 @@
 
 
     </body>
+
+
+
+    <!-- Sidebar card with specific height and width -->
+    <div class="w-80 p-6 bg-gray-800 text-white rounded-lg shadow-lg absolute top-72 right-8">
+      <div class="text-center">
+        <button class="w-full bg-green-500 text-white py-2 rounded-lg text-lg" onclick="ajoutePlayers()">Add Player</button>
+      </div>
+    
+      <div class="mt-6 ">
+        <label for="squad" class="block text-sm" >Change Squad</label>
+        <select id="squad" onclick="setFormation(this.value)"  class="w-full bg-gray-700 text-white p-2 rounded-lg mt-2">
+          <option value="433" onclick="setFormation('433')">4-3-3</option>
+          <option value="4141" onclick="setFormation('4141')">4-1-4-1</option>
+        
+        </select>
+      </div>
+    
+      <div class="mt-6">
+        <div id="flagg" class="grid grid-cols-3 gap-4">
+          
+ 
+            
+     
+      </div>
+    
+      <div class="mt-6">
+        <label for="chemistry" class="block text-sm">Total Chemistry</label>
+        <input type="range" id="chemistry" min="0" max="100" value="92" class="w-full mt-2 rounded-lg h-2 bg-gradient-to-r from-green-400 via-yellow-400 to-red-500">
+        <div class="flex justify-between mt-2 text-sm">
+          <span>0</span><span>92/100</span><span>100</span>
+        </div>
+      </div>
+    
+      <div class="mt-6 text-center">
+        <span class="text-xl">Price: 20,000,000,000€</span>
+      </div>
+    </div>
+    
   </section>
+
+
+
 </body>
 <script src="./assets/js/script.js"></script>
 
