@@ -80,27 +80,30 @@ document.getElementById("closemenu").onclick = function () {
 
 }
 
+
 // open modle form
 function ajoutePlayers(positio) {
-
+ 
+  playerName.removeAttribute("disabled");
+clup.removeAttribute("disabled");
+nationality.removeAttribute("disabled");
+photosrc.removeAttribute("disabled");
+nationalitytext.removeAttribute("disabled");
+passing.removeAttribute("disabled");
+dribbling.removeAttribute("disabled");
+defending.removeAttribute("disabled");
+physical.removeAttribute("disabled");
+pace.removeAttribute("disabled");
+shooting.removeAttribute("disabled");
  
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
-  playerName.setAttribute("disabled", true);
-  clup.setAttribute("disabled", true);
-  nationality.setAttribute("disabled", true);
-  photosrc.setAttribute("disabled", true);
-  nationalitytext.setAttribute("disabled", true);
-  passing.setAttribute("disabled", true);
-  dribbling.setAttribute("disabled", true);
-  defending.setAttribute("disabled", true);
-  physical.setAttribute("disabled", true);
-  pace.setAttribute("disabled", true);
-  shooting.setAttribute("disabled", true);
+
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
 
+   
     // rejex
     const validateInput = (input, regex) => regex.test(input);
     const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,20}/);
@@ -170,7 +173,6 @@ function clearFields() {
   playerName.value = "";
   photosrc.value = "";
   position.value = "";
-  // Position.value = "";
   nationality.value = "";
   pace.value = "";
   shooting.value = "";
@@ -223,7 +225,6 @@ function afficheJoueurs() {
     const container = document.getElementById(player.position);
     if (container) {
 
-
       const isGK = player.position === "player-GK";
       const stats = {
         pace: isGK ? "RAT" : "PAC",
@@ -235,7 +236,6 @@ function afficheJoueurs() {
       };
 
       container.innerHTML = `
-            
             <div class="relative flex px-3  text-[#e9cc74]">
               <div class="absolute leading-[1.5rem] font-light uppercase py-2 overflow-hidden">
                 <div class="text-base player-rating"></div>
@@ -330,17 +330,18 @@ function update(i) {
   const container = document.getElementById(player.position);
 
   if (player.id) {
-    playerName.setAttribute("disabled", false);
-    clup.setAttribute("disabled", false);
-    nationality.setAttribute("disabled", false);
-    photosrc.setAttribute("disabled", false);
-    nationalitytext.setAttribute("disabled", false);
-    passing.setAttribute("disabled", false);
-    dribbling.setAttribute("disabled", false);
-    defending.setAttribute("disabled", false);
-    physical.setAttribute("disabled", false);
-    pace.setAttribute("disabled", false);
-    shooting.setAttribute("disabled", false);
+ 
+    playerName.setAttribute("disabled", true);
+    clup.setAttribute("disabled", true);
+    nationality.setAttribute("disabled", true);
+    photosrc.setAttribute("disabled", true);
+    nationalitytext.setAttribute("disabled", true);
+    passing.setAttribute("disabled", true);
+    dribbling.setAttribute("disabled", true);
+    defending.setAttribute("disabled", true);
+    physical.setAttribute("disabled", true);
+    pace.setAttribute("disabled", true);
+    shooting.setAttribute("disabled", true);
     
 
     playerName.value = player.name;
@@ -401,7 +402,6 @@ function removePlayer(i) {
 }
 
 afficheJoueurs();
-
 
 function Calcul_de_la_Chimie(player){
 
