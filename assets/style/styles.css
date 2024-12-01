@@ -95,7 +95,62 @@ background: rgb(43, 41, 41);
   
   @media screen and (max-width: 768px) {
 
-
+    #studiom {
+      background-image: url(https://www.futbin.com/design2/img/static/field-bg.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 150vh;
+      width: 100%;
+      position: relative;
+      background-position: center;
+  }
+  
+    #ST {
+      left: -11px;
+      top: 300px;
+    }
+  
+    #CM {
+      gap: 204px;
+      left: -10px;
+      top: 200px;
+    }
+  
+    #RM_RL, #LB_RB {
+      gap: 200px;
+      left: -8px;
+      top: 240px;
+    }
+  #CDM{
+    left: -8px;
+    top: 120px;
+  }
+    /* .btnCB {
+      width: 190px;
+      height: 120px;
+      top: 230px;
+    } */
+  #LB_RB{
+     gap: 380px;
+      left: -4px;
+      top: 200px;
+  }
+  #GK{
+    left: -1px;
+      top: 90px; 
+  }
+  #player-CBB{
+    gap: 100px;
+      left: -0px;
+      top:50px;
+      
+  }
+    
+    #changmont{
+      left:5px;
+      top:-100%
+    }
+  
     
   }
   
@@ -165,7 +220,7 @@ background: rgb(43, 41, 41);
 }
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+/* @media (min-width: 768px) and (max-width: 1024px) {
   #ST {
     flex-direction: row;
     left: 0;
@@ -194,7 +249,7 @@ background: rgb(43, 41, 41);
     width: 50px; 
     height: 25px;
   }
-}
+} */
 
 .container {
   display: grid;

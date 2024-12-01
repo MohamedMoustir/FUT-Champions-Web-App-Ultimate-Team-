@@ -69,7 +69,13 @@ document.getElementById("closeButton").onclick = function () {
 
 }
 
-// 
+// open navbar
+// document.getElementById("closemenu").onclick = function () {
+//   document.getElementById("menu").classList.toggle("hidden")
+  
+
+// }
+
 // open modle form
 function ajoutePlayers(positio) {
 
@@ -184,7 +190,7 @@ function changer_lesstats(position) {
     document.getElementsByClassName("dribbling")[0].innerText = "kicking*"
     document.getElementsByClassName("defending")[0].innerText = "reflexes*"
     document.getElementsByClassName("physical")[0].innerText = "speed*"
-    afficheJoueurs(ratin)
+   
   } else {
     document.getElementsByClassName("pace")[0].innerText = "Vitesse(PAC)*"
     document.getElementsByClassName("shooting")[0].innerText = "divingTir(SHO)*"
@@ -249,7 +255,7 @@ function afficheJoueurs() {
                     </span>
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.physical}</div>
-                      <div class="font-light">PHY</div>
+                      <div class="font-light">${ratin.textContent}</div>
                     </span>
                   </div>
                 </div>
