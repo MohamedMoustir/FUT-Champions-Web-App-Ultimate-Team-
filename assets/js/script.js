@@ -270,6 +270,7 @@ function afficheJoueurs() {
                       <div class="font-light">${stats.passing}</div>
                     </span>
                   </div>
+                  
                   <div class="items-center relative bottom-[11px] px-2">
                     <span class="flex text-xs uppercase">
                       <div class="mr-1 font-bold">${player.dribbling}</div>
