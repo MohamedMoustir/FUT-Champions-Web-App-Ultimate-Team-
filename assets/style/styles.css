@@ -150,8 +150,7 @@ background: rgb(43, 41, 41);
       left:5px;
       top:-100%
     }
-  
-    
+   
   }
   
   
@@ -220,36 +219,7 @@ background: rgb(43, 41, 41);
 }
 
 
-/* @media (min-width: 768px) and (max-width: 1024px) {
-  #ST {
-    flex-direction: row;
-    left: 0;
-    top: -50px;
-  
-    font-size: 14px;
-  }
 
-  #CM {
-    flex-direction: row;
-    gap: 20px; 
-    top: -150px;
-    font-size: 12px;
-  }
-
-  .btnCB {
-    width: 150px; 
-    height: 150px;
-    top: 0;
-    font-size: 12px; 
-  }
-
-  h1 {
-    font-size: 12px; 
-    bottom: -25px;
-    width: 50px; 
-    height: 25px;
-  }
-} */
 
 .container {
   display: grid;

@@ -16,8 +16,6 @@ let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
 
-
-
 fetch("https://mohamedmoustir.github.io/api.p/")
   .then(result => result.json())
   .then(function (data) {
@@ -44,7 +42,7 @@ function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get) {
   clup.value = logo;
   nationalitytext.value = nationalityt;
   position.value = position_get;
-  nam(position_get)
+ 
 
 }
 
@@ -111,9 +109,9 @@ shooting.removeAttribute("disabled");
     const isNationalityValid = validateInput(nationality.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isclupValid = validateInput(clup.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isPaceValid = validateInput(pace.value, /^\d{1,2}$/);
-    const isPosition = validateInput(position.value, /^\w+\w{2}$/);
 
-    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid) {
+
+    if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid || !isclupValid) {
 
       document.getElementById("alert_Danger").classList.toggle("hidden")
       setTimeout(() => {
@@ -126,7 +124,7 @@ shooting.removeAttribute("disabled");
 
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       Photo_du_Joueur.classList.toggle("hidden")
-      let id = 1
+ 
       let players = {
         id: Math.random() * 100,
         name: playerName.value,
@@ -141,26 +139,26 @@ shooting.removeAttribute("disabled");
         defending: defending.value,
         physical: physical.value
       }
+
       const found_position = tablue_players.some(element => element.position === position.value);
       const namePlayer = tablue_players.some(nam => nam.name === playerName.value);
 
       if (found_position || namePlayer) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-
-
         setTimeout(() => {
           document.getElementById("alert_Danger").classList.toggle("hidden")
-
-
         }, 5000)
-      }
-      else {
-
+      }else {
         tablue_players.push(players)
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-  
+        
+        document.getElementById("Success_alert").classList.toggle("hidden")
+      setTimeout(() => {
+        document.getElementById("Success_alert").classList.toggle("hidden")
+
+      }, 5000)
       }
 
 
@@ -182,23 +180,15 @@ function clearFields() {
   clup.value = "";
 }
 
-function slideLeft() {
-  carousel_cards.style.scrollBehavior = "smooth"
-  carousel_cards.scrollLeft -= 500
 
-}
 
-function slideRighe() {
-  carousel_cards.style.scrollBehavior = "smooth"
-  carousel_cards.scrollLeft += 500
-}
-
-let ratin = document.getElementsByClassName("pace")[0]
+// let ratin = document.getElementsByClassName("pace")[0]
 
 function changer_lesstats(position) {
 
   if (position === "player-GK") {
-    let ratin = document.getElementsByClassName("pace")[0].innerText = "rating*"
+
+     document.getElementsByClassName("pace")[0].innerText = "rating*"
     document.getElementsByClassName("shooting")[0].innerText = "diving*"
     document.getElementsByClassName("passing")[0].innerText = "handling*"
     document.getElementsByClassName("dribbling")[0].innerText = "kicking*"
@@ -217,8 +207,6 @@ function changer_lesstats(position) {
 }
 
 function afficheJoueurs() {
-
-
 
   tablue_players.forEach(player => {
     const container = document.getElementById(player.position);
@@ -302,7 +290,6 @@ function afficheJoueurs() {
          `;
      
     } else {
-
 
       container.innerHTML += `
       
