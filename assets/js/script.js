@@ -366,6 +366,7 @@ function update(i) {
         </svg>`;
 
     Photo_du_Joueur.classList.toggle("hidden")
+    
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   document.getElementById("Success_alert").classList.toggle("hidden")
   setTimeout(() => {
