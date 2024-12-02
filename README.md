@@ -2,9 +2,10 @@
 
 # **Gestion des Joueurs pour Équipe de Football**  
 Ce projet est une application web permettant de gérer les joueurs d'une équipe de football, y compris l'ajout, la modification, l'affichage, et la suppression de joueurs.  
-![Uploading Capture d'écran 2024-12-02 161711.png…]()
+
 
 ---
+![Capture d'écran 2024-12-02 161711](https://github.com/user-attachments/assets/c15d8024-5e16-4a5c-a96c-96ad9746e363)
 
 ## **Fonctionnalités** 
 
