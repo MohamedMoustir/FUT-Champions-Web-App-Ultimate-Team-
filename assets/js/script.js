@@ -1,7 +1,7 @@
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
-let Position = document.getElementById("Position");
+// let Position = document.getElementById("Position");
 let nationality = document.getElementById("nationality");
 let nationalitytext = document.getElementById('flag');
 let pace = document.getElementById("pace")
@@ -11,7 +11,6 @@ let dribbling = document.getElementById("dribbling")
 let defending = document.getElementById("defending")
 let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
-let mood = true;
 let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
@@ -24,7 +23,7 @@ fetch("https://mohamedmoustir.github.io/api.p/")
     ALphoto.forEach(src => {
       photoContainer.innerHTML += `
             <img 
-              onclick="showPlayerInfo('${src.photo}', '${src.name}', '${src.flag}', '${src.logo}', '${src.nationality}','${src.position}')" 
+              onclick="showPlayerInfo('${src.photo}', '${src.name}', '${src.flag}', '${src.logo}', '${src.nationality}','${src.position}',this)" 
               src="${src.photo}" 
               alt="${src.name}" 
               style="cursor: pointer; width: 120px; margin: 10px;">
@@ -34,15 +33,14 @@ fetch("https://mohamedmoustir.github.io/api.p/")
 
   }).catch(error => console.error(error));
 
-function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get) {
-
+function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get, targat) {
   photosrc.value = photo;
   playerName.value = name;
   nationality.value = flag;
   clup.value = logo;
   nationalitytext.value = nationalityt;
   position.value = position_get;
- 
+
 
 }
 
@@ -51,16 +49,15 @@ function setFormation(p) {
     document.getElementById("CDM").classList.add("-top-[330px]");
     document.getElementById("CM").classList.add("-top-[80px]", "gap-[100px]");
     document.getElementById("GK").classList.add("-top-[800px]");
-    document.getElementsByClassName("round")[0].classList.add("left-[58%]");
-    document.getElementsByClassName("roundone")[0].classList.add("left-[42%]");
+    document.getElementsByClassName("round")[0].classList.add("lg:left-[57%]");
+    document.getElementsByClassName("roundone")[0].classList.add("lg:left-[42%]");
 
-  
   } else {
     document.getElementById("CM").scrollBehavior = "smooth"
     document.getElementById("CDM").classList.remove("-top-[330px]");
     document.getElementById("CM").classList.remove("-top-[80px]", "gap-[100px]");
-    document.getElementsByClassName("round")[0].classList.remove("left-[58%]");
-    document.getElementsByClassName("roundone")[0].classList.remove("left-[42%]");
+    document.getElementsByClassName("round")[0].classList.remove("lg:left-[57%] ");
+    document.getElementsByClassName("roundone")[0].classList.remove("lg:left-[42%]");
   }
 
 }
@@ -81,19 +78,19 @@ document.getElementById("closemenu").onclick = function () {
 
 // open modle form
 function ajoutePlayers(positio) {
- 
+
   playerName.removeAttribute("disabled");
-clup.removeAttribute("disabled");
-nationality.removeAttribute("disabled");
-photosrc.removeAttribute("disabled");
-nationalitytext.removeAttribute("disabled");
-passing.removeAttribute("disabled");
-dribbling.removeAttribute("disabled");
-defending.removeAttribute("disabled");
-physical.removeAttribute("disabled");
-pace.removeAttribute("disabled");
-shooting.removeAttribute("disabled");
- 
+  clup.removeAttribute("disabled");
+  nationality.removeAttribute("disabled");
+  photosrc.removeAttribute("disabled");
+  nationalitytext.removeAttribute("disabled");
+  passing.removeAttribute("disabled");
+  dribbling.removeAttribute("disabled");
+  defending.removeAttribute("disabled");
+  physical.removeAttribute("disabled");
+  pace.removeAttribute("disabled");
+  shooting.removeAttribute("disabled");
+
   Photo_du_Joueur.classList.toggle("hidden")
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
@@ -101,7 +98,7 @@ shooting.removeAttribute("disabled");
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
 
-   
+
     // rejex
     const validateInput = (input, regex) => regex.test(input);
     const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,20}/);
@@ -120,11 +117,11 @@ shooting.removeAttribute("disabled");
       }, 5000)
     } else {
 
-     
+
 
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       Photo_du_Joueur.classList.toggle("hidden")
- 
+
       let players = {
         id: Math.random() * 100,
         name: playerName.value,
@@ -148,17 +145,18 @@ shooting.removeAttribute("disabled");
         setTimeout(() => {
           document.getElementById("alert_Danger").classList.toggle("hidden")
         }, 5000)
-      }else {
+      } else {
         tablue_players.push(players)
         localStorage.setItem("players", JSON.stringify(tablue_players));
         afficheJoueurs();
         clearFields();
-        
-        document.getElementById("Success_alert").classList.toggle("hidden")
-      setTimeout(() => {
-        document.getElementById("Success_alert").classList.toggle("hidden")
 
-      }, 5000)
+        document.getElementById("Success_alert").classList.toggle("hidden")
+        setTimeout(() => {
+          document.getElementById("Success_alert").classList.toggle("hidden")
+
+        }, 5000)
+
       }
 
 
@@ -172,29 +170,22 @@ function clearFields() {
   position.value = "";
   nationality.value = "";
   pace.value = "";
-  shooting.value = "";
-  passing.value = "";
-  dribbling.value = "";
-  defending.value = "";
-  physical.value = "";
-  clup.value = "";
 }
 
 
 
-// let ratin = document.getElementsByClassName("pace")[0]
 
 function changer_lesstats(position) {
 
   if (position === "player-GK") {
 
-     document.getElementsByClassName("pace")[0].innerText = "rating*"
+    document.getElementsByClassName("pace")[0].innerText = "rating*"
     document.getElementsByClassName("shooting")[0].innerText = "diving*"
     document.getElementsByClassName("passing")[0].innerText = "handling*"
     document.getElementsByClassName("dribbling")[0].innerText = "kicking*"
     document.getElementsByClassName("defending")[0].innerText = "reflexes*"
     document.getElementsByClassName("physical")[0].innerText = "speed*"
-    
+
   } else {
     document.getElementsByClassName("pace")[0].innerText = "Vitesse(PAC)*"
     document.getElementsByClassName("shooting")[0].innerText = "divingTir(SHO)*"
@@ -288,7 +279,7 @@ function afficheJoueurs() {
 </div>
 
          `;
-     
+
     } else {
 
       container.innerHTML += `
@@ -317,7 +308,7 @@ function update(i) {
   const container = document.getElementById(player.position);
 
   if (player.id) {
- 
+
     playerName.setAttribute("disabled", true);
     clup.setAttribute("disabled", true);
     nationality.setAttribute("disabled", true);
@@ -329,7 +320,7 @@ function update(i) {
     physical.setAttribute("disabled", true);
     pace.setAttribute("disabled", true);
     shooting.setAttribute("disabled", true);
-    
+
 
     playerName.value = player.name;
     photosrc.value = player.photo;
@@ -346,9 +337,9 @@ function update(i) {
   }
 
   document.getElementById("btnajout").onclick = function () {
- 
+
     player.position = position.value;
-    
+
     container.innerHTML = ""
     afficheJoueurs();
     localStorage.setItem("players", JSON.stringify(tablue_players));
@@ -360,7 +351,7 @@ function update(i) {
       container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
               <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
             </svg> `;
-            
+
       document.getElementById("Success_alert").classList.toggle("hidden")
       setTimeout(() => {
         document.getElementById("Success_alert").classList.toggle("hidden")
@@ -386,6 +377,20 @@ function removePlayer(i) {
           </svg> `;
   }
 
+}
+// let tempContent = document.createElement("div")
+// let tempContents = document.createElement("div")
+
+function swapContent(target1, target2) {
+  let tempContent = document.createElement('div');
+
+  tempContent.innerHTML = target1.innerHTML;
+
+  target1.innerHTML = target2.innerHTML;
+  target2.innerHTML = tempContent.innerHTML;
+
+  console.log("Content of target1: ", target1.innerHTML);
+  console.log("Content of target2: ", target2.innerHTML);
 }
 
 afficheJoueurs();
