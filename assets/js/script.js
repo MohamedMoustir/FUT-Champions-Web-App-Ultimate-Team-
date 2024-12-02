@@ -15,23 +15,31 @@ let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
 
-fetch("https://mohamedmoustir.github.io/api.p/")
-  .then(result => result.json())
-  .then(function (data) {
+
+async function fetchPlayers() {
+  try {
+    const response = await fetch("https://mohamedmoustir.github.io/api.p/");
+    const data = await response.json();
     const photoContainer = document.getElementById("Photo_du_Joueur");
     let ALphoto = data.players;
+    
     ALphoto.forEach(src => {
       photoContainer.innerHTML += `
-            <img 
-              onclick="showPlayerInfo('${src.photo}', '${src.name}', '${src.flag}', '${src.logo}', '${src.nationality}','${src.position}',this)" 
-              src="${src.photo}" 
-              alt="${src.name}" 
-              style="cursor: pointer; width: 120px; margin: 10px;">
-          `;
-
+        <img 
+          onclick="showPlayerInfo('${src.photo}', '${src.name}', '${src.flag}', '${src.logo}', '${src.nationality}', '${src.position}', this)" 
+          src="${src.photo}" 
+          alt="${src.name}" 
+          style="cursor: pointer; width: 120px; margin: 10px;">
+      `;
     });
+  } catch (error) {
+    console.error("An error occurred while fetching players:", error);
+  }
+}
 
-  }).catch(error => console.error(error));
+
+fetchPlayers();
+
 
 function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get, targat) {
   photosrc.value = photo;
@@ -98,7 +106,6 @@ function ajoutePlayers(positio) {
   // add data in local 
   document.getElementById("btnajout").onclick = function () {
 
-
     // rejex
     const validateInput = (input, regex) => regex.test(input);
     const isPlayerNameValid = validateInput(playerName.value, /^[a-zA-Z\s]{3,20}/);
@@ -113,10 +120,8 @@ function ajoutePlayers(positio) {
       document.getElementById("alert_Danger").classList.toggle("hidden")
       setTimeout(() => {
         document.getElementById("alert_Danger").classList.toggle("hidden")
-
       }, 5000)
     } else {
-
 
 
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
@@ -266,11 +271,11 @@ function afficheJoueurs() {
                 </div>
               </div>
           <div >
- <div id="btn" class="  absolute -top-[65%]  left-[100%] transform -translate-x-1/2 justify-between items-center mt-4 space-x-4 ">
-    <svg onclick="update(${player.id})" class="w-6 h-6 text-gray-300 hover:text-[#e9cc74] cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
+ <div id="btn" class="  absolute -top-[65%]  left-[120%] transform -translate-x-1/2 justify-between items-center mt-4 space-x-4 ">
+    <svg onclick="update(${player.id})" class="absolute right-2   w-6 h-6 text-gray-300 hover:text-[#e9cc74] cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
       <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
     </svg>
-    <svg onclick="removePlayer('${player.position}')" class="w-6 h-6 text-gray-300 hover:text-red-500 cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <svg onclick="removePlayer('${player.position}')" class="absolute right-2 top-8   w-6 h-6 text-gray-300 hover:text-red-500 cursor-pointer transition duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
       <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd"/>
     </svg>
   </div>
@@ -339,7 +344,8 @@ function update(i) {
   document.getElementById("btnajout").onclick = function () {
 
     player.position = position.value;
-
+    player.name= playerName.value;
+   
     container.innerHTML = ""
     afficheJoueurs();
     localStorage.setItem("players", JSON.stringify(tablue_players));
@@ -378,19 +384,50 @@ function removePlayer(i) {
   }
 
 }
-// let tempContent = document.createElement("div")
-// let tempContents = document.createElement("div")
 
-function swapContent(target1, target2) {
-  let tempContent = document.createElement('div');
 
-  tempContent.innerHTML = target1.innerHTML;
 
-  target1.innerHTML = target2.innerHTML;
-  target2.innerHTML = tempContent.innerHTML;
-
-  console.log("Content of target1: ", target1.innerHTML);
-  console.log("Content of target2: ", target2.innerHTML);
-}
 
 afficheJoueurs();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for (let i = 0; i < tablue_players.length - 1; i++) {
+//   for (let j = 0; j < tablue_players.length - 1 - i; j++) {
+//     if (tablue_players[j].id > (tablue_players[j + 1].id) ) {
+//       let temp = tablue_players[j];
+//       tablue_players[j] = tablue_players[j + 1];
+//       tablue_players[j + 1] = temp;
+//     }
+//   }
+// }
+
+// for (let i = 0; i < tablue_players.length; i++) {
+//   console.log(tablue_players[i].name);
+//   console.log(tablue_players[i].id);
+// }
