@@ -10,9 +10,9 @@ let dribbling = document.getElementById("dribbling")
 let defending = document.getElementById("defending")
 let physical = document.getElementById("physical")
 let clup = document.getElementById("clup")
-let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 let Photo_du_Joueur = document.getElementById("Photo_du_Joueur");
 let carousel_cards = document.getElementById('carousel-cards');
+let tablue_players = JSON.parse(localStorage.getItem("players")) || [];
 
 
 async function fetchPlayers() {
@@ -36,7 +36,6 @@ async function fetchPlayers() {
 }
 fetchPlayers();
 
-
 function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get, targat) {
   photosrc.value = photo;
   playerName.value = name;
@@ -44,8 +43,6 @@ function showPlayerInfo(photo, name, flag, logo, nationalityt, position_get, tar
   clup.value = logo;
   nationalitytext.value = nationalityt;
   position.value = position_get;
-
-
 }
 
 function setFormation(p) {
@@ -78,7 +75,6 @@ document.getElementById("closemenu").onclick = function () {
   document.getElementById("menu").classList.toggle("hidden")
 
 }
-
 
 // open modle form
 function ajoutePlayers(positio) {
@@ -366,7 +362,7 @@ function update(i) {
         </svg>`;
 
     Photo_du_Joueur.classList.toggle("hidden")
-    
+
   document.getElementById("pop_up_ajoute").classList.toggle("hidden")
   document.getElementById("Success_alert").classList.toggle("hidden")
   setTimeout(() => {
