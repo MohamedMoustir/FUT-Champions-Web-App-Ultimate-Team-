@@ -1,7 +1,6 @@
 let playerName = document.getElementById("playerName");
 let photosrc = document.getElementById("photosrc");
 let position = document.getElementById("position");
-// let Position = document.getElementById("Position");
 let nationality = document.getElementById("nationality");
 let nationalitytext = document.getElementById('flag');
 let pace = document.getElementById("pace")
@@ -22,7 +21,6 @@ async function fetchPlayers() {
     const data = await response.json();
     const photoContainer = document.getElementById("Photo_du_Joueur");
     let ALphoto = data.players;
-    
     ALphoto.forEach(src => {
       photoContainer.innerHTML += `
         <img 
@@ -36,8 +34,6 @@ async function fetchPlayers() {
     console.error("An error occurred while fetching players:", error);
   }
 }
-
-
 fetchPlayers();
 
 
@@ -114,7 +110,6 @@ function ajoutePlayers(positio) {
     const isclupValid = validateInput(clup.value, /^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/);
     const isPaceValid = validateInput(pace.value, /^\d{1,2}$/);
 
-
     if (!isPlayerNameValid || !isNationalityValid || !isPaceValid || !isphotosrcValid || !isclupValid) {
 
       document.getElementById("alert_Danger").classList.toggle("hidden")
@@ -122,7 +117,6 @@ function ajoutePlayers(positio) {
         document.getElementById("alert_Danger").classList.toggle("hidden")
       }, 5000)
     } else {
-
 
       document.getElementById("pop_up_ajoute").classList.toggle("hidden")
       Photo_du_Joueur.classList.toggle("hidden")
@@ -159,7 +153,6 @@ function ajoutePlayers(positio) {
         document.getElementById("Success_alert").classList.toggle("hidden")
         setTimeout(() => {
           document.getElementById("Success_alert").classList.toggle("hidden")
-
         }, 5000)
 
       }
@@ -176,9 +169,6 @@ function clearFields() {
   nationality.value = "";
   pace.value = "";
 }
-
-
-
 
 function changer_lesstats(position) {
 
@@ -305,78 +295,90 @@ function afficheJoueurs() {
 
 
 function update(i) {
-
-  document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+ 
   Photo_du_Joueur.classList.toggle("hidden")
+  document.getElementById("pop_up_ajoute").classList.toggle("hidden")
 
   const player = tablue_players.find(player => player.id === i);
+
+
+  if (!player) {
+    document.getElementById("alert_Danger").classList.toggle("hidden")
+    setTimeout(() => {
+      document.getElementById("alert_Danger").classList.toggle("hidden")
+    }, 5000)
+    return;
+  }
+
   const container = document.getElementById(player.position);
 
-  if (player.id) {
+  playerName.setAttribute("disabled", true);
+  clup.setAttribute("disabled", true);
+  nationality.setAttribute("disabled", true);
+  photosrc.setAttribute("disabled", true);
+  nationalitytext.setAttribute("disabled", true);
+  passing.setAttribute("disabled", true);
+  dribbling.setAttribute("disabled", true);
+  defending.setAttribute("disabled", true);
+  physical.setAttribute("disabled", true);
+  pace.setAttribute("disabled", true);
+  shooting.setAttribute("disabled", true);
 
-    playerName.setAttribute("disabled", true);
-    clup.setAttribute("disabled", true);
-    nationality.setAttribute("disabled", true);
-    photosrc.setAttribute("disabled", true);
-    nationalitytext.setAttribute("disabled", true);
-    passing.setAttribute("disabled", true);
-    dribbling.setAttribute("disabled", true);
-    defending.setAttribute("disabled", true);
-    physical.setAttribute("disabled", true);
-    pace.setAttribute("disabled", true);
-    shooting.setAttribute("disabled", true);
+  playerName.value = player.name;
+  photosrc.value = player.photo;
+  position.value = player.position;
+  nationality.value = player.nationality;
+  shooting.value = player.flag;
+  clup.value = player.club;
+  passing.value = player.passing;
+  dribbling.value = player.dribbling;
+  defending.value = player.defending;
+  physical.value = player.physical;
+  nationalitytext.value = player.pace;
 
-
-    playerName.value = player.name;
-    photosrc.value = player.photo;
-    position.value = player.position
-    nationality.value = player.nationality
-    shooting.value = player.flag
-    clup.value = player.club
-    passing.value = player.passing
-    dribbling.value = player.dribbling
-    defending.value = player.defending
-    physical.value = player.physical
-    nationalitytext.value = player.pace
-    document.getElementById("btnajout").innerText = "update";
-  }
+  document.getElementById("btnajout").innerText = "update";
 
   document.getElementById("btnajout").onclick = function () {
 
-    player.position = position.value;
-    player.name= playerName.value;
-   
-    container.innerHTML = ""
-    afficheJoueurs();
-    localStorage.setItem("players", JSON.stringify(tablue_players));
-    clearFields();
-    document.getElementById("pop_up_ajoute").classList.toggle("hidden");
-    Photo_du_Joueur.classList.toggle("hidden");
+    const isPositionTaken = tablue_players.some(
+      otherPlayer => otherPlayer.position === position.value && otherPlayer.id !== i
+    );
 
-    if (container) {
-      container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
-              <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
-            </svg> `;
-
-      document.getElementById("Success_alert").classList.toggle("hidden")
+    if (isPositionTaken) {
+      document.getElementById("alert_Danger").classList.toggle("hidden")
       setTimeout(() => {
-        document.getElementById("Success_alert").classList.toggle("hidden")
-
+        document.getElementById("alert_Danger").classList.toggle("hidden")
       }, 5000)
+      return;
     }
-  }
 
+    player.position = position.value;
 
+    container.innerHTML = "";
+    afficheJoueurs();
+    clearFields();
+    localStorage.setItem("players", JSON.stringify(tablue_players));
+   
+    if (container){
+      container.innerHTML = `
+        <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
+          <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        </svg>`;
 
-
+    Photo_du_Joueur.classList.toggle("hidden")
+  document.getElementById("pop_up_ajoute").classList.toggle("hidden")
+  document.getElementById("Success_alert").classList.toggle("hidden")
+  setTimeout(() => {
+    document.getElementById("Success_alert").classList.toggle("hidden")
+  }, 5000)
+    }
+  };
 }
-
 
 function removePlayer(i) {
   tablue_players = tablue_players.filter(filter => filter.position !== i)
   localStorage.setItem("players", JSON.stringify(tablue_players));
   const container = document.getElementById(i);
-
   if (container) {
     container.innerHTML = ` <svg width="100" height="100" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="text-green-700 relative left-[62%] top-[27%] -translate-x-1/2">
             <path d="M18.6275 41.711L18.3137 41.0298C18.1146 41.1215 17.8854 41.1215 17.6863 41.0298L17.3726 41.711L17.6863 41.0298L1.18627 33.4311C0.920355 33.3087 0.75 33.0427 0.75 32.7499V8.7248C0.75 8.42506 0.928458 8.15411 1.20383 8.03575L17.7038 0.943648C17.8929 0.862375 18.1071 0.862375 18.2962 0.943648L34.7962 8.03575C35.0715 8.15411 35.25 8.42506 35.25 8.7248V32.7499C35.25 33.0427 35.0796 33.3087 34.8137 33.4311L18.3137 41.0298L18.6275 41.711Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -384,9 +386,6 @@ function removePlayer(i) {
   }
 
 }
-
-
-
 
 afficheJoueurs();
 
@@ -415,19 +414,3 @@ afficheJoueurs();
 
 
 
-
-
-// for (let i = 0; i < tablue_players.length - 1; i++) {
-//   for (let j = 0; j < tablue_players.length - 1 - i; j++) {
-//     if (tablue_players[j].id > (tablue_players[j + 1].id) ) {
-//       let temp = tablue_players[j];
-//       tablue_players[j] = tablue_players[j + 1];
-//       tablue_players[j + 1] = temp;
-//     }
-//   }
-// }
-
-// for (let i = 0; i < tablue_players.length; i++) {
-//   console.log(tablue_players[i].name);
-//   console.log(tablue_players[i].id);
-// }
